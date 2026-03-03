@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the nominal thermal output? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is the nominal thermal output?",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          classes: "govuk-input--width-5 govuk-!-text-align-right",
+          id: "thermal-output",
+          name: "thermalOutput",
+          value: "5",
+          suffix: {
+            text: "kW"
+          },
+          inputmode: "numeric"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

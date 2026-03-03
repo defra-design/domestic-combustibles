@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the model name? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is the model name?",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          id: "model-name",
+          name: "modelName",
+          value: "Twin Heat M80i"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

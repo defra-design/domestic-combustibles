@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review technical drawings – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance" method="post">
+        <h1 class="govuk-heading-xl">Review technical drawings</h1>
+        <h2 class="govuk-heading-l">Documents included in application</h2>
+        <p><a href="#">tech-drawing-April.pdf</a></p>
+        <p>Check the following in the technical drawings:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>stuff to check</li>
+          <li>important things</li>
+          <li>anything else</li>
+        </ul>
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "technicalDrawingsCompleted",
+          fieldset: {
+            legend: {
+              text: "Have you completed your review of technical drawings?",
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, I've completed my review"
+            },
+            {
+              value: "no",
+              text: "No, I'll come back later"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

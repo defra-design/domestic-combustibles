@@ -6,13 +6,21 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
-{% block stylesheets %}
-  {{ super() }}
-  <link rel="stylesheet" href="app\assets\sass\accessible-autocomplete.min.css" />
-{% endblock %}
-
 {% block header %}
 
     {{ govukHeader() }}
+    {{ govukServiceNavigation({
+        navigation: [
+    {
+      href: "/admin/iteration-1/select-section-appliances",
+      text: "Appliances"
+    },
+    {
+      href: "#",
+      text: "Fuels"
+    }
+  ]
+    })}}
+
 
 {% endblock %}

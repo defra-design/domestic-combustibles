@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Appliance details – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Appliance details
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Model name"
+            },
+            value: {
+              text: data['modelName'] or "Twin Heat M80i"
+            },
+            actions: {
+              items: [
+                {
+                  href: "model-name",
+                  text: "Change",
+                  visuallyHiddenText: "model name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Model number"
+            },
+            value: {
+              text: data['modelNumber'] or "M80i"
+            },
+            actions: {
+              items: [
+                {
+                  href: "model-number",
+                  text: "Change",
+                  visuallyHiddenText: "model number"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Appliance type"
+            },
+            value: {
+              text: "Boiler"
+            },
+            actions: {
+              items: [
+                {
+                  href: "appliance-type",
+                  text: "Change",
+                  visuallyHiddenText: "appliance type"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Is it a variant of a certified appliance?"
+            },
+            value: {
+              text: data['isVariant'] or "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "variant",
+                  text: "Change",
+                  visuallyHiddenText: "if it is a variant"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Variant details"
+            },
+            value: {
+              text: data['variantDetails'] or "Twin Heat CS200i boiler"
+            },
+            actions: {
+              items: [
+                {
+                  href: "variant-details",
+                  text: "Change",
+                  visuallyHiddenText: "variant details"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Nominal thermal output"
+            },
+            value: {
+              text: data['thermalOutput' ++ "kW"] or "5kW"
+            },
+            actions: {
+              items: [
+                {
+                  href: "thermal-output",
+                  text: "Change",
+                  visuallyHiddenText: "nominal thermal output"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="appliance-details-completed" method="post" novalidate>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          <a class="govuk-link" href="review-appliance-twin-heat-m80i.html">Come back later</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

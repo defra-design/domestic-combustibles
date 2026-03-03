@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  New and in progress appliance applications – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+
+  {{ govukHeader() }}
+  {{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "double-bar-1",
+      text: "Home"
+    },
+    {
+      href: "double-bar-2",
+      text: "Appliances",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Fuels"
+    }
+  ]
+}) }}
+<div class="govuk-service-navigation" data-module="govuk-service-navigation" style="background-color: #f9f9f9;">
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="navigation">
+          <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+            <a class="govuk-service-navigation__link" href="double-bar-2" aria-current="true">
+              <strong class="govuk-service-navigation__active-fallback">New and in progress applications</strong>
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="#">
+              Appliance records
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        New and in progress appliance applications
+      </h1>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+      <caption class="govuk-table__caption govuk-table__caption--l">New applications</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Application</th>
+          <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-half">Appliance(s)</th>
+          <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">1083</th>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">Twin Heat CS200i</td>
+          <td class="govuk-table__cell govuk-table__cell"><a href="">Start review <span class="govuk-visually-hidden">of application 1083</span></a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--l">Application reviews in progress</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Application</th>
+        <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-half">Appliance(s)</th>
+        <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">1084</th>
+        <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+          <ul class="govuk-list govuk-!-margin-0">
+            <li>Twin Heat M20i</li>
+            <li>Twin Heat M40i</li>
+            <li>Twin Heat M80i</li>
+          </ul>
+        </td>
+        <td class="govuk-table__cell govuk-table__cell"><a href="double-bar-3.html">Continue review <span class="govuk-visually-hidden">of application 1084</span></a></td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+  </div>
+
+{% endblock %}

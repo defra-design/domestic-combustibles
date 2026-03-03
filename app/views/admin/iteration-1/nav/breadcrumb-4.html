@@ -1,0 +1,151 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review Twin Heat M80i – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "breadcrumb-1"
+      },
+      {
+        text: "New and in progress appliance applications",
+        href: "breadcrumb-2"
+      },
+      {
+        text: "Review appliance application 1084",
+        href: "breadcrumb-3"
+      },
+      {
+        text: "Review Twin Heat M80i",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Review Twin Heat M80i</h1>
+
+      <h2 class="govuk-heading-l">Review documentation</h2>
+
+      {% set completedStatus = {
+        tag: {
+          text: "Completed",
+          classes: "govuk-tag--green"
+        }
+      } %}
+
+      {% set passStatus = {
+        tag: {
+          text: "Pass",
+          classes: "govuk-tag--green"
+        }
+      } %}
+
+      {% set notstartedStatus = {
+          text: "Not started"
+      } %}
+
+      {% set inprogressStatus = {
+        tag: {
+          text: "In progress",
+          classes: "govuk-tag--orange"
+        }
+      } %}
+
+      {% set failStatus = {
+        tag: {
+          text: "Fail",
+          classes: "govuk-tag--red"
+        }
+      } %}
+
+      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+
+      {{ govukTaskList({
+        idPrefix: "review-documents",
+        items: [
+          {
+            title: {
+              text: "Review test reports"
+            },
+            href: "review-test-reports",
+            status: notstartedStatus
+          },
+          {
+            title: {
+              text: "Review technical drawings"
+            },
+            href: "review-technical-drawings",
+            status: passStatus
+          },
+          {
+            title: {
+              text: "Review conformity mark"
+            },
+            href: "review-conformity-mark",
+            status: failStatus
+          },
+          {
+            title: {
+              text: "Review instruction manual"
+            },
+            href: "review-instruction-manual",
+            status: inprogressStatus
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-5">Prepare public listing</h2>
+
+      {{ govukTaskList({
+        idPrefix: "prepare-listing",
+        items: [
+          {
+            title: {
+              text: "Check appliance details"
+            },
+            href: "appliance-details",
+            status: completedStatus
+          },
+          {
+            title: {
+              text: "Check permitted fuels"
+            },
+            href: "permitted-fuel",
+            status: notstartedStatus
+          },
+          {
+            title: {
+              text: "Enter additional conditions"
+            },
+            href: "additional-conditions",
+            status: notstartedStatus
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Complete review",
+            href: "review-completed"
+          }) }}
+
+          <a class="govuk-link" href="../review-application.html">Cancel</a>
+        </div>
+
+    </div>
+  </div>
+{% endblock %}

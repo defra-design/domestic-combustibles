@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Details of the certified variant – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        {{ govukTextarea({
+          label: {
+            text: "Details of the certified variant",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          id: "variant-details",
+          name: "variantDetails",
+          value: "Twin Heat CS200i boiler"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

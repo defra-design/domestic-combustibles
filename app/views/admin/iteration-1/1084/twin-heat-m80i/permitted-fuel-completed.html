@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Have you completed your checks of the permitted fuel? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "applianceDetailsCompleted",
+          fieldset: {
+            legend: {
+              text: "Have you completed your checks of the permitted fuel?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, I've completed my checks"
+            },
+            {
+              value: "no",
+              text: "No, I'll come back later"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="permitted-fuel.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

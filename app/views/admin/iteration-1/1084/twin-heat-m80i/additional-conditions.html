@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Enter additional conditions for Twin Heat M80i – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance" method="post">
+
+        {{ govukTextarea({
+          label: {
+            text: "Enter additional conditions for Twin Heat M80i",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          id: "add-conditions",
+          name: "addConditions"
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="review-appliance.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

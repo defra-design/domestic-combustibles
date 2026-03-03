@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What type of appliance is it? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="appliance-type">
+              What type of appliance is it?
+            </label>
+          </h1>
+          <input class="govuk-input autocomplete__input" id="appliance-type" name="applianceType" type="text">
+        </div>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block pageScripts %}
+  <script type="text/javascript" src="app\assets\javascripts\accessible-autocomplete.min.js"></script>
+{% endblock %}

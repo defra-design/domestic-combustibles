@@ -1,19 +1,54 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-no-nav.html" %}
 
 {% set pageName="Home" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+  <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    <h2 class="govuk-heading-l">
+      Admin service - application management and review
+    </h2>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Sprints and iterations</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Sprint</th>
+          <th scope="col" class="govuk-table__header">Dates</th>
+          <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-half">Iteration notes</th>
+          <th scope="col" class="govuk-table__header govuk-table__header">Link</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">3</th>
+          <td scope="row" class="govuk-table__cell govuk-table__cell">23 February to <br/>6 March 2026</td>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+            <p>Initial design for the flow to review a new application. <a href="">Following the mapped journey in Mural</a>.</p>
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+            <p><a href="admin/iteration-1/index">Launch prototype</a></p>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">3</th>
+          <td scope="row" class="govuk-table__cell govuk-table__cell">23 February to <br/>6 March 2026</td>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+            <p>Looking at different navigation approaches.</p>
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+            <p><a href="admin/iteration-1/nav/nav-tests">Launch navigation prototypes</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </div>
 
