@@ -13,11 +13,23 @@
 
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--xl" for="appliance-type">
+            <label class="govuk-label govuk-label--xl" for="applianceType">
               What type of appliance is it?
             </label>
           </h1>
-          <input class="govuk-input autocomplete__input" id="appliance-type" name="applianceType" type="text">
+          <select class="govuk-select" id="appliance-type" name="applianceType"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+            <option value="" selected disabled>Select an appliance type</option>
+            <option value="Air heater">Denmark</option>
+            <option value="Boiler" selected="true">Boiler</option>
+            <option value="Cooker with boiler">Cooker with boiler</option>
+            <option value="Dry roomheater">Dry roomheater</option>
+            <option value="Gasifier">Gasifier</option>
+            <option value="Generic exemption">Generic exemption</option>
+            <option value="Incinerator">Incinerator</option>
+            <option value="Inset roomheater">Inset roomheater</option>
+            <option value="Pellet roomheater">Pellet roomheater</option>
+          </select>
         </div>
 
         <div class="govuk-button-group">

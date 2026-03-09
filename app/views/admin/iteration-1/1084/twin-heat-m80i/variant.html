@@ -10,9 +10,21 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="appliance-details" method="post">
+        {% set detailsInput %}
+        {{ govukTextarea({
+          label: {
+            text: "Details of the certified variant",
+            classes: "govuk-label--m"
+          },
+          id: "variant-details",
+          name: "variantDetails",
+          value: data['variantDetails']
+        }) }}
+        {% endset -%}
+
 
         {{ govukRadios({
-          classes: "govuk-radios--inline",
+          classes: "govuk-radios",
           name: "isVariant",
           fieldset: {
             legend: {
@@ -25,7 +37,10 @@
             {
               value: "Yes",
               text: "Yes",
-              checked: true
+              checked: true,
+              conditional: {
+              html: detailsInput
+            }
             },
             {
               value: "No",
@@ -33,6 +48,7 @@
             }
           ]
         }) }}
+
 
         <div class="govuk-button-group">
           {{ govukButton({

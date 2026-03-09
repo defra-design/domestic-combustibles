@@ -5,14 +5,19 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+{% from "hmrc/components/header/macro.njk" import hmrcHeader %}
 
-{% block stylesheets %}
+<!-- {% block stylesheets %}
   {{ super() }}
   <link rel="stylesheet" href="app\assets\sass\accessible-autocomplete.min.css" />
-{% endblock %}
+{% endblock %} -->
 
 {% block header %}
 
-    {{ govukHeader() }}
+    {{ hmrcHeader({
+      serviceUrl : "/",
+      signOutHref : "sign-out",
+      useTudorCrown: "true"
+    }) }}
 
 {% endblock %}

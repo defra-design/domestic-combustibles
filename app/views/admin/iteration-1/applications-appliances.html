@@ -51,6 +51,41 @@
       </tbody>
     </table>
 
+  <table class="govuk-table govuk-!-margin-bottom-9">
+  <caption class="govuk-table__caption govuk-table__caption--l">Not started</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="govuk-table__header">
+          Application
+        </th>
+        <th scope="col" class="govuk-table__header">
+          Appliance(s)
+        </th>
+        <th scope="col" class="govuk-table__header">
+          Action
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {% for application in data['applianceApplicationNew'] %}
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+                {{ application['applicationNo'] }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ application['modelName'] }}
+          </td>
+          <td class="govuk-table__cell">
+            <a href="{{ application['applicationNo'] }}/review-application">Start review <span class="govuk-visually-hidden"> of application {{ application['applicationNo'] }}</span></a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
     <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--l">In progress</caption>
     <thead class="govuk-table__head">

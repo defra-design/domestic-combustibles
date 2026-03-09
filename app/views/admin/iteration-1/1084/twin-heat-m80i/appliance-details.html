@@ -12,117 +12,76 @@
         Appliance details
       </h1>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Model name"
-            },
-            value: {
-              text: data['modelName'] or "Twin Heat M80i"
-            },
-            actions: {
-              items: [
-                {
-                  href: "model-name",
-                  text: "Change",
-                  visuallyHiddenText: "model name"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Model number"
-            },
-            value: {
-              text: data['modelNumber'] or "M80i"
-            },
-            actions: {
-              items: [
-                {
-                  href: "model-number",
-                  text: "Change",
-                  visuallyHiddenText: "model number"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Appliance type"
-            },
-            value: {
-              text: "Boiler"
-            },
-            actions: {
-              items: [
-                {
-                  href: "appliance-type",
-                  text: "Change",
-                  visuallyHiddenText: "appliance type"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Is it a variant of a certified appliance?"
-            },
-            value: {
-              text: data['isVariant'] or "Yes"
-            },
-            actions: {
-              items: [
-                {
-                  href: "variant",
-                  text: "Change",
-                  visuallyHiddenText: "if it is a variant"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Variant details"
-            },
-            value: {
-              text: data['variantDetails'] or "Twin Heat CS200i boiler"
-            },
-            actions: {
-              items: [
-                {
-                  href: "variant-details",
-                  text: "Change",
-                  visuallyHiddenText: "variant details"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Nominal thermal output"
-            },
-            value: {
-              text: data['thermalOutput' ++ "kW"] or "5kW"
-            },
-            actions: {
-              items: [
-                {
-                  href: "thermal-output",
-                  text: "Change",
-                  visuallyHiddenText: "nominal thermal output"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['modelName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="model-name">Change<span class="govuk-visually-hidden"> model name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['modelNumber'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="model-number.html">Change<span class="govuk-visually-hidden"> model number</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appliance type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['applianceType'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appliance-type.html">Change<span class="govuk-visually-hidden"> appliance type</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it a variant of a certified appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['isVariant'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+          </dd>
+        </div>
+        {% if (data.isVariant == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['variantDetails'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nominal thermal output
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['thermalOutput'] }} kW
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>
+          </dd>
+        </div>
+      </dl>
 
       <form action="appliance-details-completed" method="post" novalidate>
 

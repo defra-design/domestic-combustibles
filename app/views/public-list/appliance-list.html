@@ -1,0 +1,206 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Find certified stoves and other appliances for use in smoke control areas – GOV.UK
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Find certified stoves and other appliances for use in smoke control areas
+      </h1>
+
+      <p class="govuk-body-s govuk-!-margin-bottom-1">From: <a href="#">Department for Environment, Food and Rural Affairs</a></p>
+      <p class="govuk-body-s">Last updated 14 January 2026</p>
+      <p>Stoves and other solid fuel appliances on this list have been reviewed by an approved certification body and certified for use in <a href="smoke-control.html">smoke control areas</a>.</p>
+      <p>Not all appliances are certified in all UK nations. <a href="appliance-legal.html">Appliance certification in each UK country</a> is under the authority of that country's government.</p>
+      <p>You can also see a <a href="fuel-list.html">list of certified fuels</a>.</p>
+    
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <div class="moj-filter" data-module="moj-filter">
+        <div class="moj-filter__header">
+          <div class="moj-filter__header-title">
+            <h2 class="govuk-heading-m">Filter</h2>
+          </div>
+          <div class="moj-filter__header-action">
+          </div>
+        </div>
+        
+          <div class="moj-filter__options">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="keywords">
+                Keywords
+              </label>
+              <input class="govuk-input" id="keywords" name="keywords" type="text">
+            </div>
+            <div class="govuk-form-group">
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Certified in
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="england" name="countryCert" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="england">
+                        England
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="scotland" name="countryCert" type="checkbox" value="Sctoland">
+                      <label class="govuk-label govuk-checkboxes__label" for="scotland">
+                        Scotland
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="wales" name="countryCert" type="checkbox" value="Wales">
+                      <label class="govuk-label govuk-checkboxes__label" for="wales">
+                        Wales
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="ni" name="countryCert" type="checkbox" value="Northern Ireland">
+                      <label class="govuk-label govuk-checkboxes__label" for="ni">
+                        Northern Ireland
+                      </label>
+                    </div>
+                  </div>
+              </details>
+            </div>
+            <div class="govuk-form-group">
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Appliance type
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="england" name="countryCert" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="england">
+                        TODO
+                      </label>
+                    </div>
+                  </div>
+              </details>
+            </div>
+            <div class="govuk-form-group">
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Fuels allowed
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="logs" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="logs">
+                        Wood logs
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="chips" name="fuelAllowed" type="checkbox" value="Scotland">
+                      <label class="govuk-label govuk-checkboxes__label" for="chips">
+                        Wood chips
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="pellets" name="fuelAllowed" type="checkbox" value="Wales">
+                      <label class="govuk-label govuk-checkboxes__label" for="pellets">
+                        Wood pellets
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="scrap" name="fuelAllowed" type="checkbox" value="Northern Ireland">
+                      <label class="govuk-label govuk-checkboxes__label" for="scrap">
+                        Waste and scrap wood (including pallets)
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="compound" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="compound">
+                        Compound wood (chipboard, plywood, MDF)
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="sawdust" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="sawdust">
+                        Sawdust and wood shavings
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="briquettes" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="briquettes">
+                        Wood briquettes
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="peat" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="peat">
+                        Peat briquettes
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="certified" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="certified">
+                        Any <a href="fuel-list.html" target="_blank">certified fuel (opens in new tab)</a>
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="other" name="fuelAllowed" type="checkbox" value="England">
+                      <label class="govuk-label govuk-checkboxes__label" for="other">
+                        Other fuel (see additional conditions for use)
+                      </label>
+                    </div>
+                  </div>
+              </details>
+            </div>
+            <div class="govuk-form-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button" data-test-id="submit-button">
+              Apply filters
+            </button>
+          </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <div class="moj-filter__content">
+          <div class="moj-filter__selected">
+            <div class="moj-filter__selected-heading">
+              <div class="moj-filter__heading-title">
+                <h2 class="govuk-heading-m">Selected filters</h2>
+              </div>
+              <div class="moj-filter__heading-action">
+                <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+              </div>
+            </div>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Type</h3>
+            <ul class="moj-filter-tags">
+              <li><a class="moj-filter__tag" href="appliance list"><span class="govuk-visually-hidden">Remove this filter</span> Certified in England</a></li>
+            </ul>
+          </div>
+      <p>LIST TODO</p>
+    </div>
+    </div>
+  </div>
+
+{% endblock %}
