@@ -86,6 +86,70 @@ module.exports = {
     }
   ],
 
+  //Fuels
+  "fuelPublicList": [
+    {
+      "fuelName" : "Inherently smokeless fuels (a) anthracite;(b) semi-anthracite;(c) electricity; and (d) gas;(e) low volatile steam coals",
+      "detailLink" : "fuel-details-smokeless",
+      "manufacturer" : "Generic Authorisation",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Aimcor Excel briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Applied Industrial Materials UK Limited at Newfield, County Durham, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Aimcor Pureheat briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Applied Industrial Materials UK Limited at Immingham, North East Lincolnshire, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg 4, 5804 CL Venray, the Netherlands",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Restaurant Grade Charcoal",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited at Parque Industrial Alvear, 2126 Alvear, Provincia de Santa Fe, Argentina",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Black Diamond Gem briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Bord na Móna Firelogs",
+      "detailLink" : "#",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Bord na Móna Firepak (also marketed as Arigna Special coal briquettes)",
+      "detailLink" : "#",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Brazier briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Briteflame briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Maxibrite Limited at Mwyndy Industrial Estate, Llantrisant, Mid Glamorgan, South Wales",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    }
+  ],
+
   // ADMIN SERVICE
 
   "applianceApplications": [
