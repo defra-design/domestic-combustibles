@@ -1,20 +1,28 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Review test reports – {{ serviceName }}
+  Review technical drawings for {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10844" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-appliance" method="post">
-        <h1 class="govuk-heading-xl">Review test reports</h1>
+        <h1 class="govuk-heading-xl">Review technical drawings for {{ foundObject["modelName"] }}</h1>
         <h2 class="govuk-heading-l">Documents included in application</h2>
-        <p><a href="#">Test-report-April.pdf</a></p>
-        <p><a href="#">Test-report-May-2025.pdf</a></p>
-        <p>Check the following in the test report:</p>
+        <p><a href="#">tech-drawing-April.pdf</a></p>
+        <p>Check the following in the technical drawings:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>stuff to check</li>
           <li>important things</li>
@@ -22,10 +30,10 @@
         </ul>
         {{ govukRadios({
           classes: "govuk-radios",
-          name: "testReportsCompleted",
+          name: "technicalDrawingsCompleted",
           fieldset: {
             legend: {
-              text: "Have you completed your review of test reports?",
+              text: "Have you completed your review of technical drawings?",
               classes: "govuk-fieldset__legend--l"
             }
           },

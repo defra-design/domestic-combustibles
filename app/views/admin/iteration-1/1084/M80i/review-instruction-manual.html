@@ -1,16 +1,25 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Review instruction manual – {{ serviceName }}
+  Review instruction manual for {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10844" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-appliance" method="post">
-        <h1 class="govuk-heading-xl">Review instruction manual</h1>
+        <h1 class="govuk-heading-xl">Review instruction manual for {{ foundObject["modelName"] }}</h1>
         <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">TwinHeat M20i-M40i manual.pdf</a></p>
         <p><a href="#">TwinHeat M80i manual 2026.pdf</a></p>

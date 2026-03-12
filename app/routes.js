@@ -7,16 +7,13 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
-// import accessibleAutocomplete from 'accessible-autocomplete'
 
-// const countries = [
-//   'France',
-//   'Germany',
-//   'United Kingdom'
-// ]
+// router.get('/applianceApplications/:id', function(request, response) {
 
-// accessibleAutocomplete({
-//   element: document.querySelector('#my-autocomplete-container'),
-//   id: 'my-autocomplete', // To match it to the existing <label>.
-//   source: countries
-// })
+//   var id = request.params.id
+//   var data = request.session.data
+
+//   var application = data.applications.find(function(application){
+//     return application.id == 10844
+//   })
+//  })

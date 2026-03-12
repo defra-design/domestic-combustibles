@@ -140,26 +140,13 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M20i</td>
-              <td class="govuk-table__cell govuk-table__cell">{{ notstartedAppStatus | safe }}</td>
-              <td class="govuk-table__cell govuk-table__cell"><a href="">Start review</a></td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M40i</td>
-              <td class="govuk-table__cell govuk-table__cell">{{ rejectedAppStatus | safe }}</td>
-              <td class="govuk-table__cell govuk-table__cell"><a href="">Edit review</a></td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M60i</td>
-              <td class="govuk-table__cell govuk-table__cell">{{ acceptedAppStatus | safe }}</td>
-              <td class="govuk-table__cell govuk-table__cell"><a href="">Edit review</a></td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M80i</td>
-              <td class="govuk-table__cell govuk-table__cell">{{ inprogressAppStatus | safe }}</td>
-              <td class="govuk-table__cell govuk-table__cell"><a href="twin-heat-m80i/review-appliance">Continue review</a></td>
-            </tr>
+            {% for application in data['applianceApplications'] %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell">{{ application['modelName'] }}</td>
+                <td class="govuk-table__cell govuk-table__cell">{{ notstartedAppStatus | safe }}</td>
+                <td class="govuk-table__cell govuk-table__cell"><a href="{{ application['modelNumber'] }}/review-appliance">Start review</a></td>
+              </tr>
+            {% endfor %}
           </tbody>
         </table>
         </div>

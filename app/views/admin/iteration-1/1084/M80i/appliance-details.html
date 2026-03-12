@@ -5,11 +5,20 @@
 {% endblock %}
 
 {% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10844" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        Appliance details
+        Appliance details for {{ foundObject["modelName"] }}
       </h1>
 
       <dl class="govuk-summary-list">
@@ -18,7 +27,7 @@
             Model name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['modelName'] }}
+            {{ foundObject["modelName"] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="model-name">Change<span class="govuk-visually-hidden"> model name</span></a>
@@ -29,7 +38,7 @@
             Model number
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['modelNumber'] }}
+            {{ foundObject["modelNumber"] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="model-number.html">Change<span class="govuk-visually-hidden"> model number</span></a>
@@ -40,7 +49,7 @@
             Appliance type
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['applianceType'] }}
+            {{ foundObject['applianceType'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="appliance-type.html">Change<span class="govuk-visually-hidden"> appliance type</span></a>
@@ -51,19 +60,19 @@
             Is it a variant of a certified appliance?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['isVariant'] }}
+            {{ foundObject['variant'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
           </dd>
         </div>
-        {% if (data.isVariant == "Yes") %}
+        {% if (foundObject.variant == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Variant details
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['variantDetails'] }}
+              {{ foundObject['variantDetails'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
@@ -75,7 +84,7 @@
             Nominal thermal output
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['thermalOutput'] }} kW
+            {{ foundObject['thermalOutput'] }} kW
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>

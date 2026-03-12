@@ -86,6 +86,90 @@ module.exports = {
     }
   ],
 
+    "opusKeywordSearch": [
+    {
+      "applianceName" : "Opus Calypso Boiler Stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Melody G SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Melody GLS SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Melody LS SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Melody SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70B",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70F",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70i",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70LS",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Tempo 70 SE 4.9kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    }
+    
+  ],
+
   //Fuels
   "fuelPublicList": [
     {
@@ -154,7 +238,7 @@ module.exports = {
 
   "applianceApplications": [
     {
-      "id" : 1084-1,
+      "id" : 10841,
       "applicationNo": "1084",
       "modelName": "Twin Heat M20i",
       "reviewer" : "Sean Keller",
@@ -165,11 +249,33 @@ module.exports = {
       "thermalOutput": "5"
     },
     {
-      "id" : 1084-2,
+      "id" : 10842,
       "applicationNo": "1084",
       "modelName": "Twin Heat M40i",
       "reviewer" : "Sean Keller",
       "modelNumber": "M40i",
+      "applianceType": "Boiler",
+      "variant": "Yes",
+      "variantDetails": "Another Twin Heat boiler",
+      "thermalOutput": "3"
+    },
+    {
+      "id" : 10843,
+      "applicationNo": "1084",
+      "modelName": "Twin Heat M60i",
+      "reviewer" : "Sean Keller",
+      "modelNumber": "M60i",
+      "applianceType": "Boiler",
+      "variant": "Yes",
+      "variantDetails": "Another Twin Heat boiler",
+      "thermalOutput": "3"
+    },
+    {
+      "id" : 10844,
+      "applicationNo": "1084",
+      "modelName": "Twin Heat M80i",
+      "reviewer" : "Sean Keller",
+      "modelNumber": "M80i",
       "applianceType": "Boiler",
       "variant": "Yes",
       "variantDetails": "Another Twin Heat boiler",
