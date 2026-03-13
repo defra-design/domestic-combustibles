@@ -2,7 +2,7 @@ module.exports = {
 
   // PUBLIC LIST SERVICE
 
-  //Appliances
+  //Appliances public list
   "appliancePublicList": [
     {
       "applianceName" : "100SE Smoke Exempt Woodburning Stove",
@@ -86,6 +86,7 @@ module.exports = {
     }
   ],
 
+  //Appliance opus keyword search England
     "opusKeywordSearch": [
     {
       "applianceName" : "Opus Calypso Boiler Stove",
@@ -93,7 +94,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "England, Northern Ireland"
     },
     {
       "applianceName" : "Opus Melody G SE 5.0kW wood burning stove",
@@ -101,7 +102,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Wales, Northern Ireland"
     },
     {
       "applianceName" : "Opus Melody GLS SE 5.0kW wood burning stove",
@@ -109,7 +110,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Wales, Northern Ireland"
     },
     {
       "applianceName" : "Opus Melody LS SE 5.0kW wood burning stove",
@@ -117,7 +118,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Wales, Northern Ireland"
     },
     {
       "applianceName" : "Opus Melody SE 5.0kW wood burning stove",
@@ -125,7 +126,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Wales, Northern Ireland"
     },
     {
       "applianceName" : "Opus Octave 70B",
@@ -133,7 +134,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Wales, Northern Ireland"
     },
     {
       "applianceName" : "Opus Octave 70F",
@@ -141,7 +142,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Wales, Northern Ireland"
     },
     {
       "applianceName" : "Opus Octave 70i",
@@ -149,7 +150,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "England, Scotland, Wales"
     },
     {
       "applianceName" : "Opus Octave 70LS",
@@ -157,7 +158,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "England, Scotland, Wales"
     },
     {
       "applianceName" : "Opus Tempo 70 SE 4.9kW wood burning stove",
@@ -165,7 +166,165 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "England, Scotland, Wales"
+    }
+  ],
+
+// Appliance opus keyword and England filter
+  "opusKeywordSearchFilter": [
+    {
+      "applianceName" : "Opus Calypso Boiler Stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70i",
+      "detailLink" : "appliance-details-opus",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Octave 70LS",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Tempo 70 SE 4.9kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    }
+    
+  ],
+
+//Appliance opus keyword search NIreland
+  "opusKeywordSearchNI": [
+    {
+      "applianceName" : "Opus Calypso Boiler Stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Melody G SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Melody GLS SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Melody LS SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Melody SE 5.0kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Octave 70B",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Octave 70F",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales"
+    },
+    {
+      "applianceName" : "Opus Octave 70i",
+      "detailLink" : "appliance-details-opus",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70LS",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Tempo 70 SE 4.9kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales, Northern Ireland"
+    }
+    
+  ],
+
+//Appliance opus keyword search and filter NIreland
+  "opusKeywordSearchNIFilter": [
+    {
+      "applianceName" : "Opus Calypso Boiler Stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70i",
+      "detailLink" : "appliance-details-opus",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Octave 70LS",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales, Northern Ireland"
+    },
+    {
+      "applianceName" : "Opus Tempo 70 SE 4.9kW wood burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Firepower Heating",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "Scotland, Wales, Northern Ireland"
     }
     
   ],
@@ -230,6 +389,70 @@ module.exports = {
       "fuelName" : "Briteflame briquettes",
       "detailLink" : "#",
       "manufacturer" : "Maxibrite Limited at Mwyndy Industrial Estate, Llantrisant, Mid Glamorgan, South Wales",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    }
+  ],
+
+  //Fuels big k keyword search England
+  "fuelPublicList": [
+    {
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Restaurant Grade Charcoal",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Restaurant Grade Charcoal Briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Esereso Carbon Products Ltd",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Smokeless Coal Fire",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Namibian Restaurant Grade Charcoal (Chilla Grilla and Chilla Grilla FSC)",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Cracklelog",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Smokeless Coal Fire",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
       "certified" : "England, Scotland, Wales, Northern Ireland"
     }
   ],
