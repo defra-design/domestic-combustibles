@@ -87,44 +87,29 @@
     <div class="govuk-grid-column-two-thirds">
     
       <div class="moj-filter__content">
-          <!-- <div class="moj-filter__selected">
+        <div class="moj-filter__content">
+          <div class="moj-filter__selected">
             <div class="moj-filter__selected-heading">
               <div class="moj-filter__heading-title">
-                <h2 class="govuk-heading-m">Selected filters</h2>
+                <h2 class="govuk-heading-m">Search and filters</h2>
               </div>
               <div class="moj-filter__heading-action">
-                <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+                <p><a class="govuk-link govuk-link--no-visited-state" href="fuel-list.html">Clear search and filters</a></p>
               </div>
             </div>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Certified in:</h3>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Search term:</h3>
             <ul class="moj-filter-tags">
-              <li><a class="moj-filter__tag" href="appliance list"><span class="govuk-visually-hidden">Remove this filter</span> Certified in England</a></li>
-            </ul>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Appliance type:</h3>
-            <ul class="moj-filter-tags">
-              <li><a class="moj-filter__tag" href="appliance list"><span class="govuk-visually-hidden">Remove this filter</span> Stove</a></li>
-            </ul>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Fuels allowed:</h3>
-            <ul class="moj-filter-tags">
-              <li><a class="moj-filter__tag" href="appliance list"><span class="govuk-visually-hidden">Remove this filter</span> Wood logs</a></li>
+              <li><a class="moj-filter__tag" href="fuel-list.html"><span class="govuk-visually-hidden">Remove this filter</span> it's not in there</a></li>
             </ul>
           </div>
-        </div> -->
-        <p>Showing 1 to 10 of 286 records</p>
-        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-        <ul class="govuk-list">
-          {% for fuel in data['fuelPublicList'] %}
-            <li>
-              <h3><a href="{{ fuel['detailLink'] }}">{{ fuel['fuelName'] }}</a></h3>
-              <p>Manufactured by {{ fuel['manufacturer'] }}</p>
-              <p class="govuk-body-s govuk-!-margin-bottom-1">Certified in: {{ fuel['certified'] }}</p>
-              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            </li>
-          {% endfor %}
-        </ul>
+        </div>
 
-        <nav class="govuk-pagination" aria-label="Pagination">
-          <!-- <div class="govuk-pagination__prev">
+        <p class="govuk-!-margin-top-5">Showing 0 records</p>
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+        <p class="govuk-!-margin-top-5">There are no matching records.</p>
+
+        <!-- <nav class="govuk-pagination" aria-label="Pagination">
+          <div class="govuk-pagination__prev">
             <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
               <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
                 <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
@@ -133,7 +118,7 @@
                 Previous<span class="govuk-visually-hidden"> page</span>
               </span>
             </a>
-          </div> -->
+          </div>
           <ul class="govuk-pagination__list">
             <li class="govuk-pagination__item govuk-pagination__item--current">
               <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
@@ -174,7 +159,7 @@
               </svg>
             </a>
           </div>
-        </nav>
+        </nav> -->
 
     </div>
   </div>

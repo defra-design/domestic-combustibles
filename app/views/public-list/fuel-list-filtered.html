@@ -1,14 +1,7 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-public-list-no-back.html" %}
 
 {% block pageTitle %}
   Find certified stoves and other appliances for use in smoke control areas – GOV.UK
-{% endblock %}
-
-{% block containerStart %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
 {% endblock %}
 
 {% block content %}
@@ -24,7 +17,7 @@
       <p class="govuk-body-s">Last updated 14 January 2026</p>
       <p>Fuels on this list have been reviewed and certified by an approved certification body for use in <a href="smoke-control.html">smoke control areas</a>.</p>
       <p>Not all fuels are certified in all UK nations. <a href="fuel-legal.html">Fuel certification in each UK country</a> is under the authority of that country's government.</p>
-      <p>You can also see a <a href="appliance-list.html">list of certified stoves and appliances.</a>.</p>
+      <p>You can also see a <a href="appliance-list.html">list of certified stoves and appliances</a>.</p>
     
     </div>
   </div>
@@ -97,10 +90,10 @@
           <div class="moj-filter__selected">
             <div class="moj-filter__selected-heading">
               <div class="moj-filter__heading-title">
-                <h2 class="govuk-heading-m">Selected filters</h2>
+                <h2 class="govuk-heading-m">Search and filters</h2>
               </div>
               <div class="moj-filter__heading-action">
-                <p><a class="govuk-link govuk-link--no-visited-state" href="fuel-list">Clear filters</a></p>
+                <p><a class="govuk-link govuk-link--no-visited-state" href="fuel-list.html">Clear search and filters</a></p>
               </div>
             </div>
             <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Certified in:</h3>
@@ -110,7 +103,7 @@
           </div>
         </div>
 
-        <p class="govuk-!-margin-top-5">Showing 1 to 10 of 286 records</p>
+        <p class="govuk-!-margin-top-5">Showing 1 to 10 of 28 records</p>
         <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
         <ul class="govuk-list">
           {% for fuel in data['fuelPublicList'] %}
@@ -148,19 +141,6 @@
             <li class="govuk-pagination__item">
               <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
                 3
-              </a>
-            </li>
-            <li class="govuk-pagination__item">
-              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 4">
-                4
-              </a>
-            </li>
-            <li class="govuk-pagination__item govuk-pagination__item--ellipsis">
-              &ctdot;
-            </li>
-            <li class="govuk-pagination__item">
-              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 359">
-                359
               </a>
             </li>
           </ul>

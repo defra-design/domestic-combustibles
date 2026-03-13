@@ -1,0 +1,32 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+{% from "hmrc/components/header/macro.njk" import hmrcHeader %}
+
+<!-- {% block stylesheets %}
+  {{ super() }}
+  <link rel="stylesheet" href="app\assets\sass\accessible-autocomplete.min.css" />
+{% endblock %} -->
+
+{% block header %}
+  {{ govukHeader( ) }}
+{% endblock %}
+
+{% block containerStart %}
+  <nav class="hmrc-service-navigation-language-select"" aria-label="Language switcher">
+    <ul class="hmrc-service-navigation-language-select__list">
+      <li class="hmrc-service-navigation-language-select__list-item">
+        <span aria-current="true">English</span>
+      </li>
+      <li class="hmrc-service-navigation-language-select__list-item">
+        <a href="" hreflang="cy" lang="cy" rel="alternate" class="govuk-link govuk-service-navigation__link">
+          Cymraeg<span class="govuk-visually-hidden"> – Newid yr iaith i’r Gymraeg</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endblock %}
