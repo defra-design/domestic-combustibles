@@ -145,7 +145,7 @@ module.exports = {
     },
     {
       "applianceName" : "Opus Octave 70i",
-      "detailLink" : "#",
+      "detailLink" : "appliance-details-opus",
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
