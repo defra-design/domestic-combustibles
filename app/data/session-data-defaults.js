@@ -394,48 +394,48 @@ module.exports = {
   ],
 
   //Fuels big k keyword search England
-  "fuelPublicList": [
+  "bigkKeywordSearch": [
     {
       "fuelName" : "Big K Instant Lighting Fire Logs",
       "detailLink" : "#",
       "manufacturer" : "Allspan BV of Macroweg",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "England, Northern Ireland"
     },
     {
       "fuelName" : "Big K Restaurant Grade Charcoal",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Northern Ireland"
     },
     {
       "fuelName" : "Big K Restaurant Grade Charcoal Briquettes",
       "detailLink" : "#",
       "manufacturer" : "Big K Esereso Carbon Products Ltd",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Smokeless Coal Fire",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Namibian Restaurant Grade Charcoal (Chilla Grilla and Chilla Grilla FSC)",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Wales"
     },
     {
       "fuelName" : "Big K Fire Log",
       "detailLink" : "#",
       "manufacturer" : "Top Flames Europe BV",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Wales"
     },
     {
       "fuelName" : "Big K Fire Log",
       "detailLink" : "#",
       "manufacturer" : "Top Flames Europe BV",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Fire Log",
@@ -445,15 +445,123 @@ module.exports = {
     },
     {
       "fuelName" : "Big K Cracklelog",
-      "detailLink" : "#",
-      "manufacturer" : "Top Flames Europe BV",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
+      "detailLink" : "fuel-details-bigk-cracklelog",
+      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "certified" : "England, Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Smokeless Coal Fire",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
+      "certified" : "Scotland, Wales, Northern Ireland"
+    }
+  ],
+
+    //Fuels big k keyword search and filter England
+  "bigkKeywordSearchFilter": [
+    {
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg",
+      "certified" : "England, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
       "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Cracklelog",
+      "detailLink" : "fuel-details-bigk-cracklelog",
+      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "certified" : "England, Scotland, Northern Ireland"
+    }
+  ],
+
+  //Fuels big k keyword search NI
+  "bigkKeywordSearchNI": [
+    {
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg",
+      "certified" : "England, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Restaurant Grade Charcoal",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "Scotland"
+    },
+    {
+      "fuelName" : "Big K Restaurant Grade Charcoal Briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Esereso Carbon Products Ltd",
+      "certified" : "England, Scotland, Wales"
+    },
+    {
+      "fuelName" : "Big K Smokeless Coal Fire",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "England, Scotland"
+    },
+    {
+      "fuelName" : "Big K Namibian Restaurant Grade Charcoal (Chilla Grilla and Chilla Grilla FSC)",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "Scotland, Wales"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "Scotland, Wales"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "Scotland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Cracklelog",
+      "detailLink" : "fuel-details-bigk-cracklelog",
+      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "certified" : "England, Scotland, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Smokeless Coal Fire",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "England, Scotland"
+    }
+  ],
+
+    //Fuels big k keyword search and filter NI
+  "bigkKeywordSearchFilterNI": [
+    {
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg",
+      "certified" : "England, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Cracklelog",
+      "detailLink" : "fuel-details-bigk-cracklelog",
+      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "certified" : "England, Scotland, Northern Ireland"
     }
   ],
 

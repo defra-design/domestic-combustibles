@@ -96,17 +96,21 @@
                 <p><a class="govuk-link govuk-link--no-visited-state" href="fuel-list.html">Clear search and filters</a></p>
               </div>
             </div>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Search term:</h3>
+            <ul class="moj-filter-tags">
+              <li><a class="moj-filter__tag" href="fuel-list"><span class="govuk-visually-hidden">Remove this filter</span> big k</a></li>
+            </ul>
             <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Certified in:</h3>
             <ul class="moj-filter-tags">
-              <li><a class="moj-filter__tag" href="fuel-list"><span class="govuk-visually-hidden">Remove this filter</span> Certified in England</a></li>
+              <li><a class="moj-filter__tag" href="fuel-list"><span class="govuk-visually-hidden">Remove this filter</span> Certified in Northern Ireland</a></li>
             </ul>
           </div>
         </div>
 
-        <p class="govuk-!-margin-top-5">Showing 1 to 10 of 28 records</p>
+        <p class="govuk-!-margin-top-5">Showing 1 to 3 of 3 records</p>
         <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
         <ul class="govuk-list">
-          {% for fuel in data['fuelPublicList'] %}
+          {% for fuel in data['bigkKeywordSearchFilterNI'] %}
             <li>
               <h3><a href="{{ fuel['detailLink'] }}">{{ fuel['fuelName'] }}</a></h3>
               <p>Manufactured by {{ fuel['manufacturer'] }}</p>
@@ -133,14 +137,9 @@
                 1
               </a>
             </li>
-            <li class="govuk-pagination__item">
+            <!-- <li class="govuk-pagination__item">
               <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
                 2
-              </a>
-            </li>
-            <li class="govuk-pagination__item">
-              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
-                3
               </a>
             </li>
           </ul>
@@ -153,7 +152,7 @@
                 <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
               </svg>
             </a>
-          </div>
+          </div> -->
         </nav>
 
     </div>

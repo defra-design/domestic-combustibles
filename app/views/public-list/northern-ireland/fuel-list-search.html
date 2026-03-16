@@ -98,15 +98,15 @@
             </div>
             <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Search term:</h3>
             <ul class="moj-filter-tags">
-              <li><a class="moj-filter__tag" href="fuel-list"><span class="govuk-visually-hidden">Remove this filter</span> opus</a></li>
+              <li><a class="moj-filter__tag" href="fuel-list"><span class="govuk-visually-hidden">Remove this filter</span> big k</a></li>
             </ul>
           </div>
       </div>
 
-        <p class="govuk-!-margin-top-5">Showing 1 to 10 of 16 records</p>
+        <p class="govuk-!-margin-top-5">Showing 1 to 10 of 11 records</p>
         <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
         <ul class="govuk-list">
-          {% for fuel in data['fuelPublicList'] %}
+          {% for fuel in data['bigkKeywordSearchNI'] %}
             <li>
               <h3><a href="{{ fuel['detailLink'] }}">{{ fuel['fuelName'] }}</a></h3>
               <p>Manufactured by {{ fuel['manufacturer'] }}</p>
