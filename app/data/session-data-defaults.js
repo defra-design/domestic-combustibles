@@ -446,7 +446,7 @@ module.exports = {
     {
       "fuelName" : "Big K Cracklelog",
       "detailLink" : "fuel-details-bigk-cracklelog",
-      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "manufacturer" : "Top Flames Europe BV",
       "certified" : "England, Scotland, Northern Ireland"
     },
     {
@@ -474,7 +474,7 @@ module.exports = {
     {
       "fuelName" : "Big K Cracklelog",
       "detailLink" : "fuel-details-bigk-cracklelog",
-      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "manufacturer" : "Top Flames Europe BV",
       "certified" : "England, Scotland, Northern Ireland"
     }
   ],
@@ -532,7 +532,7 @@ module.exports = {
     {
       "fuelName" : "Big K Cracklelog",
       "detailLink" : "fuel-details-bigk-cracklelog",
-      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "manufacturer" : "Top Flames Europe BV",
       "certified" : "England, Scotland, Northern Ireland"
     },
     {
@@ -560,7 +560,7 @@ module.exports = {
     {
       "fuelName" : "Big K Cracklelog",
       "detailLink" : "fuel-details-bigk-cracklelog",
-      "manufacturer" : "Rustenburgerweg 3, 1646 WJ Ursem Gem, Alkmaar",
+      "manufacturer" : "Top Flames Europe BV",
       "certified" : "England, Scotland, Northern Ireland"
     }
   ],
