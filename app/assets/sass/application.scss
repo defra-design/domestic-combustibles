@@ -4,3 +4,10 @@
 // 
 
 // Add extra styles here
+
+.moj-filter__tag::after {
+    background-image: url(/public/images/icon-tag-remove-cross.svg);
+}
+.moj-filter__tag:hover:after {
+    background-image: url(/public/images/icon-tag-remove-cross-white.svg);
+}

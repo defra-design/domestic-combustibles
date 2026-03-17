@@ -150,7 +150,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales"
+      "certified" : "England, Scotland"
     },
     {
       "applianceName" : "Opus Octave 70LS",
@@ -186,7 +186,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "England, Scotland, Wales"
+      "certified" : "England, Scotland"
     },
     {
       "applianceName" : "Opus Octave 70LS",
@@ -271,7 +271,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Northern Ireland"
     },
     {
       "applianceName" : "Opus Octave 70LS",
@@ -308,7 +308,7 @@ module.exports = {
       "manufacturer" : "Firepower Heating",
       "fuels" : "Wood logs",
       "type" : "Stove",
-      "certified" : "Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Northern Ireland"
     },
     {
       "applianceName" : "Opus Octave 70LS",
