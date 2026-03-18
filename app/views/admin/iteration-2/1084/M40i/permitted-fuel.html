@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check permitted fuel for use with {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10842" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check permitted fuel for use with {{ foundObject["modelName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__value">
+            Wood pellets
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="remove-fuel">Remove<span class="govuk-visually-hidden"> wood pellets</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <p><a href="add-fuel">Add a permitted fuel</a></p>
+
+      <form action="review-appliance" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as completed",
+            href: "review-appliance?permfuelstatus40=done"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance?permfuelstatus40=yes">Come back to this later</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

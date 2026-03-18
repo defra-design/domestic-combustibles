@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: Check permitted fuel for use with {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10843" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="add-fuel">You must add at least one fuel</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h1 class="govuk-heading-xl">
+        Confirm permitted fuel for use with {{ foundObject["modelName"] }}
+      </h1>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__value">
+            No permitted fuel
+          </dd>
+        </div>
+      </dl>
+
+      <p><a href="add-fuel">Add a permitted fuel</a></p>
+
+      <form action="" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as completed"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance?permfuelstatus60=yes">Come back to this later</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

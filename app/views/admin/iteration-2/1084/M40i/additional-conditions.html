@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Enter additional conditions for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10842" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance?addconstatus40=done" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="add-conditions">
+              Enter additional conditions for {{ foundObject["modelName"] }}
+            </label>
+          </h1>
+          <textarea class="govuk-textarea" id="add-conditions" name="addConditions40" rows="5" aria-describedby="more-detail-hint">
+            {{ data['addConditions40'] }}
+          </textarea>
+        </div>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="review-appliance.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

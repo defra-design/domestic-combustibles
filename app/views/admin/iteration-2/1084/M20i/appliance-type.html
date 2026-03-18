@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What type of appliance is {{ foundObject["modelName"] }}? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10841" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="applianceType">
+              What type of appliance is {{ foundObject["modelName"] }}?
+            </label>
+          </h1>
+          <select class="govuk-select" id="appliance-type" name="applianceType"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+            <option value="Boiler" selected="true">Boiler</option>
+            <option value="Cooker with boiler">Cooker with boiler</option>
+            <option value="Dry roomheater">Dry roomheater</option>
+            <option value="Gasifier">Gasifier</option>
+            <option value="Generic exemption">Generic exemption</option>
+            <option value="Incinerator">Incinerator</option>
+            <option value="Inset roomheater">Inset roomheater</option>
+            <option value="Other">Other</option>
+            <option value="Pellet roomheater">Pellet roomheater</option>
+            <option value="Stove">Stove</option>
+          </select>
+        </div>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block pageScripts %}
+  <script type="text/javascript" src="app\assets\javascripts\accessible-autocomplete.min.js"></script>
+{% endblock %}

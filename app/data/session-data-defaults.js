@@ -575,9 +575,9 @@ module.exports = {
       "reviewer" : "Sean Keller",
       "modelNumber": "M20i",
       "applianceType": "Boiler",
-      "variant": "Yes",
-      "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "5"
+      "variant": "No",
+      "variantDetails": "",
+      "thermalOutput": "1"
     },
     {
       "id" : 10842,
@@ -586,9 +586,9 @@ module.exports = {
       "reviewer" : "Sean Keller",
       "modelNumber": "M40i",
       "applianceType": "Boiler",
-      "variant": "Yes",
-      "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "3"
+      "variant": "No",
+      "variantDetails": "",
+      "thermalOutput": "2"
     },
     {
       "id" : 10843,
@@ -610,7 +610,7 @@ module.exports = {
       "applianceType": "Boiler",
       "variant": "Yes",
       "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "3"
+      "thermalOutput": "5"
     }
   ],
 

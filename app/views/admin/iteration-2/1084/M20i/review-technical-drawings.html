@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review technical drawings for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10841" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance" method="post">
+        <h1 class="govuk-heading-xl">Review technical drawings for {{ foundObject["modelName"] }}</h1>
+        <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
+        <p><a href="#">tech-drawing-April.pdf</a></p> -->
+        <p>Check the following in the technical drawings:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>stuff to check</li>
+          <li>important things</li>
+          <li>anything else</li>
+        </ul>
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as passed",
+            href: "review-appliance?drawstatus20=pass"
+          }) }}
+
+          {{ govukButton({
+            text: "Mark as failed",
+            classes: "govuk-button--secondary",
+            href: "review-appliance?drawstatus20=fail"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance">Come back to this later</a></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

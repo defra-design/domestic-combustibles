@@ -1,0 +1,206 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review appliance application 1084 – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+
+  {{ govukHeader() }}
+  {{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "double-bar-1",
+      text: "Home"
+    },
+    {
+      href: "double-bar-2",
+      text: "Appliances",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Fuels"
+    }
+  ]
+}) }}
+<div class="govuk-service-navigation" data-module="govuk-service-navigation" style="background-color: #f9f9f9;">
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="navigation">
+          <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+            <a class="govuk-service-navigation__link" href="double-bar-2" aria-current="true">
+              <strong class="govuk-service-navigation__active-fallback">New and in progress applications</strong>
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="#">
+              Appliance records
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block containerStart %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% set rejectedAppStatus %}
+        <strong class="govuk-tag govuk-tag--red">
+          Rejected
+        </strong>
+      {% endset %}
+
+      {% set approvedAppStatus %}
+        <strong class="govuk-tag govuk-tag--green">
+          Approved
+        </strong>
+      {% endset %}
+
+      {% set inprogressAppStatus %}
+        <strong class="govuk-tag govuk-tag--orange">
+          In progress
+        </strong>
+      {% endset %}
+
+      {% set notstartedAppStatus %}
+        <span>
+          Not started
+        </span>
+      {% endset %}
+
+      <h1 class="govuk-heading-xl">
+        Review appliance application 1084
+      </h1>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Applicant details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Burley Appliances
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Land's End Way,<br/>
+                Oakham,<br/>
+                Rutland<br/>
+                LE15 6RB
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Main contact name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Contact Name
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Main contact email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                contact.email@burley.co.uk
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Main contact alternative email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                alt.email@burley.co.uk
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Main contact telephone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                07722 334455
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Appliances for review
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Appliances for review</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Appliance name</th>
+              <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
+              <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-table__cell">Twin Heat M20i</td>
+              <td class="govuk-table__cell govuk-table__cell">{{ notstartedAppStatus | safe }}</td>
+              <td class="govuk-table__cell govuk-table__cell"><a href="">Start review</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-table__cell">Twin Heat M40i</td>
+              <td class="govuk-table__cell govuk-table__cell">{{ rejectedAppStatus | safe }}</td>
+              <td class="govuk-table__cell govuk-table__cell"><a href="">Edit review</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-table__cell">Twin Heat M80i</td>
+              <td class="govuk-table__cell govuk-table__cell">{{ inprogressAppStatus | safe }}</td>
+              <td class="govuk-table__cell govuk-table__cell"><a href="double-bar-4">Continue review</a></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <form action="review-incomplete" method="post" novalidate>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Complete review"
+          }) }}
+
+          <a class="govuk-link" href="../applications-appliances.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

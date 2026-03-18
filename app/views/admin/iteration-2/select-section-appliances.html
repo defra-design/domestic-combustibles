@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Manage applications and certifications for appliances – {{ serviceName }}
+{% endblock %}
+
+{% block govukServiceNavigation %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Passports, travel and living abroad</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Travel abroad</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Manage applications and certifications for appliances
+      </h1>
+
+      <p><a href="applications-appliances">New and in progress applications</a></p>
+      <p><a href="">Approved appliances</a></p>
+      <p><a href="">Revoked appliances</a></p>
+      <p><a href="">Rejected appliances</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
