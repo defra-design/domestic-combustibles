@@ -26,14 +26,17 @@
               Enter additional conditions for {{ foundObject["modelName"] }}
             </label>
           </h1>
-          <textarea class="govuk-textarea" id="add-conditions" name="addConditions" rows="5" aria-describedby="more-detail-hint">
+          <div id="add-conditions-hint" class="govuk-hint">
+            If there aren't any additional conditions required to use this appliance legally in smoke control areas, enter "No additional conditions for use".
+          </div>
+          <textarea class="govuk-textarea" id="add-conditions" name="addConditions" rows="5" aria-describedby="add-conditions-hint">
             {{ data['addConditions'] }}
           </textarea>
         </div>
 
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({
-            text: "Confirm"
+            text: "Save and mark as completed"
           }) }}
 
           <a class="govuk-link" href="review-appliance.html">Cancel</a>

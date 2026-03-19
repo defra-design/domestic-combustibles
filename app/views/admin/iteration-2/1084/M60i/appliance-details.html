@@ -35,13 +35,23 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Model number
+            Model number (optional)
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ foundObject['modelNumber'] }}
+           <dd class="govuk-summary-list__value">
+            {% if (foundObject.modelNumber) %}
+              {{ foundObject['modelNumber'] }}
+            {% else %}
+              Not provided
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="model-number.html">Change<span class="govuk-visually-hidden"> model number</span></a>
+            <a class="govuk-link" href="model-number.html">
+              {% if (foundObject.modelNumber) %}
+                Change<span class="govuk-visually-hidden"> model number</span>
+              {% else %}
+                Add<span class="govuk-visually-hidden"> model number</span>
+              {% endif %}
+            </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -81,7 +91,7 @@
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Nominal thermal output
+            Nominal (thermal) output
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject['thermalOutput'] }} kW
@@ -101,7 +111,7 @@
           }) }}
         </div>
 
-        <p><a class="govuk-link" href="review-appliance">Come back to this later</a></p>
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
 
       </form>
 

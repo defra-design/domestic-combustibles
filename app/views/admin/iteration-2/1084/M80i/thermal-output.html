@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What is the nominal thermal output? – {{ serviceName }}
+  What is the nominal (thermal) output? – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
 
         {{ govukInput({
           label: {
-            text: "What is the nominal thermal output?",
+            text: "What is the nominal (thermal) output?",
             classes: "govuk-label--xl",
             isPageHeading: true
           },

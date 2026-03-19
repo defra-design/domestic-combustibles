@@ -17,36 +17,93 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">
-        Check permitted fuel for use with {{ foundObject["modelName"] }}
-      </h1>
-
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dd class="govuk-summary-list__value">
-            Wood pellets
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="remove-fuel">Remove<span class="govuk-visually-hidden"> wood pellets</span></a>
-          </dd>
-        </div>
-      </dl>
-
-      <p><a href="add-fuel">Add a permitted fuel</a></p>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Check permitted fuel for use with {{ foundObject["modelName"] }}
+            </h1>
+          </legend>
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel" name="permittedFuel" type="checkbox" value="logs">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Wood logs
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-2" name="permittedFuel" type="checkbox" value="pellets" checked>
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-2">
+                Wood pellets
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-3" name="permittedFuel" type="checkbox" value="chips">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-3">
+                Wood chips
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-4" name="permittedFuel" type="checkbox" value="scrap">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-4">
+                Waste and scrap wood (including pallets)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-5" name="permittedFuel" type="checkbox" value="compound">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-5">
+                Compound wood (chipboard, plywood, MDF)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-6" name="permittedFuel" type="checkbox" value="sawdust">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-6">
+                Sawdust and wood shavings
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-7" name="permittedFuel" type="checkbox" value="briquettes">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-7">
+                Wood briquettes
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-8" name="permittedFuel" type="checkbox" value="peat">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-8">
+                Peat briquettes
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-9" name="permittedFuel" type="checkbox" value="any">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-9">
+                Any certified fuel
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="permitted-fuel-10" name="permittedFuel" type="checkbox" value="other">
+              <label class="govuk-label govuk-checkboxes__label" for="permitted-fuel-10">
+                Other fuel
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
       <form action="review-appliance" method="post" novalidate>
 
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({
-            text: "Mark as completed",
+            text: "Save and mark as completed",
             href: "review-appliance?permfuelstatus60=done"
           }) }}
         </div>
 
-        <p><a class="govuk-link" href="review-appliance?permfuelstatus60=yes">Come back to this later</a></p>
+        <p><a class="govuk-link" href="review-appliance?permfuelstatus60=yes">Cancel</a></p>
 
       </form>
-      <p>PROTOTYPE: <a href="no-fuel">View this page if all fuels are removed and user manages to navigate to it</a></p>
 
     </div>
   </div>

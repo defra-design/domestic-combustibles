@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-appliance?teststatus=pass" method="post">
-        <h1 class="govuk-heading-xl">Review test report for {{ foundObject["modelName"] }}</h1>
+        <h1 class="govuk-heading-xl">Review test reports for {{ foundObject["modelName"] }}</h1>
         <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">Test-report-April.pdf</a></p>
         <p><a href="#">Test-report-May-2025.pdf</a></p> -->
@@ -30,7 +30,7 @@
           <li>anything else</li>
         </ul>
         <h2 class="govuk-heading-l">Complete test result data</h2>
-        <p>This data will be sent out to the devolved administrations for their approval if the appliance is accepted at review.</p>
+        <p>These will be included in the recommendation letter to government. Test results will not be made public.</p>
         
         {{ govukInput({
           label: {
@@ -110,7 +110,7 @@
           }) }}
         </div>
 
-        <p><a class="govuk-link" href="review-appliance">Come back to this later</a></p>
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
 
       
 
