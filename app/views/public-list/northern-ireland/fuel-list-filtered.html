@@ -113,7 +113,11 @@
           {% for fuel in data['bigkKeywordSearchFilterNI'] %}
             <li>
               <h3><a href="{{ fuel['detailLink'] }}">{{ fuel['fuelName'] }}</a></h3>
-              <p>Manufactured by {{ fuel['manufacturer'] }}</p>
+              {% if (fuel.manufacturer) %}
+                <p>Manufactured by {{ fuel['manufacturer'] }}</p>
+              {% else %}
+              
+              {% endif %}
               <p class="govuk-body-s govuk-!-margin-bottom-1">Certified in: {{ fuel['certified'] }}</p>
               <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
             </li>

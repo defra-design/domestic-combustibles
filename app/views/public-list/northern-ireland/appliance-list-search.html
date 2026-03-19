@@ -240,7 +240,11 @@
           {% for appliance in data['opusKeywordSearchNI'] %}
             <li>
               <h3><a href="{{ appliance['detailLink'] }}">{{ appliance['applianceName'] }}</a></h3>
-              <p>Manufactured by {{ appliance['manufacturer'] }}</p>
+              {% if (appliance.manufacturer) %}
+                <p>Manufactured by {{ appliance['manufacturer'] }}</p>
+              {% else %}
+              
+              {% endif %}
               <p class="govuk-body-s govuk-!-margin-bottom-1">Fuels allowed: {{ appliance['fuels'] }}</p>
               <p class="govuk-body-s govuk-!-margin-bottom-1">Appliance type: {{ appliance['type'] }}</p>
               <p class="govuk-body-s govuk-!-margin-bottom-1">Certified in: {{ appliance['certified'] }}</p>

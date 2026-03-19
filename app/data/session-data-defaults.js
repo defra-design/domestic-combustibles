@@ -334,7 +334,7 @@ module.exports = {
     {
       "fuelName" : "Inherently smokeless fuels (a) anthracite;(b) semi-anthracite;(c) electricity; and (d) gas;(e) low volatile steam coals",
       "detailLink" : "fuel-details-smokeless",
-      "manufacturer" : "Generic Authorisation",
+      "manufacturer" : "",
       "certified" : "England, Scotland, Wales, Northern Ireland"
     },
     {
