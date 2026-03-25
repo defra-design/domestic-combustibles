@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Appliance details – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10841" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check appliance details for {{ foundObject["modelName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['modelName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="model-name">Change<span class="govuk-visually-hidden"> model name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model number (optional)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (foundObject.modelNumber) %}
+              {{ foundObject['modelNumber'] }}
+            {% else %}
+              Not provided
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="model-number.html">
+              {% if (foundObject.modelNumber) %}
+                Change<span class="govuk-visually-hidden"> model number</span>
+              {% else %}
+                Add<span class="govuk-visually-hidden"> model number</span>
+              {% endif %}
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appliance type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['applianceType'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appliance-type.html">Change<span class="govuk-visually-hidden"> appliance type</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it a variant of a certified appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['variant'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+          </dd>
+        </div>
+        {% if (foundObject.variant == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject['variantDetails'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nominal (thermal) output
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['thermalOutput'] }} kW
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="review-appliance" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as completed",
+            href: "review-appliance?appdetailstatus20=done"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
