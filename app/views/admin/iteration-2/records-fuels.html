@@ -46,6 +46,37 @@
           </div>
         </div>
       </form>
+
+<div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading">
+              Filter by status:
+            </h2>
+          </legend>
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item" style="display:inline-flex;">
+              <input class="govuk-checkboxes__input" id="filter" name="filters" type="checkbox" value="live" style="float:left;">
+              <label class="govuk-label govuk-checkboxes__label" for="filter" style="float:left;">
+                Live on public list
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item" style="display:inline-flex;">
+              <input class="govuk-checkboxes__input" id="filter-2" name="filters" type="checkbox" value="hidden" style="float:left;">
+              <label class="govuk-label govuk-checkboxes__label" for="filter-2" style="float:left;">
+                Hidden from public list
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item" style="display:inline-flex;">
+              <input class="govuk-checkboxes__input" id="filter-3" name="filters" type="checkbox" value="rejected" style="float:left;">
+              <label class="govuk-label govuk-checkboxes__label" for="filter-3" style="float:left;">
+                Rejected
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
       <p>Showing 1 to 10 of 286 records</p>
       <table class="govuk-table govuk-!-margin-bottom-9">
       <caption class="govuk-table__caption govuk-table__caption--l govuk-visually-hidden">Application records</caption>
@@ -59,7 +90,7 @@
       </thead>
 
       <tbody>
-        {% for record in data['fuelPublicList'] %}
+        {% for record in data['fuelRecordList'] %}
           <tr>
             <td scope="row" class="govuk-table__cell">
                   {{ record['appNum'] }}
@@ -68,7 +99,7 @@
               {{ record['fuelName'] }}
             </td>
             <td class="govuk-table__cell">
-              {% if ( record['status'] == "Accepted") %}
+              {% if ( record['status'] == "Live on public list") %}
                   <strong class="govuk-tag govuk-tag--green">
                     {{ record['status'] }}
                   </strong>
@@ -76,7 +107,7 @@
                   <strong class="govuk-tag govuk-tag--red">
                     {{ record['status'] }}
                   </strong>
-                {% elseif (record['status'] == "Revoked") %}
+                {% elseif (record['status'] == "Hidden from public list") %}
                   <strong class="govuk-tag govuk-tag--grey">
                     {{ record['status'] }}
                   </strong>

@@ -12,7 +12,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0008",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -34,7 +34,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3027",
-      "status" : "Revoked",
+      "status" : "Hidden from public list",
       "actionLink" : ""
     },
     {
@@ -45,7 +45,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3026",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -56,7 +56,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3028",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -67,7 +67,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3021",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -78,7 +78,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3018",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -89,7 +89,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3016",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -100,7 +100,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3017",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -111,7 +111,7 @@ module.exports = {
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3019",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     }
   ],
@@ -367,7 +367,7 @@ module.exports = {
       "manufacturer" : "",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0001",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -385,7 +385,7 @@ module.exports = {
       "manufacturer" : "Applied Industrial Materials UK Limited at Immingham, North East Lincolnshire, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0003",
-      "status" : "Revoked",
+      "status" : "Hidden from public list",
       "actionLink" : ""
     },
     {
@@ -394,7 +394,7 @@ module.exports = {
       "manufacturer" : "Coal Products Limited at Immingham Briquetting works, Immingham, North East Lincolnshire",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "MSF0004",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -403,7 +403,7 @@ module.exports = {
       "manufacturer" : "Allspan BV of Macroweg 4, 5804 CL Venray, the Netherlands",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0005",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -412,7 +412,7 @@ module.exports = {
       "manufacturer" : "Big K Products UK Limited at Parque Industrial Alvear, 2126 Alvear, Provincia de Santa Fe, Argentina",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0006",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -421,7 +421,7 @@ module.exports = {
       "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0007",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -430,7 +430,7 @@ module.exports = {
       "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0008",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -439,7 +439,7 @@ module.exports = {
       "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0009",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     },
     {
@@ -448,7 +448,7 @@ module.exports = {
       "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "0010",
-      "status" : "Accepted",
+      "status" : "Live on public list",
       "actionLink" : ""
     }
   ],
@@ -685,6 +685,244 @@ module.exports = {
       "applicationNo": "1093",
       "modelName": "Somik"
     }
-  ]
+  ],
+
+  //APPLIANCE RECORD LIST ADMIN
+
+    "applianceRecordList": [
+    {
+      "id" : 1,
+      "applianceName" : "100SE Smoke Exempt Woodburning Stove (legacy record)",
+      "manufacturer" : "ESSE Engineering Limited",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "england" : "Certified",
+      "scotland" : "Uncertified",
+      "wales" : "Awaiting decision",
+      "nireland" : "Certified",
+      "appNum" : "0008",
+      "status" : "Live on public list",
+      "actionLink" : "record-appliance-legacy/record"
+    },
+    {
+      "id" : 2,
+      "applianceName" : "18i and 60i stoves (new record)",
+      "manufacturer" : "Jetmaster Fires Limited",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "england" : "certified",
+      "scotland" : "uncertified",
+      "wales" : "awaiting",
+      "nireland" : "certified",
+      "appNum" : "0009",
+      "status" : "Rejected",
+      "actionLink" : "record-appliance-new/record"
+    },
+    {
+      "id" : 3,
+      "applianceName" : "413STV013-DF/STV13-5KW/137-0020 & 413STV060-DF/STV14-5KW/137-0021",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3027",
+      "status" : "Hidden from public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 4,
+      "applianceName" : "413STV013S-DF/STV12-4.5KW/137-0019",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3026",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 5,
+      "applianceName" : "413STVDL7-DF/STV15-5KW/137-0022 & 413STVT01-DF/STV16-5KW/137-0023",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3028",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 6,
+      "applianceName" : "433STV069M-DF/STV07-5KW/137-0011",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3021",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 7,
+      "applianceName" : "433STV106M/STV02-8KW/137-0006",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3018",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 8,
+      "applianceName" : "433STV106S/STV02-5KW/137-0004",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3016",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 9,
+      "applianceName" : "433STV106XS/STV02XS-5KW/137-0005",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3017",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 10,
+      "applianceName" : "433STV107/STV03-5KW/137-0007",
+      "detailLink" : "#",
+      "manufacturer" : "Mercury Products Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3019",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    }
+  ],
+
+  //FUEL RECORD LIST ADMIN
+
+    "fuelRecordList": [
+    {
+      "id" : 1,
+      "fuelName" : "Inherently smokeless fuels (a) anthracite;(b) semi-anthracite;(c) electricity; and (d) gas;(e) low volatile steam coals",
+      "detailLink" : "fuel-details-smokeless",
+      "manufacturer" : "",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0001",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 2,
+      "fuelName" : "New application fuel record",
+      "manufacturer" : "",
+      "england" : "Certified",
+      "scotland" : "Uncertified",
+      "wales" : "Awaiting decision",
+      "nireland" : "Certified",
+      "appNum" : "1234",
+      "status" : "Live on public list",
+      "actionLink" : "record-fuel-new/record"
+    },
+    {
+      "id" : 3,
+      "fuelName" : "Aimcor Excel briquettes (legacy record)",
+      "manufacturer" : "Applied Industrial Materials UK Limited at Newfield, County Durham, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
+      "england" : "Certified",
+      "scotland" : "Uncertified",
+      "wales" : "Awaiting decision",
+      "nireland" : "Certified",
+      "appNum" : "0002",
+      "status" : "Live on public list",
+      "actionLink" : "record-fuel-legacy/record"
+    },
+    {
+      "id" : 4,
+      "fuelName" : "Aimcor Pureheat briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Applied Industrial Materials UK Limited at Immingham, North East Lincolnshire, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0003",
+      "status" : "Hidden from public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 5,
+      "fuelName" : "Ancit briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "MSF0004",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 6,
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg 4, 5804 CL Venray, the Netherlands",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0005",
+      "status" : "Rejected",
+      "actionLink" : ""
+    },
+    {
+      "id" : 7,
+      "fuelName" : "Big K Restaurant Grade Charcoal",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited at Parque Industrial Alvear, 2126 Alvear, Provincia de Santa Fe, Argentina",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0006",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 8,
+      "fuelName" : "Black Diamond Gem briquettes",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0007",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 9,
+      "fuelName" : "Bord na Móna Firelogs",
+      "detailLink" : "#",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0008",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "id" : 10,
+      "fuelName" : "Bord na Móna Firepak (also marketed as Arigna Special coal briquettes)",
+      "detailLink" : "#",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0009",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    }
+  ],
 
 }

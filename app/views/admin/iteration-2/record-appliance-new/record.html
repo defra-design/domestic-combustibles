@@ -1,0 +1,164 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review appliance application 1084 – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../records-appliances"
+      },
+      {
+        text: "Appliance name",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        {{ foundObject["applianceName"] }}
+      </h1>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Certification status
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Certification status by country</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Country</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Date first certified</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell">England</td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['england'] == "suspended") %}
+                    <strong class="govuk-tag govuk-tag--blue">
+                      Suspended
+                    </strong>
+                  {% elseif (foundObject['england'] == "certified") %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Certified
+                    </strong>
+                  {% elseif (foundObject['england'] == "uncertified") %}
+                    <strong class="govuk-tag govuk-tag--red">
+                      Rejected
+                    </strong>
+                  {% elseif (foundObject['england'] == "awaiting") %}
+                    <strong class="govuk-tag govuk-tag--orange">
+                      Awaiting decision
+                    </strong>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  10 January 2026
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  <a href="">
+                    Change
+                  </a>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>  
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appliance details
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> appliance details</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Test results
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> test results</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Instruction manual
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> instruction manual</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Application 1102 details
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> application 1102 details</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action history
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> action history</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+        {{ govukButton({
+            text: "Hide appliance from public list",
+            href: "",
+            classes: "govuk-button--secondary"
+          }) }}
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}
