@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove – {{ serviceName }}
+  Review appliance application 1084 – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -16,7 +16,7 @@
         href: "../records-appliances"
       },
       {
-        text: "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
+        text: "Aarrow ECB5 Plus SC 5kW and ECB7 Plus SC 7kW wood-burning stoves",
         href: "#"
       }
     ]
@@ -34,7 +34,7 @@
 
 {% for object in data["applianceRecordList"] %}
 
-  {% if object.id == "3" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -43,8 +43,8 @@
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
-          <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
-            Live on public list
+          <strong class="govuk-tag govuk-tag--orange" style="max-width: fit-content;">
+            Pending government approval
           </strong>
         </span>
         {{ foundObject["applianceName"] }}
@@ -194,7 +194,7 @@
                 Appliance details
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="appliance-details.html">View<span class="govuk-visually-hidden"> appliance details</span></a>
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> appliance details</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -233,13 +233,13 @@
         </div>
       </div>
 
-      <div class="govuk-button-group govuk-!-margin-top-7">
+      <!-- <div class="govuk-button-group govuk-!-margin-top-7">
         {{ govukButton({
             text: "Hide appliance from public list",
             href: "",
             classes: "govuk-button--secondary"
           }) }}
-      </div>
+      </div> -->
       
     </div>
   </div>

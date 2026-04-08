@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review appliance application 1084 – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../records-appliances"
+      },
+      {
+        text: "Aarrow I Series 400 wood-burning inset roomheater and 400 T F wood-burning stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "4" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">
+          <strong class="govuk-tag govuk-tag--red" style="max-width: fit-content;">
+            Rejected
+          </strong>
+        </span>
+        {{ foundObject["applianceName"] }}
+      </h1>
+
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date rejected
+              </dt>
+              <dd class="govuk-summary-list__value">
+                10 January 2026
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Rejected by
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Calvin May
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appliance details
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> appliance details</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Test results
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> test results</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Instruction manual
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> instruction manual</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Application 1102 details
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> application 1102 details</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}
