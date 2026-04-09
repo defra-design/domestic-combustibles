@@ -140,7 +140,7 @@
                 {% endif %}
               </td>
               <td class="govuk-table__cell govuk-table__cell">
-                <a href="M20i/review-appliance">
+                <a href="M20i/review-appliance?teststatus20=pass">
                   {% if (data['m20status'] == "yes") %}
                     Continue review
                   {% elseif (data['m20status'] == "accepted") %}
@@ -175,7 +175,7 @@
                 {% endif %}
               </td>
               <td class="govuk-table__cell govuk-table__cell">
-                <a href="M40i/review-appliance">
+                <a href="M40i/review-appliance?teststatus40=pass&drawstatus40=pass&instrstatus40=pass&confstatus40=pass&appdetailstatus40=done&permfuelstatus40=done&addconstatus40=done">
                   {% if (data['m40status'] == "yes") %}
                     Continue review
                   {% elseif (data['m40status'] == "accepted") %}

@@ -21,24 +21,57 @@
       <form class="form" action="appliance-details" method="post">
 
         <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--xl" for="applianceType">
-              What type of appliance is {{ foundObject["modelName"] }}?
-            </label>
-          </h1>
-          <select class="govuk-select" id="appliance-type" name="applianceType"
-            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
-            <option value="Boiler" selected="true">Boiler</option>
-            <option value="Cooker with boiler">Cooker with boiler</option>
-            <option value="Dry roomheater">Dry roomheater</option>
-            <option value="Gasifier">Gasifier</option>
-            <option value="Generic exemption">Generic exemption</option>
-            <option value="Incinerator">Incinerator</option>
-            <option value="Inset roomheater">Inset roomheater</option>
-            <option value="Other">Other</option>
-            <option value="Pellet roomheater">Pellet roomheater</option>
-            <option value="Stove">Stove</option>
-          </select>
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What type of appliance is {{ foundObject["modelName"] }}?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType" name="applianceType" type="radio" value="stove">
+                <label class="govuk-label govuk-radios__label" for="applianceType">
+                  Stove
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType-2" name="applianceType" type="radio" value="boiler">
+                <label class="govuk-label govuk-radios__label" for="applianceType-2">
+                  Boiler
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType-3" name="applianceType" type="radio" value="roomheater">
+                <label class="govuk-label govuk-radios__label" for="applianceType-3">
+                  Roomheater
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType-4" name="applianceType" type="radio" value="inset-roomheater">
+                <label class="govuk-label govuk-radios__label" for="applianceType-4">
+                  Inset roomheater
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType-5" name="applianceType" type="radio" value="pizza-oven">
+                <label class="govuk-label govuk-radios__label" for="applianceType-5">
+                  Pizza oven
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType-6" name="applianceType" type="radio" value="pellet-stove">
+                <label class="govuk-label govuk-radios__label" for="applianceType-6">
+                  Pellet stove
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="applianceType-7" name="applianceType" type="radio" value="other">
+                <label class="govuk-label govuk-radios__label" for="applianceType-7">
+                  Other
+                </label>
+              </div>
+            </div>
+          </fieldset>
         </div>
 
         <div class="govuk-button-group govuk-!-margin-top-7">

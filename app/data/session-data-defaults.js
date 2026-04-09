@@ -667,7 +667,7 @@ module.exports = {
       "modelName": "Twin Heat M80i",
       "reviewer" : "Sean Keller",
       "modelNumber": "",
-      "applianceType": "Boiler",
+      "applianceType": "Other",
       "variant": "Yes",
       "variantDetails": "Another Twin Heat boiler",
       "thermalOutput": "5"

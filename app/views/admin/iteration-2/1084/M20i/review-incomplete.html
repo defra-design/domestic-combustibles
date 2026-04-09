@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Your review of application 1084 is not complete – {{ serviceName }}
+  Incomplete review – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -47,10 +47,14 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Your review of  {{ foundObject["modelName"] }} is not complete
+        Incomplete review
       </h1>
 
-      <p>All supporting documents must pass review, and you must complete all tasks for preparing the public listing in the review before deciding an appliance is accepted.</p>
+      <p>You cannot accept {{ foundObject["modelName"] }} for government approval until:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>all supporting documents are marked as Passed</li>
+        <li>all tasks for preparing the public listing are marked as Completed</li>
+      </ul>
 
       <p><a class="govuk-link" href="review-appliance">Return to  {{ foundObject["modelName"] }} review</a></p>
 

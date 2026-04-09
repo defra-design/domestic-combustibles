@@ -59,11 +59,11 @@
           <div class="govuk-task-list__status" id="review-documents-1-status">
             {% if (data['teststatus'] == "pass") %}
               <strong class="govuk-tag govuk-tag--green">
-                Pass
+                Passed
               </strong>
             {% elseif (data['teststatus'] == "fail") %}
               <strong class="govuk-tag govuk-tag--red">
-                Fail
+                Failed
               </strong>
             {% else %}
               <span>
@@ -81,11 +81,11 @@
           <div class="govuk-task-list__status" id="review-documents-2-status">
             {% if (data['drawstatus'] == "pass") %}
               <strong class="govuk-tag govuk-tag--green">
-                Pass
+                Passed
               </strong>
             {% elseif (data['drawstatus'] == "fail") %}
               <strong class="govuk-tag govuk-tag--red">
-                Fail
+                Failed
               </strong>
             {% else %}
               <span>
@@ -103,11 +103,11 @@
           <div class="govuk-task-list__status" id="review-documents-3-status">
             {% if (data['confstatus'] == "pass") %}
               <strong class="govuk-tag govuk-tag--green">
-                Pass
+                Passed
               </strong>
             {% elseif (data['confstatus'] == "fail") %}
               <strong class="govuk-tag govuk-tag--red">
-                Fail
+                Failed
               </strong>
             {% else %}
               <span>
@@ -125,11 +125,11 @@
           <div class="govuk-task-list__status" id="review-documents-4-status">
             {% if (data['instrstatus'] == "pass") %}
               <strong class="govuk-tag govuk-tag--green">
-                Pass
+                Passed
               </strong>
             {% elseif (data['instrstatus'] == "fail") %}
               <strong class="govuk-tag govuk-tag--red">
-                Fail
+                Failed
               </strong>
             {% else %}
               <span>
@@ -144,7 +144,7 @@
       <ul class="govuk-task-list">
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="appliance-details.html" aria-describedby="prepare-listing-1-status">
+            <a class="govuk-link govuk-task-list__link" href="appliance-details.html?otherApplianceType=" aria-describedby="prepare-listing-1-status">
               Check appliance details
             </a>
           </div>
