@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Hide {{ foundObject["applianceName"] }} from the public list – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="record?hidden=no" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Make {{ foundObject["applianceName"] }} live on public list
+              </h1>
+            </legend>
+            <div id="signIn-hint" class="govuk-hint">
+              Anything to go here? Are you sure you want to show this appliance on the public list?
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="hideYes" name="hide" type="radio" value="Yes" aria-describedby="hideYes-item-hint">
+                <label class="govuk-label govuk-radios__label" for="hideYes">
+                  Yes
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  Listing will be immediately visible on the public list, but you will be able to hide it again if you need to.
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="hideNo" name="hide" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="hideNo">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

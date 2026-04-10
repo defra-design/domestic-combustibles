@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Test results for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Aarrow Ecoburn 5F plus 4.9kW multi-fuel stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Test results for {{ foundObject["applianceName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Rated output
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 kW
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Tested output - rated
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 kW
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Tested output - low
+          </dt>
+          <dd class="govuk-summary-list__value">
+            3 kW
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Smoke emission output - rated
+          </dt>
+          <dd class="govuk-summary-list__value">
+            3 grams per hour
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Smoke emission output - low
+          </dt>
+          <dd class="govuk-summary-list__value">
+            1 gram per hour
+          </dd>
+        </div>
+      </dl>
+      <p><a href="record">Return to record</a></p>
+    </div>
+  </div>
+{% endblock %}

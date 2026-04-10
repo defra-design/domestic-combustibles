@@ -1,0 +1,143 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "3" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Appliance details – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Appliance details
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appliance ID
+          </dt>
+          <dd class="govuk-summary-list__value">
+            0198
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["applianceName"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["modelNum"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appliance type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["type"] }}
+          </dd>
+        </div>
+        {% if (foundObject.type == "Other") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other appliance type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject["otherType"] }}
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it a variant of a certified appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["variant"] }}
+          </dd>
+        </div>
+        {% if (foundObject.variant == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject["variantDetails"] }}
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nominal (thermal) output
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["thermal"] }} kW
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Permitted fuels
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list govuk-list--bullet">
+              {% for fuel in foundObject['fuels'] %}
+                <li>{{ fuel }}</li>
+              {% endfor %}
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Additional conditions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["additional"] or 'Not available'}}
+          </dd>
+        </div>
+      </dl>
+      <p><a href="record">Return to record</a></p>
+      
+    </div>
+  </div>
+{% endblock %}

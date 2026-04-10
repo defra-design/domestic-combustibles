@@ -1,5 +1,14 @@
 {% extends "layouts/main.html" %}
 
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
 {% block pageTitle %}
   Appliance details – {{ serviceName }}
 {% endblock %}
@@ -9,14 +18,14 @@
     items: [
       {
         text: "Home",
-        href: "../dashboard"
+        href: "../../dashboard"
       },
       {
         text: "Appliance records",
-        href: "../records-appliances"
+        href: "../../records-appliances"
       },
       {
-        text: "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
+        text: "Aarrow Ecoburn 5F plus 4.9kW multi-fuel stove",
         href: "#"
       }
     ]
@@ -30,16 +39,8 @@
 
 {% block content %}
 
-{% set foundObject ={} %}
-
-{% for object in data["applianceRecordList"] %}
-
-  {% if object.id == "3" %}
-    {% set foundObject = object %}
-  {% endif %}
-{% endfor %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
         Appliance details
@@ -51,7 +52,7 @@
             Appliance ID
           </dt>
           <dd class="govuk-summary-list__value">
-            0198
+            0197
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -67,7 +68,7 @@
             Model number
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["modelNum"] }}
+            {{ foundObject["modelNum"] or 'Not available' }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -78,6 +79,16 @@
             {{ foundObject["type"] }}
           </dd>
         </div>
+        {% if (foundObject.type == "Other") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other appliance type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject["otherType"] }}
+            </dd>
+          </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Is it a variant of a certified appliance?
@@ -86,14 +97,16 @@
             {{ foundObject["variant"] }}
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Variant details
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ foundObject["variantDetails"] }}
-          </dd>
-        </div>
+        {% if (foundObject.variant == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject["variantDetails"] }}
+            </dd>
+          </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Nominal (thermal) output
@@ -115,10 +128,11 @@
             Additional conditions
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["additional"] }}
+            {{ foundObject["additional"] or 'Not available'}}
           </dd>
         </div>
       </dl>
+      <p><a href="record">Return to record</a></p>
       
     </div>
   </div>

@@ -1,0 +1,134 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "3" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Action history for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Action history for {{ foundObject["applianceName"] }}
+      </h1>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+      <caption class="govuk-table__caption govuk-table__caption--l govuk-visually-hidden">Action history</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Action</th>
+          <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-third">Completed by</th>
+          <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-third">Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Certified in Northern Ireland
+          </td>
+          <td class="govuk-table__cell">
+            Northern Ireland authority
+          </td>
+          <td class="govuk-table__cell">
+            15 January 2026
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Uncertified in Scotland
+          </td>
+          <td class="govuk-table__cell">
+            Scotland authority
+          </td>
+          <td class="govuk-table__cell">
+            12 January 2026
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Live on public list
+          </td>
+          <td class="govuk-table__cell">
+            System
+          </td>
+          <td class="govuk-table__cell">
+            10 January 2026
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Certified in England
+          </td>
+          <td class="govuk-table__cell">
+            England authority
+          </td>
+          <td class="govuk-table__cell">
+            10 January 2026
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Sent to governments for approval
+          </td>
+          <td class="govuk-table__cell">
+            Sean Keller
+          </td>
+          <td class="govuk-table__cell">
+            8 January 2026
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Accepted at application
+          </td>
+          <td class="govuk-table__cell">
+            Sean Keller
+          </td>
+          <td class="govuk-table__cell">
+            8 January 2026
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a href="record">Return to record</a></p>
+    
+
+    </div>
+  </div>
+
+{% endblock %}

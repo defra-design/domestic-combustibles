@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "1" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% set countryChange ={} %}
+{% set countryIsh ={} %}
+{% set currentStatus = 'Awaiting decision' %}
+{% set altStatus ={} %}
+
+{% if data["country"]  == "eng" %}
+  {% set countryChange = 'England' %}
+  {% set countryIsh = 'English government' %}
+{% endif %}
+{% if data["country"]  == "scot" %}
+  {% set countryChange = 'Scotland' %}
+  {% set countryIsh = 'Scottish government' %}
+{% endif %}
+{% if data["country"]  == "wal" %}
+  {% set countryChange = 'Wales' %}
+  {% set countryIsh = 'Welsh government' %}
+{% endif %}
+{% if data["country"]  == "ni" %}
+  {% set countryChange = 'Northern Ireland' %}
+  {% set countryIsh = 'government of Northern Ireland' %}
+{% endif %}
+
+{% block pageTitle %}
+  Set approval status in {{ countryChange }} for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Set approval status in {{ countryChange }} for {{ foundObject["applianceName"] }}
+      </h1>
+      <p>Current status: {{ currentStatus }}</p>
+      <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the {{ countryIsh }}.</p>
+      <form class="form" action="record?hidden=yes" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                What is the appliance's new approval status in {{ countryChange }}?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="setCert" name="setCert" type="radio" value="Certified"  aria-describedby="setCert-hint">
+                <label class="govuk-label govuk-radios__label" for="hideYes" >
+                  Certified
+                </label>
+                <div id="setCert-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has approved the appliance
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="setCert-un" name="setCert" type="radio" value="Uncertified" aria-describedby="setCert-un-hint">
+                <label class="govuk-label govuk-radios__label" for="setCert-un">
+                  Uncertified
+                </label>
+                <div id="setCert-un-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has rejected the appliance
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

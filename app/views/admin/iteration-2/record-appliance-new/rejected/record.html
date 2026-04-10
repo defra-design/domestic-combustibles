@@ -1,7 +1,16 @@
 {% extends "layouts/main.html" %}
 
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "4" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
 {% block pageTitle %}
-  Review appliance application 1084 – {{ serviceName }}
+  {{ foundObject["applianceName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -9,11 +18,11 @@
     items: [
       {
         text: "Home",
-        href: "../dashboard"
+        href: "../../dashboard"
       },
       {
         text: "Appliance records",
-        href: "../records-appliances"
+        href: "../../records-appliances"
       },
       {
         text: "Aarrow I Series 400 wood-burning inset roomheater and 400 T F wood-burning stove",
@@ -30,16 +39,8 @@
 
 {% block content %}
 
-{% set foundObject ={} %}
-
-{% for object in data["applianceRecordList"] %}
-
-  {% if object.id == "4" %}
-    {% set foundObject = object %}
-  {% endif %}
-{% endfor %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
@@ -80,7 +81,7 @@
                 Appliance details
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> appliance details</span></a>
+                <a class="govuk-link" href="appliance-details">View<span class="govuk-visually-hidden"> appliance details</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -88,7 +89,7 @@
                 Test results
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> test results</span></a>
+                <a class="govuk-link" href="test-results.html">View<span class="govuk-visually-hidden"> test results</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -96,21 +97,21 @@
                 Instruction manual
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> instruction manual</span></a>
+                <a class="govuk-link" href="instruction-manual.html">View<span class="govuk-visually-hidden"> instruction manual</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Application 1102 details
+                Application {{ foundObject["appNum"] }} details
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> application 1102 details</span></a>
+                <a class="govuk-link" href="application-details.html">View<span class="govuk-visually-hidden"> application {{ foundObject["appNum"] }} details</span></a>
               </dd>
             </div>
           </dl>
         </div>
       </div>
-      
+      <p><a href="../../records-appliances.html">Return to appliance records</a></p>
     </div>
   </div>
 {% endblock %}

@@ -674,19 +674,6 @@ module.exports = {
     }
   ],
 
-  "applianceApplicationNew": [
-    {
-      "id" : 1083-1,
-      "applicationNo": "1083",
-      "modelName": "Twin Heat CS200i"
-    },
-    {
-      "id" : 1093-1,
-      "applicationNo": "1093",
-      "modelName": "Somik"
-    }
-  ],
-
   //APPLIANCE RECORD LIST ADMIN
 
     "applianceRecordList": [
@@ -694,8 +681,13 @@ module.exports = {
       "id" : 1,
       "applianceName" : "Aarrow ECB5 Plus SC 5kW and ECB7 Plus SC 7kW wood-burning stoves",
       "manufacturer" : "Arada Limited",
-      "fuels" : "Wood logs",
+      "fuels" : [
+      "Wood logs"
+      ],
+      "thermal" : "3",
+      "additional" : "Some conditions",
       "type" : "Stove",
+      "variant" : "No",
       "england" : "awaiting",
       "eDate" : "Not certified",
       "scotland" : "awaiting",
@@ -706,37 +698,48 @@ module.exports = {
       "niDate" : "Not certified",
       "appNum" : "0008",
       "status" : "pending",
-      "actionLink" : "record-appliance-new/record-pending"
+      "actionLink" : "record-appliance-new/pending/record"
     },
     {
       "id" : 2,
       "applianceName" : "Aarrow Ecoburn 5F plus 4.9kW multi-fuel stove",
       "manufacturer" : "Arada Limited",
-      "fuels" : "Wood logs",
+      "fuels" : [
+      "Wood logs"
+      ],
+      "thermal" : "4",
+      "additional" : "Some conditions",
       "type" : "Stove",
-      "england" : "certified",
+      "variant" : "No",
+      "england" : "uncertified",
       "eDate" : "10 January 2026",
       "scotland" : "uncertified",
       "sDate" : "Not certified",
-      "wales" : "awaiting",
+      "wales" : "uncertified",
       "wDate" : "Not certified",
-      "nireland" : "certified",
+      "nireland" : "uncertified",
       "niDate" : "15 January 2026",
       "appNum" : "0009",
       "status" : "hidden",
-      "actionLink" : "record-appliance-new/record-hidden"
+      "actionLink" : "record-appliance-new/hidden/record"
     },
     {
       "id" : 3,
       "applianceName" : "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
       "modelNum" : "5F",
       "manufacturer" : "Arada Limited",
-      "fuels" : "Wood logs",
-      "type" : "Stove",
+      "fuels" : [
+      "Wood logs",
+      "Wood pellets",
+      "Wood chips",
+      "Waste and scrap wood (including pallets)"
+      ],
+      "type" : "Other",
+      "otherType" : "Incinerator",
       "variant" : "Yes",
       "variantDetails" : "Aarrow I Series 500 wood-burning inset roomheater",
       "thermal" : "4",
-      "additional" : "",
+      "additional" : "Some conditions",
       "england" : "certified",
       "eDate" : "10 January 2026",
       "scotland" : "uncertified",
@@ -747,14 +750,20 @@ module.exports = {
       "niDate" : "15 January 2026",
       "appNum" : "0009",
       "status" : "live",
-      "actionLink" : "record-appliance-new/record"
+      "actionLink" : "record-appliance-new/live/record"
     },
     {
       "id" : 4,
       "applianceName" : "Aarrow I Series 400 wood-burning inset roomheater and 400 T F wood-burning stove",
       "manufacturer" : "Arada Limited",
-      "fuels" : "Wood logs",
+      "fuels" : [
+      "Wood logs",
+      "Wood pellets",
+      "Wood chips"
+      ],
       "type" : "Stove",
+      "variant" : "No",
+      "thermal" : "5",
       "england" : "certified",
       "eDate" : "10 January 2026",
       "scotland" : "uncertified",
@@ -765,7 +774,7 @@ module.exports = {
       "niDate" : "15 January 2026",
       "appNum" : "0010",
       "status" : "rejected",
-      "actionLink" : "record-appliance-new/record-rejected"
+      "actionLink" : "record-appliance-new/rejected/record"
     },
     {
       "id" : 5,
