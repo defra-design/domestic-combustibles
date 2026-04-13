@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "10" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Application {{ foundObject["appNum"] }} details – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Jetmaster Inset 50i Mk2 6.3kW wood-burning inset stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Application {{ foundObject["appNum"] }} details
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked legacy applications
+          </dt>
+          <dd class="govuk-summary-list__value">
+            CAA-EA-00000850
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jetmaster Fires Limited<br/>
+            Unit 2<br/>
+            Peacock Trading Estate<br/>
+            Goodwood Road<br/>
+            Eastleigh<br/>
+            Hampshire<br/>
+            SO50 4NT
+          </dd>
+        </div>
+      </dl>
+      <p><a href="record">Return to record</a></p>
+      
+    </div>
+  </div>
+{% endblock %}

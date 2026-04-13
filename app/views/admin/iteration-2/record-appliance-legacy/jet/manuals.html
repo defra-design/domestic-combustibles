@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "10" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Manuals for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Jetmaster Inset 50i Mk2 6.3kW wood-burning inset stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Manuals for {{ foundObject["applianceName"] }}
+      </h1>
+      <h2 class="govuk-heading-l">
+        Instruction manual
+      </h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Title
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Installation, Operating and Servicing Instructions
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Version
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Part No.107135 Issue No.12
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Publication date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            1 March 2016
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Service manual
+      </h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Title
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Not available
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Version
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Not available
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Publication date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Not available
+          </dd>
+        </div>
+      </dl>
+      <p><a href="record">Return to record</a></p>
+    </div>
+  </div>
+{% endblock %}

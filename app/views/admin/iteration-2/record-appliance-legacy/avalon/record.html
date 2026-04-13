@@ -1,7 +1,16 @@
 {% extends "layouts/main.html" %}
 
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "9" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
 {% block pageTitle %}
-  Review appliance application 1084 – {{ serviceName }}
+  {{ foundObject["applianceName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -9,14 +18,14 @@
     items: [
       {
         text: "Home",
-        href: "../dashboard"
+        href: "../../dashboard"
       },
       {
         text: "Appliance records",
         href: "../../records-appliances"
       },
       {
-        text: "Aarrow I Series 500 wood-burning inset roomheater",
+        text: "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
         href: "#"
       }
     ]
@@ -30,22 +39,20 @@
 
 {% block content %}
 
-{% set foundObject ={} %}
-
-{% for object in data["applianceRecordList"] %}
-
-  {% if object.id == "5" %}
-    {% set foundObject = object %}
-  {% endif %}
-{% endfor %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
-          <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
-            Live on public list
-          </strong>
+          {% if ( data["hidden"] == "yes") %}
+            <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
+              Hidden from public list
+            </strong>
+          {% else %}
+            <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
+              Live on public list
+            </strong>
+          {% endif %}
         </span>
         {{ foundObject["applianceName"] }}
       </h1>
@@ -93,9 +100,15 @@
                   {{ foundObject["eDate"] }}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  <a href="">
-                    Change
-                  </a>
+                  {% if (foundObject['england'] == "awaiting") %}
+                    <a href="set-certification.html?country=eng">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=eng">
+                      Change
+                    </a>
+                  {% endif %}
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -119,9 +132,15 @@
                   {{ foundObject["sDate"] }}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  <a href="">
-                    Change
-                  </a>
+                  {% if (foundObject['scotland'] == "awaiting") %}
+                    <a href="set-certification.html?country=scot">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=scot">
+                      Change
+                    </a>
+                  {% endif %}
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -145,9 +164,15 @@
                   {{ foundObject["wDate"] }}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  <a href="">
-                    Change
-                  </a>
+                  {% if (foundObject['wales'] == "awaiting") %}
+                    <a href="set-certification.html?country=wal">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=wal">
+                      Change
+                    </a>
+                  {% endif %}
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -171,9 +196,15 @@
                   {{ foundObject["niDate"] }}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  <a href="">
-                    Change
-                  </a>
+                  {% if (foundObject['nireland'] == "awaiting") %}
+                    <a href="set-certification.html?country=ni">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=ni">
+                      Change
+                    </a>
+                  {% endif %}
                 </td>
               </tr>
             </tbody>
@@ -194,7 +225,7 @@
                 Appliance details
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> appliance details</span></a>
+                <a class="govuk-link" href="appliance-details.html">View<span class="govuk-visually-hidden"> appliance details</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -202,23 +233,15 @@
                 Manuals
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> test results</span></a>
+                <a class="govuk-link" href="manuals">View<span class="govuk-visually-hidden"> manuals</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Legacy comments
+                Application {{ foundObject["appNum"] }} details
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> instruction manual</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Application CAA-EA-00000762 details
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> application 1102 details</span></a>
+                <a class="govuk-link" href="application-details.html">View<span class="govuk-visually-hidden"> application {{ foundObject["appNum"] }} details</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -226,7 +249,7 @@
                 Action history
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> action history</span></a>
+                <a class="govuk-link" href="action-history">View<span class="govuk-visually-hidden"> action history</span></a>
               </dd>
             </div>
           </dl>
@@ -234,12 +257,21 @@
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {{ govukButton({
-            text: "Hide appliance from public list",
-            href: "",
-            classes: "govuk-button--secondary"
-          }) }}
+        {% if ( data["hidden"] == "yes") %}
+            {{ govukButton({
+              text: "Make appliance live on public list",
+              href: "",
+              classes: "govuk-button"
+            }) }}
+          {% else %}
+            {{ govukButton({
+              text: "Hide appliance from public list",
+              href: "hide",
+              classes: "govuk-button--secondary"
+            }) }}
+          {% endif %}
       </div>
+      <p><a href="../../records-appliances.html">Return to appliance records</a></p>
       
     </div>
   </div>

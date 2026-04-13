@@ -792,7 +792,7 @@ module.exports = {
       "niDate" : "15 January 2026",
       "appNum" : "0011",
       "status" : "live",
-      "actionLink" : "record-appliance-legacy/record"
+      "actionLink" : ""
     },
     {
       "id" : 6,
@@ -850,39 +850,47 @@ module.exports = {
     },
     {
       "id" : 9,
-      "applianceName" : "Accona 5kW multifuel stove",
-      "manufacturer" : "F2 Fires Ltd",
-      "fuels" : "Wood logs",
+      "applianceName" : "Avalon 4 Double Sided Single Depth 5kW wood-burning stove",
+      "manufacturer" : "Hunter Stoves Limited",
+      "additional" : "The  appliance must be fitted with a modified air control to prevent closure of the secondary air control beyond 8 mm open",
+      "fuels" : [
+      "Wood logs"
+      ],
       "type" : "Stove",
+      "thermal" : "5",
       "england" : "certified",
-      "eDate" : "10 January 2026",
-      "scotland" : "uncertified",
-      "sDate" : "Not certified",
-      "wales" : "awaiting",
-      "wDate" : "Not certified",
+      "eDate" : "1 November 2017",
+      "scotland" : "certified",
+      "sDate" : "1 November 2017",
+      "wales" : "certified",
+      "wDate" : "17 September 2021",
       "nireland" : "certified",
-      "niDate" : "15 January 2026",
-      "appNum" : "0013",
+      "niDate" : "1 November 2017",
+      "appNum" : "CAA-EA-00000959",
       "status" : "live",
-      "actionLink" : ""
+      "actionLink" : "record-appliance-legacy/avalon/record"
     },
     {
       "id" : 10,
-      "applianceName" : "Acquisitions Bloomsbury 5 kW stove",
-      "manufacturer" : "Esse Engineering Limited, Ouzedale Foundry, Long Ing, Barnoldswick, Lancashire, BB18 6BN",
-      "fuels" : "Wood logs",
-      "type" : "Stove",
+      "applianceName" : "Jetmaster Inset 50i Mk2 6.3kW wood-burning inset stove",
+      "manufacturer" : "Jetmaster Fires Limited, Unit 2, Peacock Trading Estate, Goodwood Road, Eastleigh, Hampshire SO50 4NT",
+      "additional" : "The appliance must be fitted with a mechanical stop to prevent closure of the secondary air control beyond the 40% open position",
+      "fuels" : [
+      "Wood logs"
+      ],
+      "type" : "Inset Appliance",
+      "thermal" : "6.3",
       "england" : "certified",
-      "eDate" : "10 January 2026",
-      "scotland" : "uncertified",
-      "sDate" : "Not certified",
-      "wales" : "awaiting",
-      "wDate" : "Not certified",
+      "eDate" : "30 June 2016",
+      "scotland" : "certified",
+      "sDate" : "11 July 2016",
+      "wales" : "certified",
+      "wDate" : "13 April 2017",
       "nireland" : "certified",
-      "niDate" : "15 January 2026",
-      "appNum" : "0014",
+      "niDate" : "27 October 2016",
+      "appNum" : "CAA-EA-00000770",
       "status" : "live",
-      "actionLink" : ""
+      "actionLink" : "record-appliance-legacy/jet/record"
     }
   ],
 

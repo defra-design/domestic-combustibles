@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "9" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Application {{ foundObject["appNum"] }} details – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Avalon 4 Double Sided Single Depth 5kW wood-burning stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Application {{ foundObject["appNum"] }} details
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["manufacturer"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Unit 8<br/>
+            Emperor Way<br/>
+            Exeter Business Park<br/>
+            Exeter<br/>
+            Devon<br/>
+            EX1 3QS
+          </dd>
+        </div>
+      </dl>
+      <p><a href="record">Return to record</a></p>
+      
+    </div>
+  </div>
+{% endblock %}

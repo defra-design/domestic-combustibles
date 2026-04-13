@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "3" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Legacy comments on {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Jetmaster Inset 50i Mk2 6.3kW wood-burning inset stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Legacy comments on {{ foundObject["applianceName"] }}
+      </h1>
+
+      <p>[05/04/2016 12:16] Data Entry User / Data Entry (Legacy.Christopher.Conolly@ricardo.com): The Jetmaster 50i (6.3kW) is between the 18i (4.9kW) and the 60i (7.5kW) appliances in output and the test report indicates the emissions would be acceptable.</p>
+      <p>[08/06/2016 14:45] Data Entry User / Data Entry (Legacy.Christopher.Conolly@ricardo.com): According to the applicant 12mm = 40% open and that this is the same for the 18i, 60i and this appliance. As the 18i and 60i have stop referred to as 40% not 12mm then 40% was used for this appliance.</p>
+      <p>[08/06/2016 15:00] Data Entry User / Data Entry (Legacy.Christopher.Conolly@ricardo.com): Previous application from 2010.</p>
+      <p><a href="record">Return to record</a></p>
+    </div>
+  </div>
+{% endblock %}

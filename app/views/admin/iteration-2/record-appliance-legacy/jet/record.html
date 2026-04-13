@@ -1,0 +1,286 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "10" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance records",
+        href: "../../records-appliances"
+      },
+      {
+        text: "Jetmaster Inset 50i Mk2 6.3kW wood-burning inset stove",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">
+          {% if ( data["hidden"] == "yes") %}
+            <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
+              Hidden from public list
+            </strong>
+          {% else %}
+            <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
+              Live on public list
+            </strong>
+          {% endif %}
+        </span>
+        {{ foundObject["applianceName"] }}
+      </h1>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Certification status
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-table" style="margin-bottom:0;">
+            <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Certification status by country</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Country</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Date first certified</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell">England</td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['england'] == "suspended") %}
+                    <strong class="govuk-tag govuk-tag--blue">
+                      Suspended
+                    </strong>
+                  {% elseif (foundObject['england'] == "certified") %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Certified
+                    </strong>
+                  {% elseif (foundObject['england'] == "uncertified") %}
+                    <strong class="govuk-tag govuk-tag--grey">
+                      Uncertified
+                    </strong>
+                  {% elseif (foundObject['england'] == "awaiting") %}
+                    <strong class="govuk-tag govuk-tag--orange">
+                      Awaiting decision
+                    </strong>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  {{ foundObject["eDate"] }}
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['england'] == "awaiting") %}
+                    <a href="set-certification.html?country=eng">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=eng">
+                      Change
+                    </a>
+                  {% endif %}
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell">Scotland</td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['scotland'] == "certified") %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Certified
+                    </strong>
+                  {% elseif (foundObject['scotland'] == "uncertified") %}
+                    <strong class="govuk-tag govuk-tag--grey">
+                      Uncertified
+                    </strong>
+                  {% elseif (foundObject['scotland'] == "awaiting") %}
+                    <strong class="govuk-tag govuk-tag--orange">
+                      Awaiting decision
+                    </strong>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  {{ foundObject["sDate"] }}
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['scotland'] == "awaiting") %}
+                    <a href="set-certification.html?country=scot">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=scot">
+                      Change
+                    </a>
+                  {% endif %}
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell">Wales</td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['wales'] == "certified") %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Certified
+                    </strong>
+                  {% elseif (foundObject['wales'] == "uncertified") %}
+                    <strong class="govuk-tag govuk-tag--grey">
+                      Uncertified
+                    </strong>
+                  {% elseif (foundObject['wales'] == "awaiting") %}
+                    <strong class="govuk-tag govuk-tag--orange">
+                      Awaiting decision
+                    </strong>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  {{ foundObject["wDate"] }}
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (foundObject['wales'] == "awaiting") %}
+                    <a href="set-certification.html?country=wal">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=wal">
+                      Change
+                    </a>
+                  {% endif %}
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">Northern Ireland</td>
+                <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
+                  {% if (foundObject['nireland'] == "certified") %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Certified
+                    </strong>
+                  {% elseif (foundObject['nireland'] == "uncertified") %}
+                    <strong class="govuk-tag govuk-tag--grey">
+                      Uncertified
+                    </strong>
+                  {% elseif (foundObject['nireland'] == "awaiting") %}
+                    <strong class="govuk-tag govuk-tag--orange">
+                      Awaiting decision
+                    </strong>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell" style="border-bottom:0;">
+                  {{ foundObject["niDate"] }}
+                </td>
+                <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
+                  {% if (foundObject['nireland'] == "awaiting") %}
+                    <a href="set-certification.html?country=ni">
+                      Change
+                    </a>
+                  {% else %}
+                    <a href="change-certification.html?country=ni">
+                      Change
+                    </a>
+                  {% endif %}
+                </td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appliance details
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="appliance-details.html">View<span class="govuk-visually-hidden"> appliance details</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Manuals
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="manuals.html">View<span class="govuk-visually-hidden"> manuals</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Legacy comments
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="comments.html">View<span class="govuk-visually-hidden"> legacy comments</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Application {{ foundObject["appNum"] }} details
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-details.html">View<span class="govuk-visually-hidden"> application {{ foundObject["appNum"] }} details</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Action history
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="action-history">View<span class="govuk-visually-hidden"> action history</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-button-group govuk-!-margin-top-7">
+        {% if ( data["hidden"] == "yes") %}
+            {{ govukButton({
+              text: "Make appliance live on public list",
+              href: "",
+              classes: "govuk-button"
+            }) }}
+          {% else %}
+            {{ govukButton({
+              text: "Hide appliance from public list",
+              href: "hide",
+              classes: "govuk-button--secondary"
+            }) }}
+          {% endif %}
+      </div>
+      <p><a href="../../records-appliances.html">Return to appliance records</a></p>
+      
+    </div>
+  </div>
+{% endblock %}
