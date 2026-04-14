@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+      {% for object in data["fuelApplications"] %}
+
+        {% if object.id == "1" %}
+          {% set foundObject = object %}
+        {% endif %}
+      {% endfor %}
+
+{% block pageTitle %}
+  Review {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Fuel applications",
+        href: "../../applications-fuels"
+      },
+      {
+        text: "Review fuel application 0317",
+        href: "../review-application"
+      },
+      {
+        text: "Review Kings Starterlog",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Review {{ foundObject["modelName"] }}</h1>
+
+      <h2 class="govuk-heading-l">Review documentation</h2>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="review-test-reports" aria-describedby="review-documents-1-status">
+              Review test reports
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="review-documents-1-status">
+            {% if (data['teststatusking'] == "pass") %}
+              <strong class="govuk-tag govuk-tag--green">
+                Passed
+              </strong>
+            {% elseif (data['teststatusking'] == "fail") %}
+              <strong class="govuk-tag govuk-tag--red">
+                Failed
+              </strong>
+            {% else %}
+              <span>
+                Not reviewed
+              </span>
+            {% endif %}
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="review-supporting-documents" aria-describedby="review-documents-2-status">
+              Review additional supporting documents
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="review-documents-2-status">
+            {% if (data['supportstatusking'] == "pass") %}
+              <strong class="govuk-tag govuk-tag--green">
+                Passed
+              </strong>
+            {% elseif (data['supportstatusking'] == "fail") %}
+              <strong class="govuk-tag govuk-tag--red">
+                Failed
+              </strong>
+            {% else %}
+              <span>
+                Not reviewed
+              </span>
+            {% endif %}
+          </div>
+        </li>
+        
+      </ul>
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-7">Prepare public listing</h2>
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="fuel-details.html" aria-describedby="prepare-listing-1-status">
+              Check fuel details
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="prepare-listing-1-status">
+            {% if (data['fueldetailstatusking'] == "done") %}
+              <strong class="govuk-tag govuk-tag--blue">
+                Completed
+              </strong>
+            {% else %}
+              <span>
+                Not completed
+              </span>
+            {% endif %}
+          </div>
+        </li>
+      </ul>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {% if (data['teststatusking'] == "pass" and data['supportstatusking'] == "pass" and data['fueldetailstatusking'] == "done") %}
+            {{ govukButton({
+              text: "Accept this fuel",
+              href: "../review-fuel?kingstatus=accepted"
+            }) }}
+          {% else %}
+              {{ govukButton({
+              text: "Accept this fuel",
+              href: "review-incomplete"
+            }) }}
+          {% endif %}
+
+          {{ govukButton({
+            text: "Reject this fuel",
+            classes: "govuk-button--secondary",
+            href: "../review-fuel?kingstatus=rejected"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="../review-application?m20status=yes">Save and come back later</a></p>
+
+    </div>
+  </div>
+{% endblock %}

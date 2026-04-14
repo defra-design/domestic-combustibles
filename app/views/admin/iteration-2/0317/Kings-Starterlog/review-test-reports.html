@@ -1,24 +1,24 @@
 {% extends "layouts/main.html" %}
 
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "1" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
 {% block pageTitle %}
   Review test reports for {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
 
-{% set foundObject ={} %}
-
-{% for object in data["applianceApplications"] %}
-
-  {% if object.id == "10841" %}
-    {% set foundObject = object %}
-  {% endif %}
-{% endfor %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="review-appliance?teststatus20=pass" method="post">
+      <form class="form" action="review-fuel?teststatusking=pass" method="post">
         <h1 class="govuk-heading-xl">Review test reports for {{ foundObject["modelName"] }}</h1>
         <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">Test-report-April.pdf</a></p>
@@ -34,67 +34,28 @@
         
         {{ govukInput({
           label: {
-            text: "Rated output",
-            classes: "govuk-!-font-weight-bold"
-          },
-          classes: "govuk-input--width-3 govuk-!-text-align-right",
-          id: "rated-output",
-          name: "ratedOutput20",
-          value: data["ratedOutput20"],
-          suffix: {
-            text: "kW"
-          }
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Tested output - rated",
-            classes: "govuk-!-font-weight-bold"
-          },
-          classes: "govuk-input--width-3 govuk-!-text-align-right",
-          id: "tested-output",
-          name: "testedOutput20",
-          value: data["testedOutput20"],
-          suffix: {
-            text: "kW"
-          }
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Tested output - low",
-            classes: "govuk-!-font-weight-bold"
-          },
-          classes: "govuk-input--width-3 govuk-!-text-align-right",
-          id: "tested-output-low",
-          name: "testedOutputLow20",
-          value: data["testedOutputLow20"],
-          suffix: {
-            text: "kW"
-          }
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Smoke emission output - rated",
+            text: "Smoke emission measurement",
             classes: "govuk-!-font-weight-bold"
           },
           classes: "govuk-input--width-3 govuk-!-text-align-right",
           id: "smoke-emission",
-          name: "smokeEmission20",
-          value: data["smokeEmission20"],
+          name: "smoke-emission",
+          value: data["smoke-emission"],
           suffix: {
-            text: "grams per hour"
+            text: "g/h"
           }
         }) }}
         {{ govukInput({
           label: {
-            text: "Smoke emission output - low",
+            text: "Sulphur content",
             classes: "govuk-!-font-weight-bold"
           },
           classes: "govuk-input--width-3 govuk-!-text-align-right",
-          id: "smoke-emission-low",
-          name: "smokeEmissionLow20",
-          value: data["smokeEmissionLow20"],
+          id: "sulphur-content",
+          name: "sulphur-content-king",
+          value: data["sulphur-content-king"],
           suffix: {
-            text: "grams per hour"
+            text: "%"
           }
         }) }}
         <div class="govuk-button-group govuk-!-margin-top-7">
@@ -106,11 +67,11 @@
           {{ govukButton({
             text: "Mark as failed",
             classes: "govuk-button--secondary",
-            href: "review-appliance?teststatus20=fail"
+            href: "review-fuel?teststatusking=fail"
           }) }}
         </div>
 
-        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
+        <p><a class="govuk-link" href="review-fuel">Cancel</a></p>
 
       
 

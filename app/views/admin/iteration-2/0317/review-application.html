@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Review appliance application 1084 – {{ serviceName }}
+  Review fuel application 0317 – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -12,11 +12,11 @@
         href: "../dashboard"
       },
       {
-        text: "Appliance applications",
-        href: "../applications-appliances"
+        text: "Fuel applications",
+        href: "../applications-fuels"
       },
       {
-        text: "Review appliance application 1084",
+        text: "Review fuel application 0317",
         href: "#"
       }
     ]
@@ -32,10 +32,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% set m80status ={} %}
-
       <h1 class="govuk-heading-xl">
-        Review appliance application 1084
+        Review fuel application 0317
       </h1>
 
       <div class="govuk-summary-card">
@@ -51,7 +49,7 @@
                 Company name
               </dt>
               <dd class="govuk-summary-list__value">
-                Burley Appliances
+                Flamers Ltd
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -59,10 +57,10 @@
                 Company address
               </dt>
               <dd class="govuk-summary-list__value">
-                Land's End Way,<br/>
-                Oakham,<br/>
-                Rutland<br/>
-                LE15 6RB
+                Sonna<br/>
+                Mullingar<br/>
+                Co. Westmeath<br/>
+                N91 PYC8
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -78,7 +76,7 @@
                 Main contact email
               </dt>
               <dd class="govuk-summary-list__value">
-                contact.email@burley.co.uk
+                contact.email@flamers.com
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -86,7 +84,7 @@
                 Main contact alternative email
               </dt>
               <dd class="govuk-summary-list__value">
-                alt.email@burley.co.uk
+                alt.email@flamers.com
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -97,6 +95,46 @@
                 07722 334455
               </dd>
             </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Responsible person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Responsible Name
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Responsible person email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                responsible.email@flamers.com
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Customer complaints system in place?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                How do they sell the fuel?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Bagged at source
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Manufacturer or reseller?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Manufacturer
+              </dd>
+            </div>
           </dl>
         </div>
       </div>
@@ -104,32 +142,32 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Appliances
+            Fuel for review
           </h2>
         </div>
         <div class="govuk-summary-card__content">
           <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Appliances in application 1084</caption>
+          <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Fuel in application 0317</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Appliance name</th>
+              <th scope="col" class="govuk-table__header">Fuel name</th>
               <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
               <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M20i</td>
+              <td class="govuk-table__cell govuk-table__cell">Kings Starterlog</td>
               <td class="govuk-table__cell govuk-table__cell">
-                {% if (data['m20status'] == "yes") %}
+                {% if (data['kingstatus'] == "yes") %}
                   <strong class="govuk-tag govuk-tag--orange">
                     In progress
                   </strong>
-                {% elseif (data['m20status'] == "accepted") %}
+                {% elseif (data['kingstatus'] == "accepted") %}
                   <strong class="govuk-tag govuk-tag--green">
                     Accepted
                   </strong>
-                {% elseif (data['m20status'] == "rejected") %}
+                {% elseif (data['kingstatus'] == "rejected") %}
                   <strong class="govuk-tag govuk-tag--red">
                     Rejected
                   </strong>
@@ -140,12 +178,12 @@
                 {% endif %}
               </td>
               <td class="govuk-table__cell govuk-table__cell">
-                <a href="M20i/review-appliance">
-                  {% if (data['m20status'] == "yes") %}
+                <a href="kings-starterlog/review-fuel?teststatusking=pass">
+                  {% if (data['kingstatus'] == "yes") %}
                     Continue review
-                  {% elseif (data['m20status'] == "accepted") %}
+                  {% elseif (data['kingstatus'] == "accepted") %}
                     Edit review
-                  {% elseif (data['m20status'] == "rejected") %}
+                  {% elseif (data['kingstatus'] == "rejected") %}
                     Edit review
                   {% else %}
                     Start review
@@ -153,118 +191,14 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M40i</td>
-              <td class="govuk-table__cell govuk-table__cell">
-                {% if (data['m40status'] == "yes") %}
-                  <strong class="govuk-tag govuk-tag--orange">
-                    In progress
-                  </strong>
-                {% elseif (data['m40status'] == "accepted") %}
-                  <strong class="govuk-tag govuk-tag--green">
-                    Accepted
-                  </strong>
-                {% elseif (data['m40status'] == "rejected") %}
-                  <strong class="govuk-tag govuk-tag--red">
-                    Rejected
-                  </strong>
-                {% else %}
-                  <span>
-                    Not started
-                  </span>
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell govuk-table__cell">
-                <a href="M40i/review-appliance">
-                  {% if (data['m40status'] == "yes") %}
-                    Continue review
-                  {% elseif (data['m40status'] == "accepted") %}
-                    Edit review
-                  {% elseif (data['m40status'] == "rejected") %}
-                    Edit review
-                  {% else %}
-                    Start review
-                  {% endif %}
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M60i</td>
-              <td class="govuk-table__cell govuk-table__cell">
-                {% if (data['m60status'] == "yes") %}
-                  <strong class="govuk-tag govuk-tag--orange">
-                    In progress
-                  </strong>
-                {% elseif (data['m60status'] == "accepted") %}
-                  <strong class="govuk-tag govuk-tag--green">
-                    Accepted
-                  </strong>
-                {% elseif (data['m60status'] == "rejected") %}
-                  <strong class="govuk-tag govuk-tag--red">
-                    Rejected
-                  </strong>
-                {% else %}
-                  <span>
-                    Not started
-                  </span>
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell govuk-table__cell">
-                <a href="M60i/review-appliance">
-                  {% if (data['m60status'] == "yes") %}
-                    Continue review
-                  {% elseif (data['m60status'] == "accepted") %}
-                    Edit review
-                  {% elseif (data['m60status'] == "rejected") %}
-                    Edit review
-                  {% else %}
-                    Start review
-                  {% endif %}
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-table__cell">Twin Heat M80i</td>
-              <td class="govuk-table__cell govuk-table__cell">
-                {% if (data['m80status'] == "yes") %}
-                  <strong class="govuk-tag govuk-tag--orange">
-                    In progress
-                  </strong>
-                {% elseif (data['m80status'] == "accepted") %}
-                  <strong class="govuk-tag govuk-tag--green">
-                    Accepted
-                  </strong>
-                {% elseif (data['m80status'] == "rejected") %}
-                  <strong class="govuk-tag govuk-tag--red">
-                    Rejected
-                  </strong>
-                {% else %}
-                  <span>
-                    Not started
-                  </span>
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell govuk-table__cell">
-                <a href="M80i/review-appliance">
-                  {% if (data['m80status'] == "yes") %}
-                    Continue review
-                  {% elseif (data['m80status'] == "accepted") %}
-                    Edit review
-                  {% elseif (data['m80status'] == "rejected") %}
-                    Edit review
-                  {% else %}
-                    Start review
-                  {% endif %}
-                </a>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
         </div>
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {% if ((data['m80status'] == "accepted" or data['m80status'] == "rejected") and (data['m60status'] == "accepted" or data['m60status'] == "rejected") and (data['m40status'] == "accepted" or data['m40status'] == "rejected") and (data['m20status'] == "accepted" or data['m20status'] == "rejected")) %}
+        {% if (data['kingstatus'] == "accepted") %}
           {{ govukButton({
             text: "Continue",
             href: "review-outcome"
@@ -277,7 +211,7 @@
         {% endif %}
       </div>
       
-      <p><a class="govuk-link" href="../applications-appliances.html">Come back to this later</a></p>
+      <p><a class="govuk-link" href="../applications-fuels.html">Come back to this later</a></p>
 
     </div>
   </div>

@@ -674,6 +674,57 @@ module.exports = {
     }
   ],
 
+   "fuelApplications": [
+    {
+      "id" : 1,
+      "applicationNo": "0317",
+      "modelName": "Kings Starterlog",
+      "reviewer" : "Sean Keller",
+      "description": "Are firelogs that are approx. 220mm in length and 70mm in width and 70mm in height",
+      "weight": "Has an average weight of approx. 600 grams",
+      "composition": "Comprises of slack wax (approx. 55 to 60% of total weight) and hardwood sawdust (approx. 40 to 45% of total weight)",
+      "sulphur": "0.1",
+      "manufacture": "Was manufactured from those constituents by a process of heat treatment and extrusion",
+      "quality" : "Yes",
+      "branding" : "Brandname 1, BrandNAME two"
+    },
+    {
+      "id" : 2,
+      "applicationNo": "0318",
+      "modelName": "Grillaedin White Quebracho",
+      "reviewer" : "Sean Keller",
+      "description": "Are firelogs that are approx. 220mm in length and 70mm in width and 70mm in height",
+      "weight": "Has an average weight of approx. 600 grams",
+      "composition": "Comprises of slack wax (approx. 55 to 60% of total weight) and hardwood sawdust (approx. 40 to 45% of total weight)",
+      "sulphur": "0.1",
+      "manufacture": "Was manufactured from those constituents by a process of heat treatment and extrusion",
+      "quality" : "Yes",
+      "branding" : "Brandname 1, BrandNAME two"
+    },
+    {
+      "id" : 10843,
+      "applicationNo": "1084",
+      "modelName": "Twin Heat M60i",
+      "reviewer" : "Sean Keller",
+      "modelNumber": "M60i",
+      "applianceType": "Boiler",
+      "variant": "Yes",
+      "variantDetails": "Another Twin Heat boiler",
+      "thermalOutput": "3"
+    },
+    {
+      "id" : 10844,
+      "applicationNo": "1084",
+      "modelName": "Twin Heat M80i",
+      "reviewer" : "Sean Keller",
+      "modelNumber": "",
+      "applianceType": "Other",
+      "variant": "Yes",
+      "variantDetails": "Another Twin Heat boiler",
+      "thermalOutput": "5"
+    }
+  ],
+
   //APPLIANCE RECORD LIST ADMIN
 
     "applianceRecordList": [

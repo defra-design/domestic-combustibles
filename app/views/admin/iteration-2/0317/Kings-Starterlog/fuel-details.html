@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "1" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Check fuel details for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check fuel details for {{ foundObject["modelName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['description'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> fuel description</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel weight
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['weight'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> fuel weight</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel composition
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['composition'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> fuel composition</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sulphur content
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['sulphur'] }} % of total dry weight
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Manufacturing process
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['manufacture'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> manufacturing process</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Monitored quality control system
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['quality'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> if there is a quality control system in place</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Branding
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['branding'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> branding</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="review-appliance" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as completed",
+            href: "review-appliance?appdetailstatus20=done"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
