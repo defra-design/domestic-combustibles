@@ -1,33 +1,33 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  What is the model name? – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
-{% for object in data["applianceApplications"] %}
+{% for object in data["fuelApplications"] %}
 
-  {% if object.id == "10841" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
+{% block pageTitle %}
+  What is the fuel name? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="appliance-details" method="post">
+      <form class="form" action="fuel-details" method="post">
 
         {{ govukInput({
           label: {
-            text: "What is the model name?",
+            text: "What is the fuel name?",
             classes: "govuk-label--xl",
             isPageHeading: true
           },
-          id: "model-name",
-          name: "modelName",
+          id: "fuel-name",
+          name: "fuelName",
           value: foundObject['modelName']
         }) }}
 
@@ -36,7 +36,7 @@
             text: "Save changes"
           }) }}
 
-          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+          <a class="govuk-link" href="fuel-details.html">Cancel</a>
         </div>
 
       </form>
