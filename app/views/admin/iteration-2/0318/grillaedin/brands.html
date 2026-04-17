@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Will the fuel be sold under any additional rebrand names? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="fuel-details" method="post">
+        {% set detailsInput %}
+        {{ govukTextarea({
+          label: {
+            text: "List the additional rebrand names, separated by a comma",
+            classes: "govuk-label--m"
+          },
+          id: "additional-brands",
+          name: "additionalBrands",
+          value: foundObject['brands']
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "addBrands",
+          fieldset: {
+            legend: {
+              text: "Will the fuel be sold under any additional rebrand names?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+              html: detailsInput
+            }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="fuel-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

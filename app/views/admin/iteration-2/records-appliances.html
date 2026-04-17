@@ -98,7 +98,7 @@
       <caption class="govuk-table__caption govuk-table__caption--l govuk-visually-hidden">Application records</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Application</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Appliance ID</th>
           <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-half">Appliance name</th>
           <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
           <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
@@ -109,7 +109,7 @@
         {% for record in data['applianceRecordList'] %}
           <tr>
             <td scope="row" class="govuk-table__cell">
-                  {{ record['appNum'] }}
+                  {{ record['appID'] }}
             </td>
             <td class="govuk-table__cell">
               {{ record['applianceName'] }}

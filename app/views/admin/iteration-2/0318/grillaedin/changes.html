@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Has the original fuel been changed or mixed with another fuel? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="fuel-details" method="post">
+        {% set detailsInput %}
+        {{ govukTextarea({
+          label: {
+            text: "Details of changes to fuels",
+            classes: "govuk-label--m"
+          },
+          id: "change-details",
+          name: "changeDetails",
+          value: foundObject['changeDetails']
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "changeOriginal",
+          fieldset: {
+            legend: {
+              text: "Has the original fuel been changed or mixed with another fuel?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: true,
+              conditional: {
+              html: detailsInput
+            }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="fuel-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  What is the rebrand name? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="fuel-details" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is the rebrand name?",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          id: "rebrand-name",
+          name: "rebrandName",
+          value: foundObject['modelName']
+        }) }}
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="fuel-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

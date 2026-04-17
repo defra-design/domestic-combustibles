@@ -1,43 +1,43 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Is this a variant of a certified appliance? – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
-{% for object in data["applianceApplications"] %}
+{% for object in data["fuelApplications"] %}
 
-  {% if object.id == "10841" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
+{% block pageTitle %}
+  Will the fuel be sold under any additional brand names? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="appliance-details" method="post">
+      <form class="form" action="fuel-details" method="post">
         {% set detailsInput %}
         {{ govukTextarea({
           label: {
-            text: "Details of the certified variant",
+            text: "List the additional brand names, separated by a comma",
             classes: "govuk-label--m"
           },
-          id: "variant-details",
-          name: "variantDetails",
-          value: foundObject['variantDetails']
+          id: "additional-brands",
+          name: "additionalBrands",
+          value: foundObject['brands']
         }) }}
         {% endset -%}
 
 
         {{ govukRadios({
           classes: "govuk-radios",
-          name: "isVariant",
+          name: "addBrands",
           fieldset: {
             legend: {
-              text: "Is this a variant of a certified appliance?",
+              text: "Will the fuel be sold under any additional brand names?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -64,7 +64,7 @@
             text: "Save changes"
           }) }}
 
-          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+          <a class="govuk-link" href="fuel-details.html">Cancel</a>
         </div>
 
       </form>

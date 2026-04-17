@@ -4,7 +4,7 @@
 
 {% for object in data["fuelApplications"] %}
 
-  {% if object.id == "1" %}
+  {% if object.id == "2" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -24,27 +24,53 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Brand name
+            Rebrand name
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject['modelName'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="fuel-name.html">
-              Change<span class="govuk-visually-hidden"> brand name</span>
+              Change<span class="govuk-visually-hidden"> rebrand name</span>
             </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Will the fuel be sold under any additional brand names?
+            Will the fuel be sold under any additional rebrand names?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject['moreBrands'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="brands.html">
-              Change<span class="govuk-visually-hidden"> if the fuel be sold under any additional brand names</span>
+              Change<span class="govuk-visually-hidden"> if the fuel be sold under any additional rebrand names</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel manufacturer
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['originalManufacturer'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="original-manufacturer.html">
+              Change<span class="govuk-visually-hidden"> original fuel manufacturer</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel brand name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['originalBrand'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="original-brand.html">
+              Change<span class="govuk-visually-hidden"> original fuel brand name</span>
             </a>
           </dd>
         </div>
@@ -65,14 +91,42 @@
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Fuel appearance
+            Changes to original fuel?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['description'] }}
+            {{ foundObject['changes'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="appearance.html">
-              Change<span class="govuk-visually-hidden"> fuel appearance</span>
+            <a class="govuk-link" href="changes.html">
+              Change<span class="govuk-visually-hidden"> if there have been changes made to the original fuel</span>
+            </a>
+          </dd>
+        </div>
+        {% if (foundObject.changes == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Detail of changes
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject['changeDetails'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="changes.html">
+                Change<span class="govuk-visually-hidden"> detail of the changes</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject['description'] or 'Not provided' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="description.html">
+              Change<span class="govuk-visually-hidden"> fuel description</span>
             </a>
           </dd>
         </div>
@@ -81,7 +135,7 @@
             Fuel weight
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['weight'] }}
+            {{ foundObject['weight'] or 'Not provided' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="weight.html">
@@ -94,7 +148,7 @@
             Fuel composition
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['composition'] }}
+            {{ foundObject['composition'] or 'Not provided' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="composition.html">
@@ -118,7 +172,7 @@
             Manufacturing process
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['manufacture'] }}
+            {{ foundObject['manufacture'] or 'Not provided' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="manufacture.html">
@@ -138,7 +192,7 @@
               Change<span class="govuk-visually-hidden"> if there is a quality control system in place</span>
             </a>
           </dd>
-        </div>
+        </div> -->
       </dl>
 
       <form action="review-fuel" method="post" novalidate>
@@ -146,7 +200,7 @@
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({
             text: "Mark as completed",
-            href: "review-fuel?fueldetailstatusking=done"
+            href: "review-fuel?fueldetailstatusgrill=done"
           }) }}
         </div>
 

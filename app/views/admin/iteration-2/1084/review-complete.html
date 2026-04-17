@@ -1,5 +1,14 @@
 {% extends "layouts/main.html" %}
 
+{% set foundObject ={} %}
+
+      {% for object in data["applianceApplications"] %}
+
+        {% if object.id == "10844" %}
+          {% set foundObject = object %}
+        {% endif %}
+      {% endfor %}
+
 {% block pageTitle %}
   Review complete – {{ serviceName }}
 {% endblock %}
@@ -13,11 +22,11 @@
         Review complete
       </h1>
 
-      <p>Your review of application 1084 is complete.</p>
+      <p>Your review of application {{ foundObject["applicationNo"] }} is complete.</p>
 
       <ul class="govuk-list">
         <li><a href="../applications-appliances.html">Return to appliance applications</a></li>
-        <li><a href="">Go to appliance records</a></li>
+        <li><a href="../records-appliances.html">Go to appliance records</a></li>
         <li><a href="../dashboard.html">Return to dashboard</a></li>
       </ul>
 

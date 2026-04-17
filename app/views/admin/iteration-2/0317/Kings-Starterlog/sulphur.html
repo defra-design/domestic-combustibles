@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "1" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  What is the fuel's sulphur content? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="fuel-details" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is the fuel's sulphur content?",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          classes: "govuk-input--width-3 govuk-!-text-align-right",
+          id: "sulphur-content",
+          name: "sulphurContent",
+          value: foundObject['sulphur'],
+          suffix: {
+            text: "% of total dry weight"
+          },
+          inputmode: "numeric"
+        }) }}
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="fuel-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

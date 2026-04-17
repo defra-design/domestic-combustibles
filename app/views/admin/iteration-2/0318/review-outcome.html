@@ -4,7 +4,7 @@
 
       {% for object in data["fuelApplications"] %}
 
-        {% if object.id == "1" %}
+        {% if object.id == "2" %}
           {% set foundObject = object %}
         {% endif %}
       {% endfor %}
@@ -21,7 +21,7 @@
       <h1 class="govuk-heading-xl">
         Finish application review
       </h1>
-        {% if (data['kingstatus'] == "accepted" ) %}
+        {% if (data['grillstatus'] == "accepted" ) %}
           <p>Following technical review, the following fuel is considered to be suitable for certification under the Clean Air Act 1993.</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>{{ foundObject["modelName"] }}</li>
@@ -33,7 +33,7 @@
               href: "review-complete"
             }) }}
           </div>
-        {% elseif (data['kingstatus'] == "rejected" ) %}
+        {% elseif (data['grillstatus'] == "rejected" ) %}
           <p>Following technical review, the following fuel is considered to be unsuitable for certification under the Clean Air Act 1993.</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>{{ foundObject["modelName"] }}</li>

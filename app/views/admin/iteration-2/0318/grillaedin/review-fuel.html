@@ -4,7 +4,7 @@
 
       {% for object in data["fuelApplications"] %}
 
-        {% if object.id == "1" %}
+        {% if object.id == "2" %}
           {% set foundObject = object %}
         {% endif %}
       {% endfor %}
@@ -52,16 +52,16 @@
       <ul class="govuk-task-list">
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="review-test-reports" aria-describedby="review-documents-1-status">
-              Review test reports
+            <a class="govuk-link govuk-task-list__link" href="review-manufacturer-letter" aria-describedby="review-documents-2-status">
+              Review manufacturer letter
             </a>
           </div>
-          <div class="govuk-task-list__status" id="review-documents-1-status">
-            {% if (data['teststatusking'] == "pass") %}
+          <div class="govuk-task-list__status" id="review-documents-2-status">
+            {% if (data['manustatusgrill'] == "pass") %}
               <strong class="govuk-tag govuk-tag--green">
                 Passed
               </strong>
-            {% elseif (data['teststatusking'] == "fail") %}
+            {% elseif (data['manustatusgrill'] == "fail") %}
               <strong class="govuk-tag govuk-tag--red">
                 Failed
               </strong>
@@ -72,6 +72,7 @@
             {% endif %}
           </div>
         </li>
+        
       </ul>
 
       <h2 class="govuk-heading-l govuk-!-margin-top-7">Prepare public listing</h2>
@@ -83,7 +84,25 @@
             </a>
           </div>
           <div class="govuk-task-list__status" id="prepare-listing-1-status">
-            {% if (data['fueldetailstatusking'] == "done") %}
+            {% if (data['fueldetailstatusgrill'] == "done") %}
+              <strong class="govuk-tag govuk-tag--blue">
+                Completed
+              </strong>
+            {% else %}
+              <span>
+                Not completed
+              </span>
+            {% endif %}
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="fuel-description.html" aria-describedby="prepare-listing-2-status">
+              Add fuel description
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="prepare-listing-2-status">
+            {% if (data['fueldescstatusgrill'] == "done") %}
               <strong class="govuk-tag govuk-tag--blue">
                 Completed
               </strong>
@@ -97,10 +116,10 @@
       </ul>
 
         <div class="govuk-button-group govuk-!-margin-top-7">
-          {% if (data['teststatusking'] == "pass" and data['fueldetailstatusking'] == "done") %}
+          {% if (data['manustatusgrill'] == "pass" and data['fueldetailstatusgrill'] == "done") %}
             {{ govukButton({
               text: "Accept this fuel",
-              href: "../review-application?kingstatus=accepted"
+              href: "../review-application?grillstatus=accepted"
             }) }}
           {% else %}
               {{ govukButton({
@@ -112,11 +131,11 @@
           {{ govukButton({
             text: "Reject this fuel",
             classes: "govuk-button--secondary",
-            href: "../review-application?kingstatus=rejected"
+            href: "../review-application?grillstatus=rejected"
           }) }}
         </div>
 
-        <p><a class="govuk-link" href="../review-application?m20status=yes">Save and come back later</a></p>
+        <p><a class="govuk-link" href="../review-application?grillstatus=yes">Save and come back later</a></p>
 
     </div>
   </div>

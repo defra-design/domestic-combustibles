@@ -2,37 +2,65 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["fuelApplications"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "1" %}
+  {% if object.id == "5" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Check fuel details for {{ foundObject["modelName"] }} – {{ serviceName }}
+  Fuel details – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Fuel records",
+        href: "../../records-fuels"
+      },
+      {
+        text: "Ecoglow",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Check fuel details for {{ foundObject["modelName"] }}
+        Fuel details
       </h1>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Fuel ID
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["fuelID"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Brand name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['modelName'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="fuel-name.html">
-              Change<span class="govuk-visually-hidden"> brand name</span>
-            </a>
+            {{ foundObject["fuelName"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -41,11 +69,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject['moreBrands'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="brands.html">
-              Change<span class="govuk-visually-hidden"> if the fuel be sold under any additional brand names</span>
-            </a>
           </dd>
         </div>
         {% if (foundObject.moreBrands == "Yes") %}
@@ -56,11 +79,6 @@
             <dd class="govuk-summary-list__value">
               {{ foundObject['brands'] }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="brands.html">
-                Change<span class="govuk-visually-hidden"> additional brand names</span>
-              </a>
-            </dd>
           </div>
         {% endif %}
         <div class="govuk-summary-list__row">
@@ -70,11 +88,6 @@
           <dd class="govuk-summary-list__value">
             {{ foundObject['description'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="appearance.html">
-              Change<span class="govuk-visually-hidden"> fuel appearance</span>
-            </a>
-          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -82,11 +95,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject['weight'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="weight.html">
-              Change<span class="govuk-visually-hidden"> fuel weight</span>
-            </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -96,11 +104,6 @@
           <dd class="govuk-summary-list__value">
             {{ foundObject['composition'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="composition.html">
-              Change<span class="govuk-visually-hidden"> fuel composition</span>
-            </a>
-          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -108,9 +111,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject['sulphur'] }} % of total dry weight
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="sulphur.html">Change<span class="govuk-visually-hidden"> sulphur content</span></a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -120,11 +120,6 @@
           <dd class="govuk-summary-list__value">
             {{ foundObject['manufacture'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="manufacture.html">
-              Change<span class="govuk-visually-hidden"> manufacturing process</span>
-            </a>
-          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -133,27 +128,9 @@
           <dd class="govuk-summary-list__value">
             {{ foundObject['quality'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="quality.html">
-              Change<span class="govuk-visually-hidden"> if there is a quality control system in place</span>
-            </a>
-          </dd>
         </div>
       </dl>
-
-      <form action="review-fuel" method="post" novalidate>
-
-        <div class="govuk-button-group govuk-!-margin-top-7">
-          {{ govukButton({
-            text: "Mark as completed",
-            href: "review-fuel?fueldetailstatusking=done"
-          }) }}
-        </div>
-
-        <p><a class="govuk-link" href="review-fuel">Cancel</a></p>
-
-      </form>
-
+      <p><a href="record.html">Return to record</a></p>
     </div>
   </div>
 {% endblock %}

@@ -1,37 +1,37 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  What is the nominal (thermal) output? – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
-{% for object in data["applianceApplications"] %}
+{% for object in data["fuelApplications"] %}
 
-  {% if object.id == "10841" %}
+  {% if object.id == "2" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
+{% block pageTitle %}
+  What is the fuel's sulphur content? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="appliance-details" method="post">
+      <form class="form" action="fuel-description" method="post">
 
         {{ govukInput({
           label: {
-            text: "What is the nominal (thermal) output?",
+            text: "What is the fuel's sulphur content?",
             classes: "govuk-label--xl",
             isPageHeading: true
           },
           classes: "govuk-input--width-3 govuk-!-text-align-right",
-          id: "thermal-output",
-          name: "thermalOutput",
-          value: foundObject['thermalOutput'],
+          id: "sulphur-content",
+          name: "sulphurContent",
+          value: data['sulphurContent'],
           suffix: {
-            text: "kW"
+            text: "% of total dry weight"
           },
           inputmode: "numeric"
         }) }}
@@ -41,7 +41,7 @@
             text: "Save changes"
           }) }}
 
-          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+          <a class="govuk-link" href="fuel-description.html">Cancel</a>
         </div>
 
       </form>

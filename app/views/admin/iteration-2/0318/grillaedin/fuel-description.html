@@ -1,0 +1,139 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelApplications"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Add fuel description for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Add fuel description for {{ foundObject["modelName"] }}
+      </h1>
+      <h2 class="govuk-heading-m  govuk-!-margin-bottom-2">Original fuel</h2>
+      <p>{{ foundObject['originalBrand'] }}, manufactured by {{ foundObject['originalManufacturer'] }}</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel appearance
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fuelDesc'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['fuelDesc']) %}
+                <a class="govuk-link" href="appearance.html">
+                Change<span class="govuk-visually-hidden"> fuel appearance</span>
+              </a>
+            {% else %}
+              <a class="govuk-link" href="appearance.html">
+                Add<span class="govuk-visually-hidden"> fuel appearance</span>
+              </a>
+            {% endif %}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel weight
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fuelWeight'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['fuelWeight']) %}
+                <a class="govuk-link" href="weight.html">
+                Change<span class="govuk-visually-hidden"> fuel weight</span>
+              </a>
+            {% else %}
+              <a class="govuk-link" href="weight.html">
+                Add<span class="govuk-visually-hidden"> fuel weight</span>
+              </a>
+            {% endif %}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel composition
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fuelComp'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['fuelComp']) %}
+                <a class="govuk-link" href="composition.html">
+                Change<span class="govuk-visually-hidden"> fuel composition</span>
+              </a>
+            {% else %}
+              <a class="govuk-link" href="composition">
+                Add<span class="govuk-visually-hidden"> fuel composition</span>
+              </a>
+            {% endif %}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sulphur content
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['sulphurContent'] }} % of total dry weight
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['sulphurContent']) %}
+                <a class="govuk-link" href="sulphur.html">
+                Change<span class="govuk-visually-hidden"> sulphur content</span>
+              </a>
+            {% else %}
+              <a class="govuk-link" href="sulphur">
+                Add<span class="govuk-visually-hidden"> sulphur content</span>
+              </a>
+            {% endif %}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Manufacturing process
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fuelManu'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['fuelManu']) %}
+                <a class="govuk-link" href="manufacture.html">
+                Change<span class="govuk-visually-hidden"> manufacturing process</span>
+              </a>
+            {% else %}
+              <a class="govuk-link" href="manufacture">
+                Add<span class="govuk-visually-hidden"> manufacturing process</span>
+              </a>
+            {% endif %}
+          </dd>
+        </div>
+      </dl>
+
+      <form action="review-fuel" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as completed",
+            href: "review-fuel?fueldescstatusgrill=done"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-fuel">Cancel</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

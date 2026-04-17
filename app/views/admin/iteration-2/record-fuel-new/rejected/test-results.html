@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelRecordList"] %}
+
+  {% if object.id == "5" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Test results for {{ foundObject["fuelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Fuel records",
+        href: "../../records-fuels"
+      },
+      {
+        text: "Ecoglow",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Test results for {{ foundObject["fuelName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Smoke emission measurement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            3 g/h
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sulphur content
+          </dt>
+          <dd class="govuk-summary-list__value">
+            0.05 % of total dry weight
+          </dd>
+        </div>
+      </dl>
+      <p><a href="record">Return to record</a></p>
+    </div>
+  </div>
+{% endblock %}
