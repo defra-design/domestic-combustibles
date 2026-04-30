@@ -1,0 +1,330 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Get a solid fuel certified for use in smoke control areas
+{% endblock %}
+
+{# Blank header with no service name for this page #}
+{% block header %}
+  <header>
+    {{govukHeader()}}
+  </header>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Get a solid fuel certified for use in smoke control areas
+      </h1>
+
+      <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#fees">
+                Application fees
+              </a>
+            </li>
+            <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#applicants">
+                Requirements for all applicants
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#manu">
+                Requirements for fuel manufacturers
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#rebrand">
+                Requirements for rebranded fuel
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+      
+      <p>
+        Use this service to apply to get a solid fuel certified for use in domestic premises or <a href="smoke-control">smoke control areas</a> in England.
+      </p>
+      <p>
+        You must fill out a separate application for each different fuel you want to get certified.
+      </p>
+      <p>
+        You'll need to provide information about your company and about the fuel, including brand information.
+      </p>
+      <p>
+        Manufacturers will also need to provide:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>fuel details such as its appearance, weight and composition</li>
+        <li>details of the manufacturing process</li>
+        <li>test reports showing that the fuel meets legal emissions limits</li>
+      </ul>
+      <p>
+        For rebranding, you’ll need to provide:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>identifying information about the original certified fuel</li>
+        <li>a letter of permission from the manufacturer to rebrand their fuel</li>
+      </ul>
+      <p>
+        You should review the <a href="https://www.hetas.co.uk/app/uploads/Forms-and-Documents/MSFreadyToBurn/Ready-To-Burn-Terms-and-Conditions-for-Participation.pdf">Ready to Burn fuel certification terms and conditions</a> before starting your application.
+      </p>
+      {{ govukButton({
+        text: "Start now",
+        href: "#",
+        isStartButton: true,
+        classes: "govuk-!-margin-top-6 govuk-!-margin-bottom-8"
+      }) }}
+
+      <h2 class="govuk-heading-m" id="fees">
+        Application fees
+      </h2>
+      <p>
+        It costs £950 (excluding VAT) for a manufacturer to get an original fuel certified.
+      </p>
+      <p>
+        It costs £475 (excluding VAT) to get a rebranded fuel certified.
+      </p>
+      <p>
+        The certification organisation will request fees once they have received your application.
+      </p>
+
+      <h2 class="govuk-heading-m" id="applicants">
+        Requirements for all applicants
+      </h2>
+      <h3 class="govuk-heading-s">
+        Company information
+      </h3>
+      <p>
+        You'll need to provide the following information about your business:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>company name and address</li>
+        <li>whether you have a system in place to deal with customer complaints</li>
+        <li>how you sell the fuel (loose, bagged at source or bagged after being transported somewhere else)</li>
+      </ul>
+      <p>
+        You'll need to tell us whether you:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>manufacture the fuel</li>
+        <li>rebrand fuel made by someone else</li>
+      </ul>
+      <p>
+        This information is required for your application only, and will not be made public.
+      </p>
+      <p>
+        You also have the option to provide other documents to support your application, for example:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>information about your quality control processes</li>
+        <li>product packaging information</li>
+      </ul>
+      <h3 class="govuk-heading-s">
+        Company contacts
+      </h3>
+      <p>
+        You'll need to give us:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the name and email address of a person we can contact if we have questions about your application</li>
+        <li>the name of the person responsible for the fuel's certification, which will appear on the fuel's certificate</li>
+      </ul>
+      <p>
+        These might both be the same person.
+      </p>
+
+      <h2 class="govuk-heading-m" id="manu">
+        Requirements for fuel manufacturers
+      </h2>
+      <p>
+        You'll need to provide test reports proving that the fuel meets legal emissions limits.
+      </p>
+      <p>
+        You'll also need to provide details of the fuel:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>its shape, size and any recognisable markings</li>
+        <li>information about the fuel's weight</li>
+        <li>the fuel's exact composition and sulphur content</li>
+        <li>the manufacturing process used</li>
+      </ul>
+      <p>
+        And you'll need to tell us:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>whether you have a monitored quality control system in place</li>
+        <li>what brand names you'll sell the fuel under</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Test reports
+      </h3>
+      <p>
+        As the fuel manufacturer, you must provide test reports that show that the fuel meets legal limits for:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>smoke emissions (less than 5g per hour)</li>
+        <li>sulphur content (less than 2%)</li>
+      </ul>
+      <p>
+        Additional tests may be required in the case of complaints or non-compliance.
+      </p>
+      <p>
+        Testing must be done by a laboratory accredited to BS 3841. If we don't recognise the testing laboratory, we might ask you for clarification.
+      </p>
+      <p>
+        You can find more detailed information about testing requirements in the <a href="https://www.hetas.co.uk/app/uploads/Forms-and-Documents/MSFreadyToBurn/Ready-To-Burn-Terms-and-Conditions-for-Participation.pdf">Ready to Burn fuel certification terms and conditions</a>.
+      </p>
+
+      <h3 class="govuk-heading-s">
+        Fuel appearance
+      </h3>
+      <p>
+        You will need to explain the specific shape, size and any recognisable markings on the fuel.
+      </p>
+      <div class="govuk-inset-text">
+        <p>
+          For example:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Pillow-shaped briquettes with a single line indentation on one side and a double line indentation on the reverse side</li>
+          <li>Firelogs that are approximately 225 millimetres in length and 70 millimetres in depth, with grooves along their sides</li>
+          <li>Unmarked charcoal pieces between 40 and 110 millimetres in length</li>
+        </ul>
+      </div>
+
+      <h3 class="govuk-heading-s">
+        Fuel weight
+      </h3>
+      <p>
+        You will need to tell us the average weight of the fuel.
+      </p>
+      <div class="govuk-inset-text">
+        <p>
+          For example:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Average weight of 125 to 135 grams per briquette</li>
+          <li>Average weight of 0.70 kilograms per firelog</li>
+          <li>Average weight of 54 to 56 grams per large briquette or 26 to 28 grams per small briquette</li>
+        </ul>
+      </div>
+
+      <h3 class="govuk-heading-s">
+        Fuel composition
+      </h3>
+      <p>
+        You will need to list everything the fuel is made of, and approximately what percentage each part is of the total weight.
+      </p>
+      <div class="govuk-inset-text">
+        <p>
+          For example: The fuel contains anthracite fines (60% to 80%), petroleum coke (10% to 30%), bituminous coal (0% to 17%) and molasses/acid or an organic binder (remainder).
+        </p>
+      </div>
+
+      <h3 class="govuk-heading-s">
+        Manufacturing process
+      </h3>
+      <p>
+        You will need to briefly explain the exact methods and temperatures used to manufacture the fuel.
+      </p>
+      <div class="govuk-inset-text">
+        <p>
+          For example: The fuel is manufactured by a process involving:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>roll-pressing and heat treatment at about 300°C</li>
+          <li>roll-pressing and cold curing at ambient temperature</li>
+          <li>kiln pyrolysis at approximately 500 to 600°C</li>
+          <li>heat treatment and extrusion</li>
+        </ul>
+      </div>
+
+      <h3 class="govuk-heading-s">
+        Sulphur content
+      </h3>
+      <p>
+        You will need to provide the sulphur content as an approximate percentage of the total dry, ash-free weight of the fuel. For example, 1.9% or 0.05%.
+      </p>
+
+      <h2 class="govuk-heading-m" id="rebrand">
+        Requirements for rebranded fuel
+      </h2>
+      <p>
+        For rebranded fuels, you must provide:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the name of the original fuel manufacturer</li>
+        <li>the name or brand of the original fuel</li>
+        <li>a letter from the original manufacturer proving that you have permission to rebrand their fuel</li>
+      </ul>
+      <p>
+        This information is required for your application only and will not be made public.
+      </p>
+      <p>
+        You will also need to tell us:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>whether the original fuel has been changed or mixed with another fuel</li>
+        <li>what brand names you will be selling the fuel under</li>
+      </ul>
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div> -->
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

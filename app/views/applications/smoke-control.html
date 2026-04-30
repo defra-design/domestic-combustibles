@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Smoke control areas: the rules - GOV.UK
+{% endblock %}
+
+{# Blank header with no service name for this page #}
+{% block header %}
+  <header>
+    {{govukHeader()}}
+  </header>
+{% endblock %}
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Housing and local services",
+        href: "#"
+      },
+      {
+        text: "Safety and the environment in your community"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Smoke control areas: the rules
+      </h1>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+    <p>Many parts of the UK are smoke control areas where:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you cannot release smoke from a chimney</li>
+      <li>you can only burn authorised fuel, unless you use an appliance approved by Defra (also known as an 'exempt appliance' or 'Defra approved appliance')</li>
+    </ul>
+
+    <p>In England you may have to pay a penalty of up to £300 if your chimney releases smoke in a smoke control area.</p>
+    <p>You can be fined up to £1,000 if you buy unauthorised fuel to use in an appliance that's not approved by Defra.</p>
+
+    <h2 class="govuk-heading-m" id="find-out-if-you-live-in-a-smoke-control-area">Find out if you live in a smoke control area</h2>
+    <p><a href="#">Contact your local council</a> to find out if you live in a smoke control area. The environmental services department will be able to help you.</p>
+
+    <h2 class="govuk-heading-m" id="what-you-can-burn-in-smoke-control-areas">What you can burn in smoke control areas</h2>
+    <p>In a smoke control area you can only burn fuel on the <a href="fuel-list">list of authorised fuels</a>, or any of the following 'smokeless' fuels, unless you're using a Defra approved appliance:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>anthracite</li>
+      <li>semi-anthracite</li>
+      <li>gas</li>
+      <li>low volatile steam coal</li>
+    </ul>
+
+    <h2 class="govuk-heading-m" id="exempt-appliances-that-can-burn-unauthorised-fuels">Exempt appliances that can burn unauthorised fuels</h2>
+    <p>Unauthorised fuels, such as wood, can only be burned in <a href="appliance-list">exempt appliances such as some boilers, cookers and stoves</a>.</p>
+    <p>You must only use the types of fuel that the manufacturer says can be used in the appliance.</p>
+
+    <h2 class="govuk-heading-m" id="outdoor-ovens-burners-and-barbecues">Outdoor ovens, burners and barbecues</h2>
+    <p>You can use outdoor barbecues, chimineas, fireplaces or pizza ovens in smoke control areas.</p>
+    <p>If your appliance uses a chimney on the roof of a building (for example, a summerhouse), you can only burn authorised fuel unless it’s an exempt appliance.</p>
+
+    <h2 class="govuk-heading-m" id="garden-bonfires">Garden bonfires</h2>
+    <p>You're allowed garden bonfires in smoke control areas but you need to follow the <a href="#">rules on bonfires</a>.</p>
+
+    <div class="govuk-prototype-kit-common-templates-related-items govuk-!-margin-top-9">
+      <h2 class="govuk-heading-s govuk-!-margin-top-3">Explore the topic</h2>
+      <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <strong><a href="#">Safety and the environment in your community</a></strong>
+          </li>
+      </ul>
+    </div>
+
+  </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Apply for an appliance exemption for use in smoke control areas
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Garden bonfires: the rules
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

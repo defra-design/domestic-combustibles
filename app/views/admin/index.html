@@ -1,0 +1,78 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% set pageName="Admin service - application management and review" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      Admin service - application management and review
+    </h1>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Sprints and iterations</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Sprint</th>
+          <th scope="col" class="govuk-table__header">Dates</th>
+          <th scope="col" class="govuk-table__header govuk-table__header govuk-!-width-one-half">Iteration notes</th>
+          <th scope="col" class="govuk-table__header govuk-table__header">Links</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">4/5/6</th>
+          <td scope="row" class="govuk-table__cell govuk-table__cell">9 March to <br/>17 April 2026</td>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+            <p>
+              Iteration of reviewing a new application for multiple appliances.<br/>
+              Removed document links from document review pages as application forms will be going live without document upload.<br/>
+              Built appliance record views and fuel application review journeys.<br/>
+              <a target="_blank" href="https://app.mural.co/t/coredefra2548/m/coredefra2548/1774530838186/d8c574882adec8447b1622d030eb86a1457891f4?wid=0-1774538478848">Follows V2 of the mapped journey in Mural</a>.
+            </p>
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+            <p><a href="admin/iteration-2/index">Launch prototype</a></p>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">4</th>
+          <td scope="row" class="govuk-table__cell govuk-table__cell">9 March to <br/>20 March 2026</td>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+            <p>
+              Base pages for the service build to cover standard errors and content requirements
+            </p>
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+            <p><a href="admin/iteration-2/base-service-pages">Launch prototype</a></p>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">3</th>
+          <td scope="row" class="govuk-table__cell govuk-table__cell">23 February to <br/>6 March 2026</td>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+            <p>Initial design for the flow to review a new application. <a target="_blank" href="https://app.mural.co/t/coredefra2548/m/coredefra2548/1769004620623/d3e5742d225274c724fb3a19c06670ba944310ce?wid=0-1771502578799">Following V1 of the mapped journey in Mural</a>.</p>
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+            <p><a href="admin/iteration-1/index">Launch prototype</a></p>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">3</th>
+          <td scope="row" class="govuk-table__cell govuk-table__cell">23 February to <br/>6 March 2026</td>
+          <td class="govuk-table__cell govuk-table__cell govuk-!-width-one-half">
+            <p>Looking at different navigation approaches.</p>
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+            <p><a href="admin/iteration-1/nav/nav-tests">Launch navigation prototypes</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}

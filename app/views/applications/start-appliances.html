@@ -1,0 +1,283 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Get a stove or other solid fuel appliance certified for use in smoke control areas in England
+{% endblock %}
+
+{# Blank header with no service name for this page #}
+{% block header %}
+  <header>
+    {{govukHeader()}}
+  </header>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Get a stove or other solid fuel appliance certified for use in smoke control areas in England
+      </h1>
+
+      <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#fees">
+                Application fees
+              </a>
+            </li>
+            <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#company">
+                Company information
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#appliance">
+                Appliance information
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#docs">
+                Supporting documents
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#multi">
+                Applying for multiple appliances
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+      
+      <p>
+        Use this service to apply to get a stove or other solid fuel appliance certified for use in <a href="smoke-control">smoke control areas</a>.
+      </p>
+      <p>
+        You'll need to provide information about your company and about the appliance.
+      </p>
+      <p>
+        You can include <a href="">multiple similar or related appliances</a> in a single application.
+      </p>
+      <p>
+        Before starting your application, you should review the <a href="https://www.gov.uk/government/publications/apply-for-exemption-of-an-appliance-in-a-smoke-control-area">appliance application guidance</a>, which also contains an application checklist.
+      </p>
+      {{ govukButton({
+        text: "Start now",
+        href: "#",
+        isStartButton: true,
+        classes: "govuk-!-margin-top-6 govuk-!-margin-bottom-8"
+      }) }}
+
+      <h2 class="govuk-heading-m" id="fees">
+        Application fees
+      </h2>
+      <p>
+        Fees depend on whether the appliance you are applying for is:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>unique, or the first to be certified in a range or family of appliances</li>
+        <li>a variant appliance (variants have approximately the same technical design and are covered by the same test report as another appliance)</li>
+      </ul>
+      <p>
+        The certification organisation will calculate and request application fees once they have reviewed your application. Fees are excluding VAT.
+      </p>
+      <dl class="govuk-summary-list" style="width:auto;">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+          <dt class="govuk-summary-list__key" style="width:80%;">
+            Fee for certifying a unique or first appliance
+          </dt>
+          <dd class="govuk-summary-list__value" style="width:20%;">
+            £1,610
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+          <dt class="govuk-summary-list__key" style="width:80%;">
+            Fee for certifying each additional (variant) appliance
+          </dt>
+          <dd class="govuk-summary-list__value" style="width:20%;">
+            £470
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m" id="company">
+        Company information
+      </h2>
+      <p>
+        You'll need to provide the following information about your business:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>company name and address</li>
+        <li>name and email address of a person we can contact if we have questions about your application</li>
+      </ul>
+
+      <h2 class="govuk-heading-m" id="appliance">
+        Appliance information
+      </h2>
+      <p>
+        You'll need to provide details about the appliance, including:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>model name and model number, if applicable</li>
+        <li>appliance type (for example stove, boiler or pizza oven)</li>
+        <li>nominal (thermal) output in kilowatts (kW)</li>
+        <li>which fuels the appliance will be authorised to burn</li>
+      </ul>
+      <p>You'll also need to tell us if the appliance is a variant of another appliance that is already certified. If it is, you'll need to provide identifying details for the certified appliance, such as make and model name.</p>
+
+      <h2 class="govuk-heading-m" id="docs">
+        Supporting documents
+      </h2>
+      <p>
+        To support your application, you'll need to provide:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#test">test reports</a> that show that the appliance meets legal emissions limits while burning the intended fuel</li>
+        <li><a href="#tech">technical drawings</a> of the appliance, including external dimensions, any air control modifications and grate dimensions (if applicable)</li>
+        <li><a href="#conf">conformity mark information</a> (CE or UKCA) for the appliance</li>
+        <li><a href="#inst">instruction manuals</a> that cover the appliance's installation, operation and maintenance</li>
+      </ul>
+      <p>
+        All supporting documents are only needed to support your application. They will not be made public.</p>
+      <p>
+        Make sure all supporting documents have relevant file names, so it's clear what they contain. This will make your application easier to process.
+      </p>
+
+      <h3 class="govuk-heading-s" id="test">
+        Test reports
+      </h3>
+      <p>
+        Review the <a href="https://www.gov.uk/government/publications/apply-for-exemption-of-an-appliance-in-a-smoke-control-area">appliance certification terms and conditions</a> for detailed testing requirements.
+      </p>
+      <p>
+        You'll need to provide test reports that:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>show that the appliance meets legal emissions limits while burning the tested fuel</li>
+        <li>are from an ISO 17025 accredited laboratory with scope to test fuel burning appliances</li>
+        <li>include details of testing methodology</li>
+        <li>cover all the appliances included in your certification application</li>
+      </ul>
+      <p>
+        If we don't recognise the testing laboratory, we might ask you for clarification. You can also provide the laboratory's ISO 17025 accreditation certificate along with your test reports.
+      </p>
+
+      <h3 class="govuk-heading-s" id="tech">
+        Technical drawings
+      </h3>
+      <p>
+        You'll need to provide technical drawings that cover all appliances in your application. These must include:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>front view</li>
+        <li>side view</li>
+        <li>plan (top) view</li>
+        <li>external dimensions</li>
+        <li>any air control modifications</li>
+        <li>grate dimensions (if applicable)</li>
+      </ul>
+
+      <h3 class="govuk-heading-s" id="conf">
+        Conformity mark
+      </h3>
+      <p>
+        You'll need to provide information about the European (CE) or British (UKCA) conformity mark of all appliances in your application.
+      </p>
+      <p>
+        Provide a copy of the information on the data plate, for example in a PDF or photo.
+      </p>
+
+      <h3 class="govuk-heading-s" id="inst">
+        Instruction manuals
+      </h3>
+      <p>
+        You'll need to provide any instruction manuals that explain how to use all appliances in your application, including:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>installation</li>
+        <li>operation</li>
+        <li>maintenance</li>
+      </ul>
+      <p>
+        Instruction manuals must:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be in English</li>
+        <li>contain a note on the requirements of the Clean Air Act 1993</li>
+      </ul>
+      <p>
+        If a manual covers multiple appliances, it must contain a clear statement about which appliances are suitable for use in smoke control areas.
+      </p>
+      <p>
+        Get more detailed information about instruction manual requirements in the <a href="https://www.gov.uk/government/publications/apply-for-exemption-of-an-appliance-in-a-smoke-control-area">appliance certification terms and conditions</a>.
+      </p>
+
+      <h2 class="govuk-heading-m" id="multi">
+        Applying for multiple appliances
+      </h2>
+      <p>
+        You can include multiple similar or related appliances in a single application.
+      </p>
+      <p>
+        Similar or related appliances may be variants of each other with approximately the same technical design, or may all be covered by a single test report.
+      </p>
+      <p>
+        You should submit separate applications for appliances that aren’t similar or related. Putting multiple different or unrelated appliances in a single application will make the application take longer to process.
+      </p>
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div> -->
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
