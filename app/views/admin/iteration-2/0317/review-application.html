@@ -187,15 +187,23 @@
                 {% endif %}
               </td>
               <td class="govuk-table__cell govuk-table__cell">
-                <a href="kings-starterlog/review-fuel?supportstatusking=pass">
+                
                   {% if (data['kingstatus'] == "yes") %}
-                    Continue review
+                    <a href="kings-starterlog/review-fuel?supportstatusking=pass">
+                      Continue review
+                    </a>
                   {% elseif (data['kingstatus'] == "accepted") %}
-                    Edit review
+                    <a href="kings-starterlog/review-fuel?supportstatusking=pass">
+                      Edit review
+                    </a>
                   {% elseif (data['kingstatus'] == "rejected") %}
-                    Edit review
+                    <a href="kings-starterlog/review-fuel?supportstatusking=pass">
+                      Edit review
+                    </a>
                   {% else %}
-                    Start review
+                    <a href="kings-starterlog/review-fuel?supportstatusking=pass">
+                      Start review
+                    </a>
                   {% endif %}
                 </a>
               </td>
