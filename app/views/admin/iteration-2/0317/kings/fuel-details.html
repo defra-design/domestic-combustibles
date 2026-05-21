@@ -27,7 +27,11 @@
             Brand name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['modelName'] }}
+            {% if (data.fuelName) %}
+              {{ data['fuelName'] }}
+            {% else %}
+              {{ foundObject['modelName'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="fuel-name.html">
@@ -40,7 +44,11 @@
             Will the fuel be sold under any additional brand names?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['moreBrands'] }}
+            {% if (data.addBrands) %}
+              {{ data['addBrands'] }}
+            {% else %}
+              {{ foundObject['moreBrands'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="brands.html">
@@ -48,7 +56,21 @@
             </a>
           </dd>
         </div>
-        {% if (foundObject.moreBrands == "Yes") %}
+        {% if (data.addBrands == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional brand name(s)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['additionalBrands'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="brands.html">
+                Change<span class="govuk-visually-hidden"> additional brand names</span>
+              </a>
+            </dd>
+          </div>
+        {% elseif (foundObject.moreBrands == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Additional brand name(s)
@@ -68,7 +90,11 @@
             Fuel appearance
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['description'] }}
+            {% if (data.fuelDescKing) %}
+              {{ data['fuelDescKing'] }}
+            {% else %}
+              {{ foundObject['description'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="appearance.html">
@@ -81,7 +107,11 @@
             Fuel weight
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['weight'] }}
+            {% if (data.fuelWeightKing) %}
+              {{ data['fuelWeightKing'] }}
+            {% else %}
+              {{ foundObject['weight'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="weight.html">
@@ -94,7 +124,11 @@
             Fuel composition
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['composition'] }}
+            {% if (data.fuelCompKing) %}
+              {{ data['fuelCompKing'] }}
+            {% else %}
+              {{ foundObject['composition'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="composition.html">
@@ -107,7 +141,11 @@
             Sulphur content
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['sulphur'] }} % of total dry weight
+            {% if (data.sulphurContentKing) %}
+              {{ data['sulphurContentKing'] }} % of total dry weight
+            {% else %}
+              {{ foundObject['sulphur'] }} % of total dry weight
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="sulphur.html">Change<span class="govuk-visually-hidden"> sulphur content</span></a>
@@ -118,7 +156,11 @@
             Manufacturing process
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['manufacture'] }}
+            {% if (data.fuelManuKing) %}
+              {{ data['fuelManuKing'] }}
+            {% else %}
+              {{ foundObject['manufacture'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="manufacture.html">
@@ -131,7 +173,11 @@
             Monitored quality control system
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['quality'] }}
+            {% if (data.qualityControl) %}
+              {{ data['qualityControl'] }}
+            {% else %}
+              {{ foundObject['quality'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="quality.html">

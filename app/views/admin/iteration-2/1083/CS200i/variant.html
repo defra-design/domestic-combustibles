@@ -2,15 +2,15 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["fuelApplications"] %}
+{% for object in data["applianceApplications"] %}
 
-  {% if object.id == "2" %}
+  {% if object.id == "1083" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Is there a monitored quality control system in place? – {{ serviceName }}
+  Is this a variant of a certified appliance? – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -18,13 +18,27 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="fuel-details" method="post">
+      <form class="form" action="appliance-details" method="post">
+        {% set detailsInput %}
+        {{ govukTextarea({
+          label: {
+            text: "Details of the certified variant",
+            classes: "govuk-label--m"
+          },
+          id: "variant-details",
+          name: "variantDetailsCS",
+          value: data['variantDetailsCS'] or foundObject['variantDetails']
+        }) }}
+        {% endset -%}
+
+
         {{ govukRadios({
           classes: "govuk-radios",
-          name: "qualityControl",
+          name: "isVariantCS",
+          value: data['isVariantCS'] or foundObject['variant'],
           fieldset: {
             legend: {
-              text: "Is there a monitored quality control system in place?",
+              text: "Is this a variant of a certified appliance?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -33,7 +47,9 @@
             {
               value: "Yes",
               text: "Yes",
-              checked: true
+              conditional: {
+              html: detailsInput
+            }
             },
             {
               value: "No",
@@ -48,7 +64,7 @@
             text: "Save changes"
           }) }}
 
-          <a class="govuk-link" href="fuel-details.html">Cancel</a>
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
         </div>
 
       </form>

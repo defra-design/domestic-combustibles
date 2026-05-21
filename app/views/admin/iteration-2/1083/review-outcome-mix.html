@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Finish application review – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Finish application review
+      </h1>
+        <p>Confirm the outcome of the technical review and submit suitable appliances for government approval.</p>
+        <h2 class="govuk-heading-l">Unsuitable appliances</h2>
+        <p>Following technical review, 1 appliance in this application is considered to be unsuitable for certification under the Clean Air Act 1993:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Twin Heat M40i</li>
+          </ul>
+          <p>You must contact the applicant to tell them about this decision.</p>
+          <h2 class="govuk-heading-l">Suitable appliances</h2>
+          <p>Following technical review, 3 appliances in this application are considered to be suitable for certification under the Clean Air Act 1993:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Twin Heat M20i</li>
+            <li>Twin Heat M60i</li>
+            <li>Twin Heat M80i</li>
+          </ul>
+          <p>These appliances can now be submitted to the governments of England, Wales, Scotland and Northern Ireland for approval.</p>
+          <div class="govuk-button-group govuk-!-margin-top-7">
+            {{ govukButton({
+              text: "Submit for approval",
+              href: "review-complete"
+            }) }}
+          </div>
+
+      <p><a class="govuk-link" href="review-application.html">Go back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

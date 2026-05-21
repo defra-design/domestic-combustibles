@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  What is the model name? – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,12 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  What is the model name? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -27,8 +27,8 @@
             isPageHeading: true
           },
           id: "model-name",
-          name: "modelName",
-          value: foundObject['modelName']
+          name: "modelName40",
+          value: data['modelName40'] or foundObject['modelName']
         }) }}
 
         <div class="govuk-button-group govuk-!-margin-top-7">

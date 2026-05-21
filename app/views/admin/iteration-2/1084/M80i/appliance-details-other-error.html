@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Appliance details – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,13 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  Appliance details – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-error-summary" data-module="govuk-error-summary">
@@ -40,7 +41,11 @@
             Model name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['modelName'] }}
+            {% if (data.modelName) %}
+              {{ data['modelName'] }}
+            {% else %}
+              {{ foundObject['modelName'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="model-name">Change<span class="govuk-visually-hidden"> model name</span></a>
@@ -51,7 +56,9 @@
             Model number (optional)
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if (foundObject.modelNumber) %}
+            {% if (data.modelNumber) %}
+              {{ data['modelNumber'] }}
+            {% elseif (foundObject.modelNumber) %}
               {{ foundObject['modelNumber'] }}
             {% else %}
               Not provided
@@ -59,7 +66,9 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="model-number.html">
-              {% if (foundObject.modelNumber) %}
+              {% if (data.modelNumber) %}
+                Change<span class="govuk-visually-hidden"> model number</span>
+              {% elseif (foundObject.modelNumber) %}
                 Change<span class="govuk-visually-hidden"> model number</span>
               {% else %}
                 Add<span class="govuk-visually-hidden"> model number</span>
@@ -72,7 +81,11 @@
             Appliance type
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['applianceType'] }}
+            {% if (data.applianceType) %}
+              {{ data['applianceType'] }}
+            {% else %}
+              {{ foundObject['applianceType'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="appliance-type.html">Change<span class="govuk-visually-hidden"> appliance type</span></a>
@@ -107,13 +120,29 @@
             Is it a variant of a certified appliance?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['variant'] }}
+            {% if (data.isVariant) %}
+              {{ data['isVariant'] }}
+            {% else %}
+              {{ foundObject['variant'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
           </dd>
         </div>
-        {% if (foundObject.variant == "Yes") %}
+        {% if (data.isVariant == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject['variantDetails'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+            </dd>
+          </div>
+        {% elseif (foundObject.variant == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Variant details
@@ -131,7 +160,11 @@
             Nominal (thermal) output
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['thermalOutput'] }} kW
+            {% if (data.thermalOutput) %}
+              {{ data['thermalOutput'] }} kW
+            {% else %}
+              {{ foundObject['thermalOutput'] }} kW
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>

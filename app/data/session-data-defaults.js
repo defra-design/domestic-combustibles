@@ -629,6 +629,17 @@ module.exports = {
 
   "applianceApplications": [
     {
+      "id" : 1083,
+      "applicationNo": "1083",
+      "modelName": "Twin Heat CS200i",
+      "reviewer" : "Sean Keller",
+      "modelNumber": "CS200i",
+      "applianceType": "Stove",
+      "variant": "No",
+      "variantDetails": "",
+      "thermalOutput": "3"
+    },
+    {
       "id" : 10841,
       "applicationNo": "1084",
       "modelName": "Twin Heat M20i",
@@ -701,7 +712,7 @@ module.exports = {
       "sulphur": "0.03",
       "manufacture": "Was manufactured using a kiln pyrolysis process at approximately 450°C",
       "quality" : "Yes",
-      "originalBrand" : "	WHITE QUEBRACHO CHARCOAL (SP51)",
+      "originalBrand" : "WHITE QUEBRACHO CHARCOAL (SP51)",
       "originalManufacturer" : "Josper S.A.U.",
       "changes" : "Yes",
       "changeDetails" : "Made pieces smaller"

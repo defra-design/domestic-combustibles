@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Check permitted fuel for use with {{ foundObject["modelName"] }} – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,13 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  Check permitted fuel for use with {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 

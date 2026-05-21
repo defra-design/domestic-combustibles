@@ -22,13 +22,11 @@
 
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--xl" for="fuel-desc">
+            <label class="govuk-label govuk-label--xl" for="fuel-manu">
               How is the fuel manufactured?
             </label>
           </h1>
-          <textarea class="govuk-textarea" id="fuel-desc" name="fuelDesc" rows="5">
-          {{ foundObject['manufacture'] }}
-          </textarea>
+          <textarea class="govuk-textarea" id="fuel-manu" name="fuelManuKing" rows="5">{{ data['fuelManuKing'] or foundObject['manufacture'] }}</textarea>
         </div>
 
         <div class="govuk-button-group govuk-!-margin-top-7">

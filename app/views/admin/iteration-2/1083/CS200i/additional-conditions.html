@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "1083" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Enter additional conditions for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance?addconstatusCS=done" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="add-conditions">
+              Enter additional conditions for {{ foundObject["modelName"] }}
+            </label>
+          </h1>
+          <div id="add-conditions-hint" class="govuk-hint">
+            If there aren't any additional conditions required to use this appliance legally in smoke control areas, enter "No additional conditions for use".
+          </div>
+          <textarea class="govuk-textarea" id="add-conditions" name="addConditionsCS" rows="5" aria-describedby="add-conditions-hint">{{ data['addConditions'] }}</textarea>
+        </div>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save and mark as completed"
+          }) }}
+
+          <a class="govuk-link" href="review-appliance.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "1083" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Review test reports for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="review-appliance?teststatusCS=pass" method="post">
+        <h1 class="govuk-heading-xl">Review test reports for {{ foundObject["modelName"] }}</h1>
+        <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
+        <p><a href="#">Test-report-April.pdf</a></p>
+        <p><a href="#">Test-report-May-2025.pdf</a></p> -->
+        <p>Check the following in the test report:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>stuff to check</li>
+          <li>important things</li>
+          <li>anything else</li>
+        </ul>
+        <h2 class="govuk-heading-l">Complete test result data</h2>
+        <p>These will be included in the recommendation letter to government. Test results will not be made public.</p>
+        
+        {{ govukInput({
+          label: {
+            text: "Rated output",
+            classes: "govuk-!-font-weight-bold"
+          },
+          classes: "govuk-input--width-3 govuk-!-text-align-right",
+          id: "rated-output",
+          name: "ratedOutputCS",
+          value: data["ratedOutputCS"],
+          suffix: {
+            text: "kW"
+          }
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Tested output - rated",
+            classes: "govuk-!-font-weight-bold"
+          },
+          classes: "govuk-input--width-3 govuk-!-text-align-right",
+          id: "tested-output",
+          name: "testedOutputCS",
+          value: data["testedOutputCS"],
+          suffix: {
+            text: "kW"
+          }
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Tested output - low",
+            classes: "govuk-!-font-weight-bold"
+          },
+          classes: "govuk-input--width-3 govuk-!-text-align-right",
+          id: "tested-output-low",
+          name: "testedOutputLowCS",
+          value: data["testedOutputLowCS"],
+          suffix: {
+            text: "kW"
+          }
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Smoke emission output - rated",
+            classes: "govuk-!-font-weight-bold"
+          },
+          classes: "govuk-input--width-3 govuk-!-text-align-right",
+          id: "smoke-emission",
+          name: "smokeEmissionCS",
+          value: data["smokeEmissionCS"],
+          suffix: {
+            text: "grams per hour"
+          }
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Smoke emission output - low",
+            classes: "govuk-!-font-weight-bold"
+          },
+          classes: "govuk-input--width-3 govuk-!-text-align-right",
+          id: "smoke-emission-low",
+          name: "smokeEmissionLowCS",
+          value: data["smokeEmissionLowCS"],
+          suffix: {
+            text: "grams per hour"
+          }
+        }) }}
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as passed"
+          }) }}
+          </form>
+
+          {{ govukButton({
+            text: "Mark as failed",
+            classes: "govuk-button--secondary",
+            href: "review-appliance?teststatusCS=fail"
+          }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
+
+      
+
+    </div>
+  </div>
+
+{% endblock %}

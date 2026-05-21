@@ -1,5 +1,14 @@
 {% extends "layouts/main.html" %}
 
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10843" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
 {% block pageTitle %}
   Review {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
@@ -35,15 +44,6 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      {% set foundObject ={} %}
-
-      {% for object in data["applianceApplications"] %}
-
-        {% if object.id == "10843" %}
-          {% set foundObject = object %}
-        {% endif %}
-      {% endfor %}
 
       <h1 class="govuk-heading-xl">Review {{ foundObject["modelName"] }}</h1>
 

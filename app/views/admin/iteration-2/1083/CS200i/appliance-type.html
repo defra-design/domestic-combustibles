@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "1083" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  What type of appliance is {{ foundObject["modelName"] }}? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What type of appliance is {{ foundObject["modelName"] }}?
+            </h1>
+          </legend>
+
+          {{ govukRadios({
+            name: "applianceTypeCS",
+            value: data['applianceTypeCS'] or foundObject['applianceType'],
+            fieldset: {
+              legend: {
+                text: "What type of appliance is it?",
+                classes: "govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Stove",
+                text: "Stove"
+              },
+              {
+                value: "Boiler",
+                text: "Boiler"
+              },
+              {
+                value: "Roomheater",
+                text: "Roomheater"
+              },
+              {
+                value: "Inset roomheater",
+                text: "Inset roomheater"
+              },
+              {
+                value: "Pizza oven",
+                text: "Pizza oven"
+              },
+              {
+                value: "Pellet stove",
+                text: "Pellet stove"
+              },
+              {
+                value: "Other",
+                text: "Other"
+              }
+            ]
+          }) }}
+            
+        </div>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block pageScripts %}
+  <script type="text/javascript" src="app\assets\javascripts\accessible-autocomplete.min.js"></script>
+{% endblock %}

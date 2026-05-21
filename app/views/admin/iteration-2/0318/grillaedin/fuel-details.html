@@ -27,7 +27,11 @@
             Rebrand name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['modelName'] }}
+            {% if (data.rebrandName) %}
+              {{ data['rebrandName'] }}
+            {% else %}
+              {{ foundObject['modelName'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="fuel-name.html">
@@ -40,7 +44,11 @@
             Will the fuel be sold under any additional rebrand names?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['moreBrands'] }}
+            {% if (data.addBrands) %}
+              {{ data['addBrands'] }}
+            {% else %}
+              {{ foundObject['moreBrands'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="brands.html">
@@ -48,33 +56,21 @@
             </a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Original fuel manufacturer
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ foundObject['originalManufacturer'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="original-manufacturer.html">
-              Change<span class="govuk-visually-hidden"> original fuel manufacturer</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Original fuel brand name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ foundObject['originalBrand'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="original-brand.html">
-              Change<span class="govuk-visually-hidden"> original fuel brand name</span>
-            </a>
-          </dd>
-        </div>
-        {% if (foundObject.moreBrands == "Yes") %}
+        {% if (data.addBrands == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional brand name(s)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['additionalBrands'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="brands.html">
+                Change<span class="govuk-visually-hidden"> additional brand names</span>
+              </a>
+            </dd>
+          </div>
+        {% elseif (foundObject.moreBrands == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Additional brand name(s)
@@ -91,10 +87,49 @@
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Original fuel manufacturer
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.originalManu) %}
+              {{ data['originalManu'] }}
+            {% else %}
+              {{ foundObject['originalManufacturer'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="original-manufacturer.html">
+              Change<span class="govuk-visually-hidden"> original fuel manufacturer</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel brand name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.originalName) %}
+              {{ data['originalName'] }}
+            {% else %}
+              {{ foundObject['originalBrand'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="original-brand.html">
+              Change<span class="govuk-visually-hidden"> original fuel brand name</span>
+            </a>
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Changes to original fuel?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['changes'] }}
+            {% if (data.changeOriginal) %}
+              {{ data['changeOriginal'] }}
+            {% else %}
+              {{ foundObject['changes'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="changes.html">
@@ -102,7 +137,21 @@
             </a>
           </dd>
         </div>
-        {% if (foundObject.changes == "Yes") %}
+        {% if (data.changeOriginal == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Detail of changes
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['changeDetails'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="changes.html">
+                Change<span class="govuk-visually-hidden"> detail of the changes</span>
+              </a>
+            </dd>
+          </div>
+        {% elseif (foundObject.changes == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Detail of changes

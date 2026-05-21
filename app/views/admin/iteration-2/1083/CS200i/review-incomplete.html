@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "1083" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Incomplete review – {{ serviceName }}
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "../../dashboard"
+      },
+      {
+        text: "Appliance applications",
+        href: "../../applications-appliances"
+      },
+      {
+        text: "Review appliance application 1083",
+        href: "../review-application"
+      },
+      {
+        text: "Review Twin Heat M80i",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Incomplete review
+      </h1>
+
+      <p>You cannot accept {{ foundObject["modelName"] }} for government approval until:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>all supporting documents are marked as Passed</li>
+        <li>all tasks for preparing the public listing are marked as Completed</li>
+      </ul>
+
+      <p><a class="govuk-link" href="review-appliance">Return to  {{ foundObject["modelName"] }} review</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

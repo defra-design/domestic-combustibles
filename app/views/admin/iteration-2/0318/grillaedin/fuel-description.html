@@ -29,7 +29,9 @@
             Fuel appearance
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['fuelDesc'] }}
+            {% if (data['fuelDesc']) %}
+              {{ data['fuelDesc'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if (data['fuelDesc']) %}
@@ -48,7 +50,9 @@
             Fuel weight
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['fuelWeight'] }}
+            {% if (data['fuelWeight']) %}
+              {{ data['fuelWeight'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if (data['fuelWeight']) %}
@@ -67,7 +71,9 @@
             Fuel composition
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['fuelComp'] }}
+            {% if (data['fuelComp']) %}
+              {{ data['fuelComp'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if (data['fuelComp']) %}
@@ -86,7 +92,9 @@
             Sulphur content
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['sulphurContent'] }} % of total dry weight
+            {% if (data['sulphurContent']) %}
+              {{ data['sulphurContent'] }} % of total dry weight
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if (data['sulphurContent']) %}
@@ -105,7 +113,9 @@
             Manufacturing process
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['fuelManu'] }}
+            {% if (data['fuelManu']) %}
+              {{ data['fuelManu'] }}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if (data['fuelManu']) %}

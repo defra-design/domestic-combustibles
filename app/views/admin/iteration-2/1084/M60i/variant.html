@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Is this a variant of a certified appliance? – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,12 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  Is this a variant of a certified appliance? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -26,15 +26,16 @@
             classes: "govuk-label--m"
           },
           id: "variant-details",
-          name: "variantDetails",
-          value: foundObject['variantDetails']
+          name: "variantDetails60",
+          value: data['variantDetails60'] or foundObject['variantDetails']
         }) }}
         {% endset -%}
 
 
         {{ govukRadios({
           classes: "govuk-radios",
-          name: "isVariant",
+          name: "isVariant60",
+          value: data['isVariant60'] or foundObject['variant'],
           fieldset: {
             legend: {
               text: "Is this a variant of a certified appliance?",
@@ -46,7 +47,6 @@
             {
               value: "Yes",
               text: "Yes",
-              checked: true,
               conditional: {
               html: detailsInput
             }

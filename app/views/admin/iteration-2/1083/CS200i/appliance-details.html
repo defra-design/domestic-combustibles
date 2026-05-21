@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "1083" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Appliance details – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check appliance details for {{ foundObject["modelName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.modelNameCS) %}
+              {{ data['modelNameCS'] }}
+            {% else %}
+              {{ foundObject['modelName'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="model-name">Change<span class="govuk-visually-hidden"> model name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model number (optional)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.modelNumberCS) %}
+              {{ data['modelNumberCS'] }}
+            {% elseif (foundObject.modelNumber) %}
+              {{ foundObject['modelNumber'] }}
+            {% else %}
+              Not provided
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="model-number.html">
+              {% if (data.modelNumberCS) %}
+                Change<span class="govuk-visually-hidden"> model number</span>
+              {% elseif (foundObject.modelNumber) %}
+                Change<span class="govuk-visually-hidden"> model number</span>
+              {% else %}
+                Add<span class="govuk-visually-hidden"> model number</span>
+              {% endif %}
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appliance type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.applianceTypeCS) %}
+              {{ data['applianceTypeCS'] }}
+            {% else %}
+              {{ foundObject['applianceType'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appliance-type.html">Change<span class="govuk-visually-hidden"> appliance type</span></a>
+          </dd>
+        </div>
+        {% if (data.applianceTypeCS  == "Other") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other appliance type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data['otherApplianceTypeCS']) %}
+                {{ data['otherApplianceTypeCS'] }}
+              {% else %}
+                <a class="govuk-link" href="appliance-type-other.html">Select<span class="govuk-visually-hidden"> other appliance type</span></a>
+              {% endif %}
+            </dd>
+            {% if (data['otherApplianceTypeCS']) %}
+              <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="appliance-type-other.html">Change<span class="govuk-visually-hidden"> other appliance type</span></a>
+              </dd>
+            {% endif %}
+          </div>
+        {% elseif (foundObject.applianceType == "Other") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other appliance type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data['otherApplianceTypeCS']) %}
+                {{ data['otherApplianceTypeCS'] }}
+              {% else %}
+                <a class="govuk-link" href="appliance-type-other.html">Select<span class="govuk-visually-hidden"> other appliance type</span></a>
+              {% endif %}
+            </dd>
+            {% if (data['otherApplianceTypeCS']) %}
+              <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="appliance-type-other.html">Change<span class="govuk-visually-hidden"> other appliance type</span></a>
+              </dd>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it a variant of a certified appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.isVariantCS) %}
+              {{ data['isVariantCS'] }}
+            {% else %}
+              {{ foundObject['variant'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+          </dd>
+        </div>
+        {% if (data.isVariantCS == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['variantDetailsCS'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+            </dd>
+          </div>
+        {% elseif (foundObject.variant == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Variant details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ foundObject['variantDetails'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="variant.html">Change<span class="govuk-visually-hidden"> if this is a variant</span></a>
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nominal (thermal) output
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.thermalOutputCS) %}
+              {{ data['thermalOutputCS'] }} kW
+            {% else %}
+              {{ foundObject['thermalOutput'] }} kW
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="review-appliance" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+            {{ govukButton({
+              text: "Mark as completed",
+              href: "review-appliance?appdetailstatusCS=done"
+            }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

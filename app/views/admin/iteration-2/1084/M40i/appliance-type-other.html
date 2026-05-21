@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "10844" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  What type of appliance is {{ foundObject["modelName"] }}? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="appliance-details" method="post">
+
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Select other appliance type for {{ foundObject["modelName"] }}
+            </h1>
+          </legend>
+
+          {{ govukRadios({
+            name: "otherApplianceType40",
+            value: data['otherApplianceType40'],
+            fieldset: {
+              legend: {
+                text: "Select other appliance type",
+                classes: "govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Air heater",
+                text: "Air heater"
+              },
+              {
+                value: "Oven",
+                text: "Oven"
+              },
+              {
+                value: "Incinerator",
+                text: "Incinerator"
+              },
+              {
+                value: "Cooker with boiler",
+                text: "Cooker with boiler"
+              },
+              {
+                value: "Wet roomheater",
+                text: "Wet roomheater"
+              },
+              {
+                value: "Gasifier",
+                text: "Gasifier"
+              }
+            ]
+          }) }}
+        </div>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Save changes"
+          }) }}
+
+          <a class="govuk-link" href="appliance-details.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block pageScripts %}
+  <script type="text/javascript" src="app\assets\javascripts\accessible-autocomplete.min.js"></script>
+{% endblock %}

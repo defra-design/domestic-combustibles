@@ -26,9 +26,7 @@
               What does the fuel look like?
             </label>
           </h1>
-          <textarea class="govuk-textarea" id="fuel-desc" name="fuelDesc" rows="5">
-          {{ foundObject['description'] }}
-          </textarea>
+          <textarea class="govuk-textarea" id="fuel-desc" name="fuelDescKing" rows="5">{{ data['fuelDescKing'] or foundObject['description'] }}</textarea>
         </div>
 
         <div class="govuk-button-group govuk-!-margin-top-7">

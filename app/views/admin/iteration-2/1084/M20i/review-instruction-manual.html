@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Review instruction manual for {{ foundObject["modelName"] }} – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,12 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  Review instruction manual for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -73,35 +73,42 @@
             </div>
           </fieldset>
         </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-              Do you want to include a version?
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="enter-version" name="enterVersion20" type="radio" value="yes" data-aria-controls="conditional-version">
-                <label class="govuk-label govuk-radios__label" for="enter-version">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-version">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="version-detail-yes">
-                    Enter version
-                  </label>
-                  <input class="govuk-input govuk-!-width-one-third" id="version-detail-yes" name="versionDetail20" value="{{ data['versionDetail20'] }}">
-                </div>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="version-detail-no" name="enterVersion20" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="version-detail-no">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+        {% set versionHtml %}
+        {{ govukInput({
+          id: "conditional-version",
+          name: "conditionalVersion20",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter version"
+          },
+          value: data['conditionalVersion20']
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "enterVersion20",
+          value: data['enterVersion20'],
+          fieldset: {
+            legend: {
+              text: "Do you want to include a version?",
+              isPageHeading: false,
+              classes: " govuk-!-font-weight-bold"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: versionHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
         
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({

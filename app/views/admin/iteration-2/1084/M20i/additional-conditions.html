@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Enter additional conditions for {{ foundObject["modelName"] }} – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,12 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  Enter additional conditions for {{ foundObject["modelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -29,9 +29,7 @@
           <div id="add-conditions-hint" class="govuk-hint">
             If there aren't any additional conditions required to use this appliance legally in smoke control areas, enter "No additional conditions for use".
           </div>
-          <textarea class="govuk-textarea" id="add-conditions" name="addConditions20" rows="5" aria-describedby="add-conditions-hint">
-            {{ data['addConditions20'] }}
-          </textarea>
+          <textarea class="govuk-textarea" id="add-conditions" name="addConditions20" rows="5" aria-describedby="add-conditions-hint">{{ data['addConditions20'] }}</textarea>
         </div>
 
         <div class="govuk-button-group govuk-!-margin-top-7">

@@ -1,11 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  What is the nominal (thermal) output? – {{ serviceName }}
-{% endblock %}
-
-{% block content %}
-
 {% set foundObject ={} %}
 
 {% for object in data["applianceApplications"] %}
@@ -14,6 +8,12 @@
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
+
+{% block pageTitle %}
+  What is the nominal (thermal) output? – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -28,8 +28,8 @@
           },
           classes: "govuk-input--width-3 govuk-!-text-align-right",
           id: "thermal-output",
-          name: "thermalOutput",
-          value: foundObject['thermalOutput'],
+          name: "thermalOutput40",
+          value: data['thermalOutput40'] or foundObject['thermalOutput'],
           suffix: {
             text: "kW"
           },
