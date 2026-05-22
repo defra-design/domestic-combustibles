@@ -9,24 +9,19 @@
   {% endif %}
 {% endfor %}
 
-{% set countryChange ={} %}
-{% set countryIsh ={} %}
 {% set currentStatus ={} %}
 {% set altStatus ={} %}
 
-{% if data["country"]  == "eng" %}
+{% if data["countryJet"]  == "eng" %}
   {% set countryChange = 'England' %}
   {% set countryIsh = 'English government' %}
-{% endif %}
-{% if data["country"]  == "scot" %}
+{% elseif data["countryJet"]  == "scot" %}
   {% set countryChange = 'Scotland' %}
   {% set countryIsh = 'Scottish government' %}
-{% endif %}
-{% if data["country"]  == "wal" %}
+{% elseif data["countryJet"]  == "wal" %}
   {% set countryChange = 'Wales' %}
   {% set countryIsh = 'Welsh government' %}
-{% endif %}
-{% if data["country"]  == "ni" %}
+{% elseif data["countryJet"]  == "ni" %}
   {% set countryChange = 'Northern Ireland' %}
   {% set countryIsh = 'government of Northern Ireland' %}
 {% endif %}

@@ -2,15 +2,15 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "10" %}
+  {% if object.id == "3" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Application {{ foundObject["appNum"] }} details – {{ serviceName }}
+  Test results for {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -21,11 +21,11 @@
         href: "../../dashboard"
       },
       {
-        text: "Appliance records",
-        href: "../../records-appliances"
+        text: "Fuel records",
+        href: "../../records-fuels"
       },
       {
-        text: foundObject['applianceName'],
+        text: foundObject['fuelName'],
         href: "#"
       }
     ]
@@ -43,35 +43,28 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Application {{ foundObject["appNum"] }} details
+        Test results for {{ foundObject["fuelName"] }}
       </h1>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Linked legacy applications
+            Smoke emission measurement
           </dt>
           <dd class="govuk-summary-list__value">
-            CAA-EA-00000850
+            3 grams per hour
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company
+            Sulphur content
           </dt>
           <dd class="govuk-summary-list__value">
-            Jetmaster Fires Limited<br/>
-            Unit 2<br/>
-            Peacock Trading Estate<br/>
-            Goodwood Road<br/>
-            Eastleigh<br/>
-            Hampshire<br/>
-            SO50 4NT
+            {{ foundObject["sulphur"] }} % of total dry weight
           </dd>
         </div>
       </dl>
       <p><a href="record">Return to record</a></p>
-      
     </div>
   </div>
 {% endblock %}

@@ -25,7 +25,7 @@
         href: "../../records-appliances"
       },
       {
-        text: "Jetmaster Inset 50i Mk2 6.3kW wood-burning inset stove",
+        text: foundObject['applianceName'],
         href: "#"
       }
     ]
@@ -44,7 +44,7 @@
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
-          {% if ( data["hidden"] == "yes") %}
+          {% if ( data["hiddenJet"] == "yes") %}
             <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
               Hidden from public list
             </strong>
@@ -101,11 +101,11 @@
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
                   {% if (foundObject['england'] == "awaiting") %}
-                    <a href="set-certification.html?country=eng">
+                    <a href="set-certification.html?countryJet=eng">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?country=eng">
+                    <a href="change-certification.html?countryJet=eng">
                       Change
                     </a>
                   {% endif %}
@@ -133,11 +133,11 @@
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
                   {% if (foundObject['scotland'] == "awaiting") %}
-                    <a href="set-certification.html?country=scot">
+                    <a href="set-certification.html?countryJet=scot">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?country=scot">
+                    <a href="change-certification.html?countryJet=scot">
                       Change
                     </a>
                   {% endif %}
@@ -165,11 +165,11 @@
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
                   {% if (foundObject['wales'] == "awaiting") %}
-                    <a href="set-certification.html?country=wal">
+                    <a href="set-certification.html?countryJet=wal">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?country=wal">
+                    <a href="change-certification.html?countryJet=wal">
                       Change
                     </a>
                   {% endif %}
@@ -197,11 +197,11 @@
                 </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
                   {% if (foundObject['nireland'] == "awaiting") %}
-                    <a href="set-certification.html?country=ni">
+                    <a href="set-certification.html?countryJet=ni">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?country=ni">
+                    <a href="change-certification.html?countryJet=ni">
                       Change
                     </a>
                   {% endif %}
@@ -265,7 +265,7 @@
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {% if ( data["hidden"] == "yes") %}
+        {% if ( data["hiddenJet"] == "yes") %}
             {{ govukButton({
               text: "Make appliance live on public list",
               href: "",

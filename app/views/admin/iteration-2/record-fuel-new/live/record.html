@@ -2,15 +2,15 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "2" %}
+  {% if object.id == "3" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  {{ foundObject["applianceName"] }} – {{ serviceName }}
+  {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -21,11 +21,11 @@
         href: "../../dashboard"
       },
       {
-        text: "Appliance records",
-        href: "../../records-appliances"
+        text: "Fuel records",
+        href: "../../records-fuels"
       },
       {
-        text: foundObject['applianceName'],
+        text: foundObject['fuelName'],
         href: "#"
       }
     ]
@@ -44,17 +44,17 @@
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
-          {% if ( data["hiddenAarowEco"] == "no") %}
-            <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
-              Live on public list
-            </strong>
-          {% else %}
+          {% if ( data["hiddenCozy"] == "yes") %}
             <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
               Hidden from public list
             </strong>
+          {% else %}
+            <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
+              Live on public list
+            </strong>
           {% endif %}
         </span>
-        {{ foundObject["applianceName"] }}
+        {{ foundObject["fuelName"] }}
       </h1>
 
       <div class="govuk-summary-card">
@@ -71,6 +71,7 @@
                 <th scope="col" class="govuk-table__header">Country</th>
                 <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
                 <th scope="col" class="govuk-table__header govuk-table__header">Date first certified</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Date last certified</th>
                 <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
               </tr>
             </thead>
@@ -78,7 +79,19 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">England</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['england'] == "suspended") %}
+                  {% if (data['engStatus'] == "suspended") %}
+                    <strong class="govuk-tag govuk-tag--blue">
+                      Suspended
+                    </strong>
+                  {% elseif (data['engStatus'] == "certified") %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Certified
+                    </strong>
+                  {% elseif (data['engStatus'] == "uncertified") %}
+                    <strong class="govuk-tag govuk-tag--grey">
+                      Uncertified
+                    </strong>
+                  {% elseif (foundObject['england'] == "suspended") %}
                     <strong class="govuk-tag govuk-tag--blue">
                       Suspended
                     </strong>
@@ -99,14 +112,25 @@
                 <td class="govuk-table__cell">
                   {{ foundObject["eDate"] }}
                 </td>
+                <td class="govuk-table__cell">
+                  {% if (data['engStatus'] == "suspended") %}
+                    {{ "today" | duration(-1, "days") | govukDate }}
+                  {% elseif (data['engStatus'] == "certified") %}
+                    {{ "today" | govukDate }}
+                  {% elseif (data['engStatus'] == "uncertified") %}
+                    {{ "today" | duration(-1, "days") | govukDate }}
+                  {% else %}
+                    {{ foundObject["eDateLast"] }}
+                  {% endif %}
+                </td>
                 <td class="govuk-table__cell govuk-table__cell">
                   {% if (foundObject['england'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowEco=eng">
+                    <a href="set-certification.html?countryCozy=eng">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowEco=eng">
-                      Change
+                    <a href="update-england-certification.html?countryCozy=eng">
+                      Update
                     </a>
                   {% endif %}
                 </td>
@@ -131,13 +155,16 @@
                 <td class="govuk-table__cell">
                   {{ foundObject["sDate"] }}
                 </td>
+                <td class="govuk-table__cell">
+                  {{ foundObject["sDateLast"] }}
+                </td>
                 <td class="govuk-table__cell govuk-table__cell">
                   {% if (foundObject['scotland'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowEco=scot">
+                    <a href="set-certification.html?countryCozy=scot">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowEco=scot">
+                    <a href="change-certification.html?countryCozy=scot">
                       Change
                     </a>
                   {% endif %}
@@ -163,13 +190,16 @@
                 <td class="govuk-table__cell">
                   {{ foundObject["wDate"] }}
                 </td>
+                <td class="govuk-table__cell">
+                  {{ foundObject["wDateLast"] }}
+                </td>
                 <td class="govuk-table__cell govuk-table__cell">
                   {% if (foundObject['wales'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowEco=wal">
+                    <a href="set-certification.html?countryCozy=wal">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowEco=wal">
+                    <a href="change-certification.html?countryCozy=wal">
                       Change
                     </a>
                   {% endif %}
@@ -195,13 +225,16 @@
                 <td class="govuk-table__cell" style="border-bottom:0;">
                   {{ foundObject["niDate"] }}
                 </td>
+                <td class="govuk-table__cell" style="border-bottom:0;">
+                  {{ foundObject["niDateLast"] }}
+                </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
                   {% if (foundObject['nireland'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowEco=ni">
+                    <a href="set-certification.html?countryCozy=ni">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowEco=ni">
+                    <a href="change-certification.html?countryCozy=ni">
                       Change
                     </a>
                   {% endif %}
@@ -215,17 +248,56 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Details
+            Test status
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-table" style="margin-bottom:0;">
+            <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Certification status by country</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Last tested</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Retest required by</th>
+                <th scope="col" class="govuk-table__header govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-table__cell">
+                  Not available
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Passed
+                  </strong>
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  Not available
+                </td>
+                <td class="govuk-table__cell govuk-table__cell">
+                  <a href="update-test-status">Update</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Manufacturer details
           </h2>
         </div>
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Appliance details
+                Fuel details
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="appliance-details.html">View<span class="govuk-visually-hidden"> appliance details</span></a>
+                <a class="govuk-link" href="fuel-details.html">View<span class="govuk-visually-hidden"> fuel details</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -234,14 +306,6 @@
               </dt>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="test-results">View<span class="govuk-visually-hidden"> test results</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Instruction manual
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="instruction-manual">View<span class="govuk-visually-hidden"> instruction manual</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -257,7 +321,7 @@
                 Action history
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="action-history.html">View<span class="govuk-visually-hidden"> action history</span></a>
+                <a class="govuk-link" href="action-history">View<span class="govuk-visually-hidden"> action history</span></a>
               </dd>
             </div>
           </dl>
@@ -265,17 +329,17 @@
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {% if ( data["hidden"] == "no") %}
+        {% if ( data["hiddenCozy"] == "yes") %}
             {{ govukButton({
-              text: "Hide appliance from public list",
+              text: "Make appliance live on public list",
               href: "",
-              classes: "govuk-button--secondary"
+              classes: "govuk-button"
             }) }}
           {% else %}
             {{ govukButton({
-              text: "Make appliance live on public list",
-              href: "make-live",
-              classes: "govuk-button"
+              text: "Hide appliance from public list",
+              href: "hide",
+              classes: "govuk-button--secondary"
             }) }}
           {% endif %}
       </div>

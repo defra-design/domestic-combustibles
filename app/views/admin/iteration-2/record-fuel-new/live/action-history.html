@@ -2,7 +2,7 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
   {% if object.id == "3" %}
     {% set foundObject = object %}
@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Action history for {{ foundObject["applianceName"] }} – {{ serviceName }}
+  Action history for {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -21,11 +21,11 @@
         href: "dashboard"
       },
       {
-        text: "Appliance records",
-        href: "../../records-appliances"
+        text: "Fuel records",
+        href: "../../records-fuels"
       },
       {
-        text: foundObject['applianceName'],
+        text: foundObject['fuelName'],
         href: "#"
       }
     ]
@@ -43,7 +43,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Action history for {{ foundObject["applianceName"] }}
+        Action history for {{ foundObject["fuelName"] }}
       </h1>
 
       <table class="govuk-table govuk-!-margin-bottom-9">
@@ -57,6 +57,17 @@
       </thead>
 
       <tbody>
+        <tr>
+          <td scope="row" class="govuk-table__cell">
+            Certified on behalf of Wales
+          </td>
+          <td class="govuk-table__cell">
+            Calvin May
+          </td>
+          <td class="govuk-table__cell">
+            25 January 2026
+          </td>
+        </tr>
         <tr>
           <td scope="row" class="govuk-table__cell">
             Certified in Northern Ireland

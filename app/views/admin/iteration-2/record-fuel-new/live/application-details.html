@@ -2,9 +2,9 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "1" %}
+  {% if object.id == "3" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -21,11 +21,11 @@
         href: "../../dashboard"
       },
       {
-        text: "Appliance records",
-        href: "../../records-appliances"
+        text: "Fuel records",
+        href: "../../records-fuels"
       },
       {
-        text: foundObject['applianceName'],
+        text: foundObject['fuelName'],
         href: "#"
       }
     ]
@@ -52,7 +52,7 @@
             Application date
           </dt>
           <dd class="govuk-summary-list__value">
-            1 March 2026
+            1 January 2025
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -68,11 +68,11 @@
             Company address
           </dt>
           <dd class="govuk-summary-list__value">
-            The Fireworks<br/>
-            Weycroft Avenue<br/>
-            Axminster<br/>
-            Devon<br/>
-            EX13 5HU
+            11 Carrakeel Drive<br/>
+            Maydown<br/>
+            Derry/Londonderry<br/>
+            BT47 6UQ<br/>
+            United Kingdom
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -88,7 +88,7 @@
             Main contact email
           </dt>
           <dd class="govuk-summary-list__value">
-            john.doe@arada.co.uk
+            john.doe@acoyle.co.uk
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -96,7 +96,7 @@
             Main contact alternative email
           </dt>
           <dd class="govuk-summary-list__value">
-            hello@arada.co.uk
+            hello@acoyle.co.uk
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -109,10 +109,42 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Appliance in this application
+            Responsible person
           </dt>
           <dd class="govuk-summary-list__value">
-            Aarrow ECB5 Plus SC 5kW and ECB7 Plus SC 7kW wood-burning stoves
+            Fred Doe
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Responsible person email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            fred.doe@acoyle.co.uk
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Customer complaints system in place?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How do they sell the fuel?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bagged at source
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Manufacturer or reseller?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Manufacturer
           </dd>
         </div>
       </dl>

@@ -2,9 +2,9 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "2" %}
+  {% if object.id == "3" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -12,22 +12,22 @@
 {% set currentStatus = 'Awaiting decision' %}
 {% set altStatus ={} %}
 
-{% if data["countryAarowEco"]  == "eng" %}
+{% if data["countryCozy"]  == "eng" %}
   {% set countryChange = 'England' %}
   {% set countryIsh = 'English government' %}
-{% elseif data["countryAarowEco"]  == "scot" %}
+{% elseif data["countryCozy"]  == "scot" %}
   {% set countryChange = 'Scotland' %}
   {% set countryIsh = 'Scottish government' %}
-{% elseif data["countryAarowEco"]  == "wal" %}
+{% elseif data["countryCozy"]  == "wal" %}
   {% set countryChange = 'Wales' %}
   {% set countryIsh = 'Welsh government' %}
-{% elseif data["countryAarowEco"]  == "ni" %}
+{% elseif data["countryCozy"]  == "ni" %}
   {% set countryChange = 'Northern Ireland' %}
   {% set countryIsh = 'government of Northern Ireland' %}
 {% endif %}
 
 {% block pageTitle %}
-  Set approval status in {{ countryChange }} for {{ foundObject["applianceName"] }} – {{ serviceName }}
+  Set approval status in {{ countryChange }} for {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -35,7 +35,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Set approval status in {{ countryChange }} for {{ foundObject["applianceName"] }}
+        Set approval status in {{ countryChange }} for {{ foundObject["fuelName"] }}
       </h1>
       <p>Current status: {{ currentStatus }}</p>
       <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the {{ countryIsh }}.</p>

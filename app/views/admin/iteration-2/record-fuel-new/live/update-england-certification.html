@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelRecordList"] %}
+
+  {% if object.id == "3" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% set currentStatus ={} %}
+{% set altStatus ={} %}
+
+{% if data["countryCozy"]  == "eng" %}
+  {% set countryChange = 'England' %}
+  {% set countryIsh = 'English government' %}
+{% endif %}
+
+{% if (foundObject.england == "uncertified") %}
+  {% set currentStatus = 'Uncertified' %}
+  {% set altStatus = 'certified' %}
+{% else %}
+  {% set currentStatus = 'Certified' %}
+  {% set altStatus = 'uncertified' %}
+{% endif %}
+
+
+{% block pageTitle %}
+  Update status in {{ countryChange }} for {{ foundObject["fuelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Update status in {{ countryChange }} for {{ foundObject["fuelName"] }}
+      </h1>
+      <p>Current status: {{ currentStatus }}</p>
+      <form class="form" action="record" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                What is the fuel's new approval status in {{ countryChange }}?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eng-certified" name="engStatus" type="radio" value="certified" aria-describedby="eng-certified-hint">
+                <label class="govuk-label govuk-radios__label" for="eng-certified">
+                  Certified
+                </label>
+                <div id="eng-certified-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has approved the fuel and it is approved for use in domestic and non domestic settings
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eng-suspended" name="engStatus" type="radio" value="suspended" aria-describedby="eng-suspended-hint">
+                <label class="govuk-label govuk-radios__label" for="eng-suspended">
+                  Suspended
+                </label>
+                <div id="eng-suspended-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has approved the fuel but it is only certified for use in non domestic settings currently
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eng-uncertified" name="engStatus" type="radio" value="uncertified" aria-describedby="eng-uncertified-hint">
+                <label class="govuk-label govuk-radios__label" for="eng-uncertified">
+                  Uncertified
+                </label>
+                <div id="eng-uncertified-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has rejected the fuel
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

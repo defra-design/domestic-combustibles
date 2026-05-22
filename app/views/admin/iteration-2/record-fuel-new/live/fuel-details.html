@@ -2,15 +2,15 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "1" %}
+  {% if object.id == "3" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Application {{ foundObject["appNum"] }} details – {{ serviceName }}
+  Appliance details – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -21,11 +21,11 @@
         href: "../../dashboard"
       },
       {
-        text: "Appliance records",
-        href: "../../records-appliances"
+        text: "Fuel records",
+        href: "../../records-fuels"
       },
       {
-        text: foundObject['applianceName'],
+        text: foundObject['fuelName'],
         href: "#"
       }
     ]
@@ -43,76 +43,86 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Application {{ foundObject["appNum"] }} details
+        Appliance details
       </h1>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Application date
+            Fuel ID
           </dt>
           <dd class="govuk-summary-list__value">
-            1 March 2026
+            {{ foundObject["fuelID"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company name
+            Brand name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["manufacturer"] }}
+            {{ foundObject["fuelName"] }}
+          </dd>
+        </div>
+        {% if (foundObject.moreBrands == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional brand names
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list govuk-list--bullet">
+                {% for brand in foundObject['brands'] %}
+                  <li>{{ brand }}</li>
+                {% endfor %}
+              </ul>
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["description"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company address
+            Fuel weight
           </dt>
           <dd class="govuk-summary-list__value">
-            The Fireworks<br/>
-            Weycroft Avenue<br/>
-            Axminster<br/>
-            Devon<br/>
-            EX13 5HU
+            {{ foundObject["weight"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Main contact name
+            Fuel composition
           </dt>
           <dd class="govuk-summary-list__value">
-            John Doe
+            {{ foundObject["composition"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Main contact email
+            Sulphur content
           </dt>
           <dd class="govuk-summary-list__value">
-            john.doe@arada.co.uk
+            {{ foundObject["sulphur"] }} % of total dry weight
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Main contact alternative email
+            Manufacturing process
           </dt>
           <dd class="govuk-summary-list__value">
-            hello@arada.co.uk
+            {{ foundObject["manufacture"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Main contact telephone number
+            Monitored quality control system
           </dt>
           <dd class="govuk-summary-list__value">
-            07722 334455
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Appliance in this application
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Aarrow ECB5 Plus SC 5kW and ECB7 Plus SC 7kW wood-burning stoves
+            {{ foundObject["quality"] }}
           </dd>
         </div>
       </dl>
