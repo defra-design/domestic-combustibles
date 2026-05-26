@@ -4,7 +4,7 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -18,11 +18,11 @@
     items: [
       {
         text: "Home",
-        href: "../../dashboard"
+        href: "../dashboard"
       },
       {
         text: "Fuel records",
-        href: "../../records-fuels"
+        href: "../records-fuels"
       },
       {
         text: foundObject['fuelName'],
@@ -44,7 +44,7 @@
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
-          {% if ( data["hiddenCozy"] == "yes") %}
+          {% if ( data["hiddenAldi"] == "yes") %}
             <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
               Hidden from public list
             </strong>
@@ -57,7 +57,7 @@
         {{ foundObject["fuelName"] }}
       </h1>
 
-      {% if (data.engStatusCozy) %}
+      {% if (data.engStatusAldi) %}
 
       {% else %}
         <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -68,7 +68,7 @@
           </div>
           <div class="govuk-notification-banner__content">
             <p class="govuk-notification-banner__heading">
-              Certification in England has expired
+              Date last certified in England is not available. Update England certification when appropriate.
             </p>
           </div>
         </div>
@@ -96,15 +96,15 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">England</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data['engStatusCozy'] == "suspended") %}
+                  {% if (data['engStatusAldi'] == "suspended") %}
                     <strong class="govuk-tag govuk-tag--blue">
                       Suspended
                     </strong>
-                  {% elseif (data['engStatusCozy'] == "certified") %}
+                  {% elseif (data['engStatusAldi'] == "certified") %}
                     <strong class="govuk-tag govuk-tag--green">
                       Certified
                     </strong>
-                  {% elseif (data['engStatusCozy'] == "uncertified") %}
+                  {% elseif (data['engStatusAldi'] == "uncertified") %}
                     <strong class="govuk-tag govuk-tag--grey">
                       Uncertified
                     </strong>
@@ -130,18 +130,18 @@
                   {{ foundObject["eDate"] }}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data['engStatusCozy'] == "suspended") %}
+                  {% if (data['engStatusAldi'] == "suspended") %}
                     {{ "today" | duration(-1, "days") | govukDate }}
-                  {% elseif (data['engStatusCozy'] == "certified") %}
+                  {% elseif (data['engStatusAldi'] == "certified") %}
                     {{ "today" | govukDate }}
-                  {% elseif (data['engStatusCozy'] == "uncertified") %}
+                  {% elseif (data['engStatusAldi'] == "uncertified") %}
                     {{ "today" | duration(-1, "days") | govukDate }}
                   {% else %}
                     {{ foundObject["eDateLast"] }}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.engStatusCozy) %}
+                  {% if (data.engStatusAldi) %}
                     <a href="update-england-certification.html">
                       Update
                     </a>
@@ -150,7 +150,7 @@
                       Update
                     </a>
                   {% elseif (foundObject['england'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=eng">
+                    <a href="set-certification.html?countryAldi=eng">
                       Change
                     </a>
                   {% endif %}
@@ -159,12 +159,12 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">Scotland</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.changeCertScotCozy == "Yes") %}
-                    {% if (data.newStatusScotCozy  == "certified") %}
+                  {% if (data.changeCertScotAldi == "Yes") %}
+                    {% if (data.newStatusScotAldi  == "certified") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Certified
                       </strong>
-                    {% elseif (data.newStatusScotCozy  == "uncertified") %}
+                    {% elseif (data.newStatusScotAldi  == "uncertified") %}
                       <strong class="govuk-tag govuk-tag--grey">
                         Uncertified
                       </strong>
@@ -184,7 +184,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertScotCozy == "Yes") %}
+                  {% if (data.changeCertScotAldi == "Yes") %}
                     {% if (foundObject["sDate"] == "Not certified") %}
                       {{ "today" | govukDate }}
                     {% endif %}
@@ -193,10 +193,10 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertScotCozy == "Yes") %}
-                    {% if (data['newStatusScotCozy'] == "certified") %}
+                  {% if (data.changeCertScotAldi == "Yes") %}
+                    {% if (data['newStatusScotAldi'] == "certified") %}
                       {{ "today" | govukDate }}
-                    {% elseif (data['newStatusScotCozy'] == "uncertified") %}
+                    {% elseif (data['newStatusScotAldi'] == "uncertified") %}
                       {{ "today" | duration(-1, "days") | govukDate }}
                     {% endif %}
                   {% else %}
@@ -204,7 +204,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.newStatusScotCozy) %}
+                  {% if (data.newStatusScotAldi) %}
                     <a href="change-scotland-certification.html">
                       Change
                     </a>
@@ -213,7 +213,7 @@
                       Change
                     </a>
                   {% elseif (foundObject['scotland'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=scot">
+                    <a href="set-certification.html?countryAldi=scot">
                       Change
                     </a>
                   {% endif %}
@@ -222,12 +222,12 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">Wales</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.changeCertWalesCozy == "Yes") %}
-                    {% if (data.newStatusWalesCozy  == "certified") %}
+                  {% if (data.changeCertWalesAldi == "Yes") %}
+                    {% if (data.newStatusWalesAldi  == "certified") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Certified
                       </strong>
-                    {% elseif (data.newStatusWalesCozy  == "uncertified") %}
+                    {% elseif (data.newStatusWalesAldi  == "uncertified") %}
                       <strong class="govuk-tag govuk-tag--grey">
                         Uncertified
                       </strong>
@@ -247,17 +247,17 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertWalesCozy == "Yes") and (foundObject["wDate"] == "Not certified") %}
+                  {% if (data.changeCertWalesAldi == "Yes") and (foundObject["wDate"] == "Not certified") %}
                     {{ "today" | govukDate }}
                   {% else %}
                     {{ foundObject["wDate"] }}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertWalesCozy == "Yes") %}
-                    {% if (data['newStatusWalesCozy'] == "certified") %}
+                  {% if (data.changeCertWalesAldi == "Yes") %}
+                    {% if (data['newStatusWalesAldi'] == "certified") %}
                       {{ "today" | govukDate }}
-                    {% elseif (data['newStatusWalesCozy'] == "uncertified") %}
+                    {% elseif (data['newStatusWalesAldi'] == "uncertified") %}
                       {{ "today" | duration(-1, "days") | govukDate }}
                     {% endif %}
                   {% else %}
@@ -265,7 +265,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.newStatusWalesCozy) %}
+                  {% if (data.newStatusWalesAldi) %}
                     <a href="change-wales-certification">
                       Change
                     </a>
@@ -274,7 +274,7 @@
                       Change
                     </a>
                   {% elseif (foundObject['wales'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=wal">
+                    <a href="set-certification.html?countryAldi=wal">
                       Change
                     </a>
                   {% endif %}
@@ -283,12 +283,12 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">Northern Ireland</td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.changeCertNICozy == "Yes") %}
-                    {% if (data.newStatusNICozy  == "certified") %}
+                  {% if (data.changeCertNIAldi == "Yes") %}
+                    {% if (data.newStatusNIAldi  == "certified") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Certified
                       </strong>
-                    {% elseif (data.newStatusNICozy  == "uncertified") %}
+                    {% elseif (data.newStatusNIAldi  == "uncertified") %}
                       <strong class="govuk-tag govuk-tag--grey">
                         Uncertified
                       </strong>
@@ -308,17 +308,17 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.changeCertNICozy == "Yes") and (foundObject["niDate"] == "Not certified") %}
+                  {% if (data.changeCertNIAldi == "Yes") and (foundObject["niDate"] == "Not certified") %}
                     {{ "today" | govukDate }}
                   {% else %}
                     {{ foundObject["niDate"] }}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.changeCertNICozy == "Yes") %}
-                    {% if (data['newStatusNICozy'] == "certified") %}
+                  {% if (data.changeCertNIAldi == "Yes") %}
+                    {% if (data['newStatusNIAldi'] == "certified") %}
                       {{ "today" | govukDate }}
-                    {% elseif (data['newStatusNICozy'] == "uncertified") %}
+                    {% elseif (data['newStatusNIAldi'] == "uncertified") %}
                       {{ "today" | duration(-1, "days") | govukDate }}
                     {% endif %}
                   {% else %}
@@ -326,7 +326,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.newStatusNICozy) %}
+                  {% if (data.newStatusNIAldi) %}
                     <a href="change-ni-certification.html">
                       Change
                     </a>
@@ -335,7 +335,7 @@
                       Change
                     </a>
                   {% elseif (foundObject['nireland'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=ni">
+                    <a href="set-certification.html?countryAldi=ni">
                       Change
                     </a>
                   {% endif %}
@@ -366,19 +366,19 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.testStatusCozy) %}
+                  {% if (data.testStatusAldi) %}
                     {{ "today" | govukDate }}
                   {% else %}
                     Not available
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.testStatusCozy) %}
-                    {% if (data.testStatusCozy == "Passed") %}
+                  {% if (data.testStatusAldi) %}
+                    {% if (data.testStatusAldi == "Passed") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Passed
                       </strong>
-                    {% elseif (data.testStatusCozy == "Failed") %}
+                    {% elseif (data.testStatusAldi == "Failed") %}
                       <strong class="govuk-tag govuk-tag--red">
                         Failed
                       </strong>
@@ -390,7 +390,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.testStatusCozy) %}
+                  {% if (data.testStatusAldi) %}
                     {{ "today" | duration(+3, "years") | govukDate }}
                   {% else %}
                     Not available
@@ -408,7 +408,7 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Manufacturer details
+            Details
           </h2>
         </div>
         <div class="govuk-summary-card__content">
@@ -423,10 +423,10 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Test results
+                Legacy comments
               </dt>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="test-results">View<span class="govuk-visually-hidden"> test results</span></a>
+                <a class="govuk-link" href="comments">View<span class="govuk-visually-hidden"> test results</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -450,7 +450,7 @@
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {% if ( data["hiddenCozy"] == "yes") %}
+        {% if ( data["hiddenAldi"] == "yes") %}
             {{ govukButton({
               text: "Make fuel live on public list",
               href: "",
@@ -464,7 +464,7 @@
             }) }}
           {% endif %}
       </div>
-      <p><a href="../../records-fuels.html">Return to fuel records</a></p>
+      <p><a href="../records-fuels.html">Return to fuel records</a></p>
       
     </div>
   </div>

@@ -2,22 +2,22 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "2" %}
+  {% if object.id == "7" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Make {{ foundObject["applianceName"] }} live on public list – {{ serviceName }}
+  Make {{ foundObject["fuelName"] }} live on public list – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="record?hiddenAarowEco=no" method="post">
+      <form class="form" action="record?hiddenCoal=no" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">

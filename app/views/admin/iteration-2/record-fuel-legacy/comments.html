@@ -4,13 +4,13 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "10" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Test results for {{ foundObject["fuelName"] }} – {{ serviceName }}
+  Legacy comments on {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -18,11 +18,11 @@
     items: [
       {
         text: "Home",
-        href: "../../dashboard"
+        href: "../dashboard"
       },
       {
         text: "Fuel records",
-        href: "../../records-fuels"
+        href: "../records-fuels"
       },
       {
         text: foundObject['fuelName'],
@@ -43,27 +43,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Test results for {{ foundObject["fuelName"] }}
+        Legacy comments on {{ foundObject["fuelName"] }}
       </h1>
 
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Smoke emission measurement
-          </dt>
-          <dd class="govuk-summary-list__value">
-            3 g/h
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Sulphur content
-          </dt>
-          <dd class="govuk-summary-list__value">
-            0.05 % of total dry weight
-          </dd>
-        </div>
-      </dl>
+      <p>Re-branded fuel with same specification as Brazier briquettes (CPL Manufacturer)</p>
+      <p>[16/12/2015 18:11] Data Entry User / Data Entry (Legacy.Christopher.Conolly@ricardo.com): Fuel is identical to  Brazier briquettes (CPL Manufacturer) and is a re-branded fuel with same specification. A reissued quality plan has been provided which is pretty much identical to the one for the existing authorised fuel. I have commented.</p>
+      <p>[18/12/2015 09:55] Data Entry User / Data Entry (Legacy.Christopher.Conolly@ricardo.com): RS reviewed.</p>
       <p><a href="record">Return to record</a></p>
     </div>
   </div>

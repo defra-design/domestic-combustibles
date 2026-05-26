@@ -4,17 +4,21 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "7" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
-{% if (data.engStatusCozy) %}
-  {% if (data.engStatusCozy == "uncertified") %}
+{% set currentStatus ={} %}
+{% set altStatus ={} %}
+
+
+{% if (data.engStatusCoal) %}
+  {% if (data.engStatusCoal == "uncertified") %}
     {% set currentStatus = 'Uncertified' %}
-  {% elseif (data.engStatusCozy == "suspended") %}
+  {% elseif (data.engStatusCoal == "suspended") %}
     {% set currentStatus = 'Suspended' %}
-  {% elseif (data.engStatusCozy == "certified") %}
+  {% elseif (data.engStatusCoal == "certified") %}
     {% set currentStatus = 'Certified' %}
   {% endif %}
 {% elseif (foundObject.england == "uncertified") %}
@@ -48,7 +52,7 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="eng-certified" name="engStatusCozy" type="radio" value="certified" aria-describedby="eng-certified-hint">
+                <input class="govuk-radios__input" id="eng-certified" name="engStatusCoal" type="radio" value="certified" aria-describedby="eng-certified-hint">
                 <label class="govuk-label govuk-radios__label" for="eng-certified">
                   Certified
                 </label>
@@ -57,7 +61,7 @@
                 </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="eng-suspended" name="engStatusCozy" type="radio" value="suspended" aria-describedby="eng-suspended-hint">
+                <input class="govuk-radios__input" id="eng-suspended" name="engStatusCoal" type="radio" value="suspended" aria-describedby="eng-suspended-hint">
                 <label class="govuk-label govuk-radios__label" for="eng-suspended">
                   Suspended
                 </label>
@@ -66,7 +70,7 @@
                 </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="eng-uncertified" name="engStatusCozy" type="radio" value="uncertified" aria-describedby="eng-uncertified-hint">
+                <input class="govuk-radios__input" id="eng-uncertified" name="engStatusCoal" type="radio" value="uncertified" aria-describedby="eng-uncertified-hint">
                 <label class="govuk-label govuk-radios__label" for="eng-uncertified">
                   Uncertified
                 </label>

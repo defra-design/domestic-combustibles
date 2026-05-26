@@ -4,59 +4,30 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "3" %}
+  {% if object.id == "7" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
-{% set currentStatus ={} %}
+{% set currentStatus = 'Awaiting decision' %}
 {% set altStatus ={} %}
 
-{% if data["countryCozy"]  == "eng" %}
+{% if data["countryCoal"]  == "eng" %}
   {% set countryChange = 'England' %}
   {% set countryIsh = 'English government' %}
-{% elseif data["countryCozy"]  == "scot" %}
+{% elseif data["countryCoal"]  == "scot" %}
   {% set countryChange = 'Scotland' %}
   {% set countryIsh = 'Scottish government' %}
-{% elseif data["countryCozy"]  == "wal" %}
+{% elseif data["countryCoal"]  == "wal" %}
   {% set countryChange = 'Wales' %}
   {% set countryIsh = 'Welsh government' %}
-{% elseif data["countryCozy"]  == "ni" %}
+{% elseif data["countryCoal"]  == "ni" %}
   {% set countryChange = 'Northern Ireland' %}
   {% set countryIsh = 'government of Northern Ireland' %}
 {% endif %}
 
-{% if (foundObject.england == "uncertified") %}
-  {% set currentStatus = 'Uncertified' %}
-  {% set altStatus = 'certified' %}
-{% else %}
-  {% set currentStatus = 'Certified' %}
-  {% set altStatus = 'uncertified' %}
-{% endif %}
-{% if (foundObject.scotland == "uncertified") %}
-  {% set currentStatus = 'Uncertified' %}
-  {% set altStatus = 'certified' %}
-{% else %}
-  {% set currentStatus = 'Certified' %}
-  {% set altStatus = 'uncertified' %}
-{% endif %}
-{% if (foundObject.wales == "uncertified") %}
-  {% set currentStatus = 'Uncertified' %}
-  {% set altStatus = 'certified' %}
-{% else %}
-  {% set currentStatus = 'Certified' %}
-  {% set altStatus = 'uncertified' %}
-{% endif %}
-{% if (foundObject.nireland == "uncertified") %}
-  {% set currentStatus = 'Uncertified' %}
-  {% set altStatus = 'certified' %}
-{% else %}
-  {% set currentStatus = 'Certified' %}
-  {% set altStatus = 'uncertified' %}
-{% endif %}
-
 {% block pageTitle %}
-  Change approval status in {{ countryChange }} for {{ foundObject["fuelName"] }} – {{ serviceName }}
+  Set approval status in {{ countryChange }} for {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -64,7 +35,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Change approval status in {{ countryChange }} for {{ foundObject["fuelName"] }}
+        Set approval status in {{ countryChange }} for {{ foundObject["fuelName"] }}
       </h1>
       <p>Current status: {{ currentStatus }}</p>
       <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the {{ countryIsh }}.</p>
@@ -73,21 +44,27 @@
           <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Do you want to change the approval status for this appliance to {{ altStatus }} in {{ countryChange }}?
+                What is the appliance's new approval status in {{ countryChange }}?
               </h2>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="hideYes" name="hide" type="radio" value="Yes">
-                <label class="govuk-label govuk-radios__label" for="hideYes">
-                  Yes
+                <input class="govuk-radios__input" id="setCert" name="setCertCoal" type="radio" value="Certified"  aria-describedby="setCert-hint">
+                <label class="govuk-label govuk-radios__label" for="setCert" >
+                  Certified
                 </label>
+                <div id="setCert-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has approved the appliance
+                </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="hideNo" name="hide" type="radio" value="No">
-                <label class="govuk-label govuk-radios__label" for="hideNo">
-                  No
+                <input class="govuk-radios__input" id="setCert-un" name="setCertCoal" type="radio" value="Uncertified" aria-describedby="setCert-un-hint">
+                <label class="govuk-label govuk-radios__label" for="setCert-un">
+                  Uncertified
                 </label>
+                <div id="setCert-un-hint" class="govuk-hint govuk-radios__hint">
+                  {{ countryChange }} has rejected the appliance
+                </div>
               </div>
             </div>
           </fieldset>

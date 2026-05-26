@@ -976,6 +976,86 @@ module.exports = {
     "fuelRecordList": [
     {
       "id" : 1,
+      "appNum": "CAA-EA-00000799",
+      "fuelName": "ALDI Winter Flame Smokeless Fuel",
+      "fuelID" : "0075",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "england" : "suspended",
+      "eDate" : "1 January 2016",
+      "eDateLast" : "Not available",
+      "scotland" : "certified",
+      "sDate" : "1 April 2016",
+      "sDateLast" : "1 April 2016",
+      "wales" : "certified",
+      "wDate" : "18 January 2017",
+      "wDateLast" : "18 January 2017",
+      "nireland" : "certified",
+      "niDate" : "27 October 2016",
+      "niDateLast" : "27 October 2016",
+      "reviewer" : "Sean Keller",
+      "description": "Are either unmarked pillow-shaped briquettes or, pillow-shaped briquettes marked with a single indented line running longitudinally along each face, off-set from its counterpart by 10 millimetres",
+      "weight": "Have an average weight of either 55 or 80 grams per briquette",
+      "composition": "Comprise anthracite (as to approximately 60 to 80% of the total weight), petroleum coke (as to approximately 10 to 30% of the total weight) and a molasses and phosphoric acid binder (as to the remaining weight)",
+      "sulphur": "2",
+      "manufacture": "Were manufactured from those constituents by a process involving roll-pressing and heat treatment at about 300°C",
+      "quality" : "Yes",
+      "status" : "live",
+      "actionLink" : "record-fuel-legacy/record"
+    },
+    {
+      "id" : 2,
+      "appNum": "0005",
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "fuelID" : "0005",
+      "manufacturer" : "Allspan BV of Macroweg 4, 5804 CL Venray, the Netherlands",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "status" : "live",
+      "actionLink" : ""
+    },
+    {
+      "id" : 3,
+      "appNum": "0006",
+      "fuelName" : "Big K Restaurant Grade Charcoal",
+      "fuelID" : "0006",
+      "manufacturer" : "Big K Products UK Limited at Parque Industrial Alvear, 2126 Alvear, Provincia de Santa Fe, Argentina",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "status" : "live",
+      "actionLink" : ""
+    },
+    {
+      "id" : 4,
+      "appNum": "0007",
+      "fuelName" : "Black Diamond Gem briquettes",
+      "fuelID" : "0007",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "status" : "live",
+      "actionLink" : ""
+    },
+    {
+      "id" : 5,
+      "appNum": "0302",
+      "fuelName" : "Bord na Móna Firelogs",
+      "fuelID" : "0008",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0008",
+      "status" : "live",
+      "actionLink" : ""
+    },
+    {
+      "id" : 6,
+      "appNum": "0302",
+      "fuelName" : "Bord na Móna Firepak (also marketed as Arigna Special coal briquettes)",
+      "fuelID" : "0009",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0009",
+      "status" : "live",
+      "actionLink" : ""
+    },
+    {
+      "id" : 7,
       "appNum": "0304",
       "fuelName": "Centra Firelog",
       "fuelID" : "MSF0304",
@@ -1007,7 +1087,7 @@ module.exports = {
       "actionLink" : "record-fuel-new/pending/record"
     },
     {
-      "id" : 2,
+      "id" : 8,
       "appNum": "0248",
       "fuelName": "Coalfire Plus",
       "fuelID" : "MSF0248",
@@ -1016,16 +1096,16 @@ module.exports = {
       "brands" : [
       "Centra Ecolog"
       ],
-      "england" : "awaiting",
+      "england" : "uncertified",
       "eDate" : "Not certified",
       "eDateLast" : "Not applicable",
-      "scotland" : "awaiting",
+      "scotland" : "uncertified",
       "sDate" : "Not certified",
       "sDateLast" : "Not applicable",
-      "wales" : "awaiting",
+      "wales" : "uncertified",
       "wDate" : "Not certified",
       "wDateLast" : "Not applicable",
-      "nireland" : "awaiting",
+      "nireland" : "uncertified",
       "niDate" : "Not certified",
       "niDateLast" : "Not applicable",
       "reviewer" : "Sean Keller",
@@ -1039,7 +1119,7 @@ module.exports = {
       "actionLink" : "record-fuel-new/hidden/record"
     },
     {
-      "id" : 3,
+      "id" : 9,
       "appNum": "0307",
       "fuelName": "Cosytherm Briquettes",
       "fuelID" : "MSF0307",
@@ -1068,32 +1148,7 @@ module.exports = {
       "actionLink" : "record-fuel-new/live/record"
     },
     {
-      "id" : 4,
-      "applicationNo": "0305",
-      "fuelID" : "MSF0305",
-      "fuelName": "Ecoblaze Smokeless Coal",
-      "moreBrands" : "Yes",
-      "brands" : [
-      "Ecoblaze Coal Briquettes",
-      "Ecoflame Smokeless Coal",
-      "Ecoflame Coal Briquettes"
-      ],
-      "reviewer" : "Sean Keller",
-      "description": "Are unmarked pillow-shaped briquettes that are approximately 80 millimetres in length, 60 millimetres in width and 40 millimetres in height",
-      "weight": "	Have an average weight of 110 grams per briquette",
-      "composition": "Comprise anthracite (as to approximately 35 to 50% of the total weight), petroleum coke (up to approximately 45% of the total weight), bituminous coal (up to approximately 20% of the total weight) and a starch or other organic binder (up to 5% of the total weight)",
-      "sulphur": "1.8",
-      "manufacture": "Are manufactured from those constituents by a process involving roll-pressing and heat treatment at approximately 250°C",
-      "quality" : "Yes",
-      "originalBrand" : "	Smokeless Coal No5",
-      "originalManufacturer" : "Coal Products Limited",
-      "changes" : "Yes",
-      "changeDetails" : "Cut each briquette in half",
-      "status" : "live",
-      "actionLink" : "record-fuel-new/live-reseller/record"
-    },
-    {
-      "id" : 5,
+      "id" : 10,
       "appNum": "0302",
       "fuelName": "Ecoglow",
       "fuelID" : "0302",
@@ -1108,58 +1163,6 @@ module.exports = {
       "quality" : "Yes",
       "status" : "rejected",
       "actionLink" : "record-fuel-new/rejected/record"
-    },
-    {
-      "id" : 6,
-      "appNum": "0005",
-      "fuelName" : "Big K Instant Lighting Fire Logs",
-      "fuelID" : "0005",
-      "manufacturer" : "Allspan BV of Macroweg 4, 5804 CL Venray, the Netherlands",
-      "certified" : "England, Scotland, Wales, Northern Ireland",
-      "status" : "rejected",
-      "actionLink" : "record-fuel-new/rejected-reseller/record"
-    },
-    {
-      "id" : 7,
-      "appNum": "0006",
-      "fuelName" : "Big K Restaurant Grade Charcoal",
-      "fuelID" : "0006",
-      "manufacturer" : "Big K Products UK Limited at Parque Industrial Alvear, 2126 Alvear, Provincia de Santa Fe, Argentina",
-      "certified" : "England, Scotland, Wales, Northern Ireland",
-      "status" : "live",
-      "actionLink" : ""
-    },
-    {
-      "id" : 8,
-      "appNum": "0007",
-      "fuelName" : "Black Diamond Gem briquettes",
-      "fuelID" : "0007",
-      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
-      "certified" : "England, Scotland, Wales, Northern Ireland",
-      "status" : "live",
-      "actionLink" : ""
-    },
-    {
-      "id" : 9,
-      "appNum": "0302",
-      "fuelName" : "Bord na Móna Firelogs",
-      "fuelID" : "",
-      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
-      "certified" : "England, Scotland, Wales, Northern Ireland",
-      "appNum" : "0008",
-      "status" : "live",
-      "actionLink" : ""
-    },
-    {
-      "id" : 10,
-      "appNum": "0302",
-      "fuelName" : "Bord na Móna Firepak (also marketed as Arigna Special coal briquettes)",
-      "fuelID" : "",
-      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
-      "certified" : "England, Scotland, Wales, Northern Ireland",
-      "appNum" : "0009",
-      "status" : "live",
-      "actionLink" : ""
     }
   ],
 

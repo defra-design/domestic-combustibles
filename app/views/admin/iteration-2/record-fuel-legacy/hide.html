@@ -2,31 +2,31 @@
 
 {% set foundObject ={} %}
 
-{% for object in data["applianceRecordList"] %}
+{% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "2" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Make {{ foundObject["applianceName"] }} live on public list – {{ serviceName }}
+  Hide {{ foundObject["fuelName"] }} from public list – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="record?hiddenAarowEco=no" method="post">
+      <form class="form" action="record?hiddenAldi=yes" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <h1 class="govuk-fieldset__heading">
-                Make {{ foundObject["applianceName"] }} live on public list
+                Hide {{ foundObject["fuelName"] }} from public list
               </h1>
             </legend>
             <div id="signIn-hint" class="govuk-hint">
-              Anything to go here? Are you sure you want to show this appliance on the public list?
+              Anything to go here? Are you sure you want to hide this appliance from the public list?
             </div>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
@@ -34,8 +34,8 @@
                 <label class="govuk-label govuk-radios__label" for="hideYes">
                   Yes
                 </label>
-                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
-                  Listing will be immediately visible on the public list, but you will be able to hide it again if you need to.
+                <div id="hideYes-item-hint" class="govuk-hint govuk-radios__hint">
+                  Listing will be immediately removed from the public list, but you will be able to make it visible again if you need to.
                 </div>
               </div>
               <div class="govuk-radios__item">

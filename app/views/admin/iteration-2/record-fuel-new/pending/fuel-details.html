@@ -4,13 +4,13 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "7" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Application {{ foundObject["appNum"] }} details – {{ serviceName }}
+  Appliance details – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -43,89 +43,57 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Application {{ foundObject["appNum"] }} details
+        Appliance details
       </h1>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Application date
+            Fuel ID
           </dt>
           <dd class="govuk-summary-list__value">
-            1 January 2025
+            {{ foundObject["fuelID"] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company name
+            Resale brand name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["manufacturer"] }}
+            {{ foundObject["fuelName"] }}
+          </dd>
+        </div>
+        {% if (foundObject.moreBrands == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional brand names
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for brand in foundObject['brands'] %}
+                {{ brand }}
+              {% endfor %}
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel manufacturer
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Original fuel manufacturer
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company address
+            Original fuel brand
           </dt>
           <dd class="govuk-summary-list__value">
-            11 Carrakeel Drive<br/>
-            Maydown<br/>
-            Derry/Londonderry<br/>
-            BT47 6UQ<br/>
-            United Kingdom
+            Original fuel brand
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Main contact name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            John Doe
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Main contact email
-          </dt>
-          <dd class="govuk-summary-list__value">
-            john.doe@acoyle.co.uk
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Main contact alternative email
-          </dt>
-          <dd class="govuk-summary-list__value">
-            hello@acoyle.co.uk
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Main contact telephone number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            07722 334455
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Responsible person
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Fred Doe
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Responsible person email
-          </dt>
-          <dd class="govuk-summary-list__value">
-            fred.doe@acoyle.co.uk
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Customer complaints system in place?
+            Changes to original fuel
           </dt>
           <dd class="govuk-summary-list__value">
             Yes
@@ -133,18 +101,50 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            How do they sell the fuel?
+            Detail of changes
           </dt>
           <dd class="govuk-summary-list__value">
-            Bagged at source
+            These are the changes
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Manufacturer or reseller?
+            Original fuel description
           </dt>
           <dd class="govuk-summary-list__value">
-            Manufacturer
+            {{ foundObject["description"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel weight
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["weight"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel composition
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["composition"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel sulphur content
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["sulphur"] }} % of total dry weight
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Original fuel manufacturing process
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ foundObject["manufacture"] }}
           </dd>
         </div>
       </dl>

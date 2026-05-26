@@ -4,13 +4,13 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
 
 {% block pageTitle %}
-  Test results for {{ foundObject["fuelName"] }} – {{ serviceName }}
+  Application {{ foundObject["appNum"] }} details – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -18,11 +18,11 @@
     items: [
       {
         text: "Home",
-        href: "../../dashboard"
+        href: "../dashboard"
       },
       {
         text: "Fuel records",
-        href: "../../records-fuels"
+        href: "../records-fuels"
       },
       {
         text: foundObject['fuelName'],
@@ -43,28 +43,29 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Test results for {{ foundObject["fuelName"] }}
+        Application {{ foundObject["appNum"] }} details
       </h1>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Smoke emission measurement
+            Linked legacy applications
           </dt>
           <dd class="govuk-summary-list__value">
-            3 grams per hour
+            Brazier Briquettes (CPL)
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Sulphur content
+            Company
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["sulphur"] }} % of total dry weight
+            {{ foundObject["manufacturer"] }}
           </dd>
         </div>
       </dl>
       <p><a href="record">Return to record</a></p>
+      
     </div>
   </div>
 {% endblock %}

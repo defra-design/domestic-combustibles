@@ -4,7 +4,7 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -22,7 +22,7 @@
       },
       {
         text: "Fuel records",
-        href: "../../records-fuels"
+        href: "../records-fuels"
       },
       {
         text: foundObject['fuelName'],

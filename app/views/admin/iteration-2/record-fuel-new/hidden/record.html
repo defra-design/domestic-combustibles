@@ -4,7 +4,7 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "8" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -44,35 +44,18 @@
 
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">
-          {% if ( data["hiddenCozy"] == "yes") %}
-            <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
-              Hidden from public list
-            </strong>
-          {% else %}
+          {% if ( data["hiddenCoal"] == "no") %}
             <strong class="govuk-tag govuk-tag--green" style="max-width: fit-content;">
               Live on public list
+            </strong>  
+          {% else %}
+            <strong class="govuk-tag govuk-tag--grey" style="max-width: fit-content;">
+              Hidden from public list
             </strong>
           {% endif %}
         </span>
         {{ foundObject["fuelName"] }}
       </h1>
-
-      {% if (data.engStatusCozy) %}
-
-      {% else %}
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">
-              Certification in England has expired
-            </p>
-          </div>
-        </div>
-      {% endif %}
 
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
@@ -96,15 +79,15 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">England</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data['engStatusCozy'] == "suspended") %}
+                  {% if (data['engStatusCoal'] == "suspended") %}
                     <strong class="govuk-tag govuk-tag--blue">
                       Suspended
                     </strong>
-                  {% elseif (data['engStatusCozy'] == "certified") %}
+                  {% elseif (data['engStatusCoal'] == "certified") %}
                     <strong class="govuk-tag govuk-tag--green">
                       Certified
                     </strong>
-                  {% elseif (data['engStatusCozy'] == "uncertified") %}
+                  {% elseif (data['engStatusCoal'] == "uncertified") %}
                     <strong class="govuk-tag govuk-tag--grey">
                       Uncertified
                     </strong>
@@ -130,18 +113,18 @@
                   {{ foundObject["eDate"] }}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data['engStatusCozy'] == "suspended") %}
+                  {% if (data['engStatusCoal'] == "suspended") %}
                     {{ "today" | duration(-1, "days") | govukDate }}
-                  {% elseif (data['engStatusCozy'] == "certified") %}
+                  {% elseif (data['engStatusCoal'] == "certified") %}
                     {{ "today" | govukDate }}
-                  {% elseif (data['engStatusCozy'] == "uncertified") %}
+                  {% elseif (data['engStatusCoal'] == "uncertified") %}
                     {{ "today" | duration(-1, "days") | govukDate }}
                   {% else %}
                     {{ foundObject["eDateLast"] }}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.engStatusCozy) %}
+                  {% if (data.engStatusCoal) %}
                     <a href="update-england-certification.html">
                       Update
                     </a>
@@ -150,7 +133,7 @@
                       Update
                     </a>
                   {% elseif (foundObject['england'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=eng">
+                    <a href="set-certification.html?countryCoal=eng">
                       Change
                     </a>
                   {% endif %}
@@ -159,12 +142,12 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">Scotland</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.changeCertScotCozy == "Yes") %}
-                    {% if (data.newStatusScotCozy  == "certified") %}
+                  {% if (data.changeCertScotCoal == "Yes") %}
+                    {% if (data.newStatusScotCoal  == "certified") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Certified
                       </strong>
-                    {% elseif (data.newStatusScotCozy  == "uncertified") %}
+                    {% elseif (data.newStatusScotCoal  == "uncertified") %}
                       <strong class="govuk-tag govuk-tag--grey">
                         Uncertified
                       </strong>
@@ -184,7 +167,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertScotCozy == "Yes") %}
+                  {% if (data.changeCertScotCoal == "Yes") %}
                     {% if (foundObject["sDate"] == "Not certified") %}
                       {{ "today" | govukDate }}
                     {% endif %}
@@ -193,10 +176,10 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertScotCozy == "Yes") %}
-                    {% if (data['newStatusScotCozy'] == "certified") %}
+                  {% if (data.changeCertScotCoal == "Yes") %}
+                    {% if (data['newStatusScotCoal'] == "certified") %}
                       {{ "today" | govukDate }}
-                    {% elseif (data['newStatusScotCozy'] == "uncertified") %}
+                    {% elseif (data['newStatusScotCoal'] == "uncertified") %}
                       {{ "today" | duration(-1, "days") | govukDate }}
                     {% endif %}
                   {% else %}
@@ -204,7 +187,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.newStatusScotCozy) %}
+                  {% if (data.newStatusScotCoal) %}
                     <a href="change-scotland-certification.html">
                       Change
                     </a>
@@ -213,7 +196,7 @@
                       Change
                     </a>
                   {% elseif (foundObject['scotland'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=scot">
+                    <a href="set-certification.html?countryCoal=scot">
                       Change
                     </a>
                   {% endif %}
@@ -222,12 +205,12 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">Wales</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.changeCertWalesCozy == "Yes") %}
-                    {% if (data.newStatusWalesCozy  == "certified") %}
+                  {% if (data.changeCertWalesCoal == "Yes") %}
+                    {% if (data.newStatusWalesCoal  == "certified") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Certified
                       </strong>
-                    {% elseif (data.newStatusWalesCozy  == "uncertified") %}
+                    {% elseif (data.newStatusWalesCoal  == "uncertified") %}
                       <strong class="govuk-tag govuk-tag--grey">
                         Uncertified
                       </strong>
@@ -247,17 +230,17 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertWalesCozy == "Yes") and (foundObject["wDate"] == "Not certified") %}
+                  {% if (data.changeCertWalesCoal == "Yes") and (foundObject["wDate"] == "Not certified") %}
                     {{ "today" | govukDate }}
                   {% else %}
                     {{ foundObject["wDate"] }}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if (data.changeCertWalesCozy == "Yes") %}
-                    {% if (data['newStatusWalesCozy'] == "certified") %}
+                  {% if (data.changeCertWalesCoal == "Yes") %}
+                    {% if (data['newStatusWalesCoal'] == "certified") %}
                       {{ "today" | govukDate }}
-                    {% elseif (data['newStatusWalesCozy'] == "uncertified") %}
+                    {% elseif (data['newStatusWalesCoal'] == "uncertified") %}
                       {{ "today" | duration(-1, "days") | govukDate }}
                     {% endif %}
                   {% else %}
@@ -265,7 +248,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (data.newStatusWalesCozy) %}
+                  {% if (data.newStatusWalesCoal) %}
                     <a href="change-wales-certification">
                       Change
                     </a>
@@ -274,7 +257,7 @@
                       Change
                     </a>
                   {% elseif (foundObject['wales'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=wal">
+                    <a href="set-certification.html?countryCoal=wal">
                       Change
                     </a>
                   {% endif %}
@@ -283,12 +266,12 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">Northern Ireland</td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.changeCertNICozy == "Yes") %}
-                    {% if (data.newStatusNICozy  == "certified") %}
+                  {% if (data.changeCertNICoal == "Yes") %}
+                    {% if (data.newStatusNICoal  == "certified") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Certified
                       </strong>
-                    {% elseif (data.newStatusNICozy  == "uncertified") %}
+                    {% elseif (data.newStatusNICoal  == "uncertified") %}
                       <strong class="govuk-tag govuk-tag--grey">
                         Uncertified
                       </strong>
@@ -308,17 +291,17 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.changeCertNICozy == "Yes") and (foundObject["niDate"] == "Not certified") %}
+                  {% if (data.changeCertNICoal == "Yes") and (foundObject["niDate"] == "Not certified") %}
                     {{ "today" | govukDate }}
                   {% else %}
                     {{ foundObject["niDate"] }}
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.changeCertNICozy == "Yes") %}
-                    {% if (data['newStatusNICozy'] == "certified") %}
+                  {% if (data.changeCertNICoal == "Yes") %}
+                    {% if (data['newStatusNICoal'] == "certified") %}
                       {{ "today" | govukDate }}
-                    {% elseif (data['newStatusNICozy'] == "uncertified") %}
+                    {% elseif (data['newStatusNICoal'] == "uncertified") %}
                       {{ "today" | duration(-1, "days") | govukDate }}
                     {% endif %}
                   {% else %}
@@ -326,7 +309,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.newStatusNICozy) %}
+                  {% if (data.newStatusNICoal) %}
                     <a href="change-ni-certification.html">
                       Change
                     </a>
@@ -335,7 +318,7 @@
                       Change
                     </a>
                   {% elseif (foundObject['nireland'] == "awaiting") %}
-                    <a href="set-certification.html?countryCozy=ni">
+                    <a href="set-certification.html?countryCoal=ni">
                       Change
                     </a>
                   {% endif %}
@@ -366,19 +349,19 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.testStatusCozy) %}
+                  {% if (data.testStatusCoal) %}
                     {{ "today" | govukDate }}
                   {% else %}
                     Not available
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.testStatusCozy) %}
-                    {% if (data.testStatusCozy == "Passed") %}
+                  {% if (data.testStatusCoal) %}
+                    {% if (data.testStatusCoal == "Passed") %}
                       <strong class="govuk-tag govuk-tag--green">
                         Passed
                       </strong>
-                    {% elseif (data.testStatusCozy == "Failed") %}
+                    {% elseif (data.testStatusCoal == "Failed") %}
                       <strong class="govuk-tag govuk-tag--red">
                         Failed
                       </strong>
@@ -390,7 +373,7 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (data.testStatusCozy) %}
+                  {% if (data.testStatusCoal) %}
                     {{ "today" | duration(+3, "years") | govukDate }}
                   {% else %}
                     Not available
@@ -408,25 +391,17 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Manufacturer details
+            Rebrander details
           </h2>
         </div>
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Fuel details
+                Original fuel details
               </dt>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="fuel-details.html">View<span class="govuk-visually-hidden"> fuel details</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Test results
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="test-results">View<span class="govuk-visually-hidden"> test results</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -450,17 +425,17 @@
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {% if ( data["hiddenCozy"] == "yes") %}
-            {{ govukButton({
-              text: "Make fuel live on public list",
-              href: "",
-              classes: "govuk-button"
-            }) }}
-          {% else %}
+        {% if ( data["hiddenCoal"] == "no") %}
             {{ govukButton({
               text: "Hide fuel from public list",
               href: "hide",
               classes: "govuk-button--secondary"
+            }) }}
+          {% else %}
+            {{ govukButton({
+              text: "Make fuel live on public list",
+              href: "",
+              classes: "govuk-button"
             }) }}
           {% endif %}
       </div>

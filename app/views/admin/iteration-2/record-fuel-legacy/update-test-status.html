@@ -4,7 +4,7 @@
 
 {% for object in data["fuelRecordList"] %}
 
-  {% if object.id == "9" %}
+  {% if object.id == "1" %}
     {% set foundObject = object %}
   {% endif %}
 {% endfor %}
@@ -29,13 +29,13 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="testPassed" name="testStatusCozy" type="radio" value="Passed">
+                <input class="govuk-radios__input" id="testPassed" name="testStatusAldi" type="radio" value="Passed">
                 <label class="govuk-label govuk-radios__label" for="testPassed">
                   Passed
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="testFailed" name="testStatusCozy" type="radio" value="Failed" aria-describedby="testFailed-hint">
+                <input class="govuk-radios__input" id="testFailed" name="testStatusAldi" type="radio" value="Failed" aria-describedby="testFailed-hint">
                 <label class="govuk-label govuk-radios__label" for="testFailed">
                   Failed
                 </label>

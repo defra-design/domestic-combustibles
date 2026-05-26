@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelRecordList"] %}
+
+  {% if object.id == "7" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% if (data.newStatusNICoal) %}
+  {% if (data.newStatusNICoal == "uncertified") %}
+    {% set currentStatusNICoal = 'Uncertified' %}
+    {% set altStatusNICoal = 'certified' %}
+  {% elseif (data.newStatusNICoal == "certified") %}
+    {% set currentStatusNICoal = 'Certified' %}
+    {% set altStatusNICoal = 'uncertified' %}
+  {% endif %}
+{% elseif (foundObject.nireland == "uncertified") %}
+  {% set currentStatusNICoal = 'Uncertified' %}
+  {% set altStatusNICoal = 'certified' %}
+{% elseif (foundObject.nireland == "certified") %}
+  {% set currentStatusNICoal = 'Certified' %}
+  {% set altStatusNICoal = 'uncertified' %}
+{% endif %}
+
+{% block pageTitle %}
+  Change approval status in Northern Ireland for {{ foundObject["fuelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Change approval status in Northern Ireland for {{ foundObject["fuelName"] }}
+      </h1>
+      <p>Current status: {{ currentStatusNICoal }}</p>
+      <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the government of Northern Ireland.</p>
+      <form class="form" action="record?newStatusNICoal={{ altStatusNICoal }}" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you want to change the approval status for this appliance to {{ altStatusNICoal }} in Northern Ireland?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertNICoal" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="change-cert">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertNICoal" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="change-cert-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

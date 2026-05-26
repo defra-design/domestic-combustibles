@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["fuelRecordList"] %}
+
+  {% if object.id == "1" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% if (data.newStatusScotAldi) %}
+  {% if (data.newStatusScotAldi == "uncertified") %}
+    {% set currentStatusScotAldi = 'Uncertified' %}
+    {% set altStatusScotAldi = 'certified' %}
+  {% elseif (data.newStatusScotAldi == "certified") %}
+    {% set currentStatusScotAldi = 'Certified' %}
+    {% set altStatusScotAldi = 'uncertified' %}
+  {% endif %}
+{% elseif (foundObject.scotland == "uncertified") %}
+  {% set currentStatusScotAldi = 'Uncertified' %}
+  {% set altStatusScotAldi = 'certified' %}
+{% elseif (foundObject.scotland == "certified") %}
+  {% set currentStatusScotAldi = 'Certified' %}
+  {% set altStatusScotAldi = 'uncertified' %}
+{% endif %}
+
+{% block pageTitle %}
+  Change approval status in Scotland for {{ foundObject["fuelName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Change approval status in Scotland for {{ foundObject["fuelName"] }}
+      </h1>
+      <p>Current status: {{ currentStatusScotAldi }}</p>
+      <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the Scottish government.</p>
+      <form class="form" action="record?newStatusScotAldi={{ altStatusScotAldi }}" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you want to change the approval status for this appliance to {{ altStatusScotAldi }} in Scotland?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertScotAldi" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="change-cert">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertScotAldi" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="change-cert-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
