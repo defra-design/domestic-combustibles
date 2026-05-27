@@ -9,23 +9,23 @@
   {% endif %}
 {% endfor %}
 
-{% set currentStatusWalesCoal ={} %}
-{% set altStatusWalesCoal ={} %}
+{% set currentStatusWalesCentra ={} %}
+{% set altStatusWalesCentra ={} %}
 
-{% if (data.newStatusWalesCoal) %}
-  {% if (data.newStatusWalesCoal == "uncertified") %}
-    {% set currentStatusWalesCoal = 'Uncertified' %}
-    {% set altStatusWalesCoal = 'certified' %}
-  {% elseif (data.newStatusWalesCoal == "certified") %}
-    {% set currentStatusWalesCoal = 'Certified' %}
-    {% set altStatusWalesCoal = 'uncertified' %}
+{% if (data.newStatusWalesCentra) %}
+  {% if (data.newStatusWalesCentra == "uncertified") %}
+    {% set currentStatusWalesCentra = 'Uncertified' %}
+    {% set altStatusWalesCentra = 'certified' %}
+  {% elseif (data.newStatusWalesCentra == "certified") %}
+    {% set currentStatusWalesCentra = 'Certified' %}
+    {% set altStatusWalesCentra = 'uncertified' %}
   {% endif %}
 {% elseif (foundObject.wales == "uncertified") %}
-  {% set currentStatusWalesCoal = 'Uncertified' %}
-  {% set altStatusWalesCoal = 'certified' %}
+  {% set currentStatusWalesCentra = 'Uncertified' %}
+  {% set altStatusWalesCentra = 'certified' %}
 {% elseif (foundObject.wales == "certified") %}
-  {% set currentStatusWalesCoal = 'Certified' %}
-  {% set altStatusWalesCoal = 'uncertified' %}
+  {% set currentStatusWalesCentra = 'Certified' %}
+  {% set altStatusWalesCentra = 'uncertified' %}
 {% endif %}
 
 {% block pageTitle %}
@@ -39,25 +39,25 @@
       <h1 class="govuk-heading-xl">
         Change approval status in Wales for {{ foundObject["fuelName"] }}
       </h1>
-      <p>Current status: {{ currentStatusWalesCoal }}</p>
+      <p>Current status: {{ currentStatusWalesCentra }}</p>
       <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the Welsh government.</p>
-      <form class="form" action="record?newStatusWalesCoal={{ altStatusWalesCoal }}" method="post">
+      <form class="form" action="record?newStatusWalesCentra={{ altStatusWalesCentra }}" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Do you want to change the approval status for this appliance to {{ altStatusWalesCoal }} in Wales?
+                Do you want to change the approval status for this appliance to {{ altStatusWalesCentra }} in Wales?
               </h2>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="change-cert" name="changeCertWalesCoal" type="radio" value="Yes">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertWalesCentra" type="radio" value="Yes">
                 <label class="govuk-label govuk-radios__label" for="change-cert">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="change-cert-no" name="changeCertWalesCoal" type="radio" value="No">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertWalesCentra" type="radio" value="No">
                 <label class="govuk-label govuk-radios__label" for="change-cert-no">
                   No
                 </label>

@@ -13,12 +13,12 @@
 {% set altStatus ={} %}
 
 
-{% if (data.engStatusCoal) %}
-  {% if (data.engStatusCoal == "uncertified") %}
+{% if (data.engStatusCentra) %}
+  {% if (data.engStatusCentra == "uncertified") %}
     {% set currentStatus = 'Uncertified' %}
-  {% elseif (data.engStatusCoal == "suspended") %}
+  {% elseif (data.engStatusCentra == "suspended") %}
     {% set currentStatus = 'Suspended' %}
-  {% elseif (data.engStatusCoal == "certified") %}
+  {% elseif (data.engStatusCentra == "certified") %}
     {% set currentStatus = 'Certified' %}
   {% endif %}
 {% elseif (foundObject.england == "uncertified") %}
@@ -52,7 +52,7 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="eng-certified" name="engStatusCoal" type="radio" value="certified" aria-describedby="eng-certified-hint">
+                <input class="govuk-radios__input" id="eng-certified" name="engStatusCentra" type="radio" value="certified" aria-describedby="eng-certified-hint">
                 <label class="govuk-label govuk-radios__label" for="eng-certified">
                   Certified
                 </label>
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="eng-suspended" name="engStatusCoal" type="radio" value="suspended" aria-describedby="eng-suspended-hint">
+                <input class="govuk-radios__input" id="eng-suspended" name="engStatusCentra" type="radio" value="suspended" aria-describedby="eng-suspended-hint">
                 <label class="govuk-label govuk-radios__label" for="eng-suspended">
                   Suspended
                 </label>
@@ -70,7 +70,7 @@
                 </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="eng-uncertified" name="engStatusCoal" type="radio" value="uncertified" aria-describedby="eng-uncertified-hint">
+                <input class="govuk-radios__input" id="eng-uncertified" name="engStatusCentra" type="radio" value="uncertified" aria-describedby="eng-uncertified-hint">
                 <label class="govuk-label govuk-radios__label" for="eng-uncertified">
                   Uncertified
                 </label>

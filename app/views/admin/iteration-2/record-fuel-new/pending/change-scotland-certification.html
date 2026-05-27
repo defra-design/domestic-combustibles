@@ -9,20 +9,20 @@
   {% endif %}
 {% endfor %}
 
-{% if (data.newStatusScotCoal) %}
-  {% if (data.newStatusScotCoal == "uncertified") %}
-    {% set currentStatusScotCoal = 'Uncertified' %}
-    {% set altStatusScotCoal = 'certified' %}
-  {% elseif (data.newStatusScotCoal == "certified") %}
-    {% set currentStatusScotCoal = 'Certified' %}
-    {% set altStatusScotCoal = 'uncertified' %}
+{% if (data.newStatusScotCentra) %}
+  {% if (data.newStatusScotCentra == "uncertified") %}
+    {% set currentStatusScotCentra = 'Uncertified' %}
+    {% set altStatusScotCentra = 'certified' %}
+  {% elseif (data.newStatusScotCentra == "certified") %}
+    {% set currentStatusScotCentra = 'Certified' %}
+    {% set altStatusScotCentra = 'uncertified' %}
   {% endif %}
 {% elseif (foundObject.scotland == "uncertified") %}
-  {% set currentStatusScotCoal = 'Uncertified' %}
-  {% set altStatusScotCoal = 'certified' %}
+  {% set currentStatusScotCentra = 'Uncertified' %}
+  {% set altStatusScotCentra = 'certified' %}
 {% elseif (foundObject.scotland == "certified") %}
-  {% set currentStatusScotCoal = 'Certified' %}
-  {% set altStatusScotCoal = 'uncertified' %}
+  {% set currentStatusScotCentra = 'Certified' %}
+  {% set altStatusScotCentra = 'uncertified' %}
 {% endif %}
 
 {% block pageTitle %}
@@ -36,25 +36,25 @@
       <h1 class="govuk-heading-xl">
         Change approval status in Scotland for {{ foundObject["fuelName"] }}
       </h1>
-      <p>Current status: {{ currentStatusScotCoal }}</p>
+      <p>Current status: {{ currentStatusScotCentra }}</p>
       <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the Scottish government.</p>
-      <form class="form" action="record?newStatusScotCoal={{ altStatusScotCoal }}" method="post">
+      <form class="form" action="record?newStatusScotCentra={{ altStatusScotCentra }}" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Do you want to change the approval status for this appliance to {{ altStatusScotCoal }} in Scotland?
+                Do you want to change the approval status for this appliance to {{ altStatusScotCentra }} in Scotland?
               </h2>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="change-cert" name="changeCertScotCoal" type="radio" value="Yes">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertScotCentra" type="radio" value="Yes">
                 <label class="govuk-label govuk-radios__label" for="change-cert">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="change-cert-no" name="changeCertScotCoal" type="radio" value="No">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertScotCentra" type="radio" value="No">
                 <label class="govuk-label govuk-radios__label" for="change-cert-no">
                   No
                 </label>
