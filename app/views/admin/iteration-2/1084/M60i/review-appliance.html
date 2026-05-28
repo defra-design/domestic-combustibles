@@ -201,18 +201,18 @@
         <div class="govuk-button-group govuk-!-margin-top-7">
           {% if (data['teststatus60'] == "pass" and data['drawstatus60'] == "pass" and data['confstatus60'] == "pass" and data['instrstatus60'] == "pass" and data['appdetailstatus60'] == "done" and data['permfuelstatus60'] == "done" and data['addconstatus60'] == "done") %}
             {{ govukButton({
-              text: "Accept this appliance",
+              text: "Accept appliance",
               href: "../review-application?m60status=accepted"
             }) }}
           {% else %}
               {{ govukButton({
-              text: "Accept this appliance",
+              text: "Accept appliance",
               href: "review-incomplete"
             }) }}
           {% endif %}
 
           {{ govukButton({
-            text: "Reject this appliance",
+            text: "Reject appliance",
             classes: "govuk-button--secondary",
             href: "../review-application?m60status=rejected"
           }) }}

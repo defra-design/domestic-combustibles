@@ -10,7 +10,7 @@
   {% endif %}
 {% endfor %}
 {% block pageTitle %}
-  Review conformity mark for {{ foundObject["modelName"] }} – {{ serviceName }}
+  Review conformity mark details for {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -19,15 +19,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-appliance" method="post">
-        <h1 class="govuk-heading-xl">Review conformity mark for {{ foundObject["modelName"] }}</h1>
+        <h1 class="govuk-heading-xl">Review conformity mark details for {{ foundObject["modelName"] }}</h1>
         <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">confirmity-mark-twinheat.jpg</a></p> -->
-        <p>Check the following in the conformity mark:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>stuff to check</li>
-          <li>important things</li>
-          <li>anything else</li>
-        </ul>
+        <p>Review conformity mark details and confirm it meets requirements.</p>
         
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({

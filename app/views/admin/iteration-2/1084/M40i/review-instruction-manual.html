@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Review instruction manual for {{ foundObject["modelName"] }} – {{ serviceName }}
+  Review instruction manuals for {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -19,59 +19,17 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-appliance?instrstatus40=pass" method="post">
-        <h1 class="govuk-heading-xl">Review instruction manual for {{ foundObject["modelName"] }}</h1>
+        <h1 class="govuk-heading-xl">Review instruction manuals for {{ foundObject["modelName"] }}</h1>
         <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">TwinHeat M20i-M40i manual.pdf</a></p>
         <p><a href="#">TwinHeat M80i manual 2026.pdf</a></p> -->
-        <p>Check the following in the instruction manual:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>stuff to check</li>
-          <li>important things</li>
-          <li>anything else</li>
-        </ul>
-        <h2 class="govuk-heading-l">Instruction manual public listing details</h2>
-        <p>These details will be published to the public listing for {{ foundObject["modelName"] }}. Enter details of the relevant manual so a member of the public or installer can find it themselves.</p>
+        <p>Enter details of the most relevant manual so that a member of the public or industry professional can find it themselves.</p>
+        <p>These details will be published to the public listing for {{ foundObject["modelName"] }}.</p>
         <div class="govuk-form-group">
           <label class="govuk-label govuk-!-font-weight-bold" for="manual-title">
             Title
           </label>
           <input class="govuk-input" id="manual-title" name="manualTitle40" type="text" value="{{ data['manualTitle40'] }}">
-        </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="publication-date-hint">
-            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-              Publication date
-            </legend>
-            <div id="publication-date-hint" class="govuk-hint">
-              For example, 27 3 2007
-            </div>
-            <div class="govuk-date-input" id="publication-date">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="publication-date-day">
-                    Day
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="publication-date-day" name="publication-date-day40" type="text" inputmode="numeric" value="{{ data['publication-date-day40'] }}">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="publication-date-month">
-                    Month
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="publication-date-month" name="publication-date-month40" type="text" inputmode="numeric" value="{{ data['publication-date-month40'] }}">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="publication-date-year">
-                    Year
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="publication-date-year" name="publication-date-year40" type="text" inputmode="numeric" value="{{ data['publication-date-year40'] }}">
-                </div>
-              </div>
-            </div>
-          </fieldset>
         </div>
         
         {% set versionHtml %}
@@ -110,6 +68,42 @@
             }
           ]
         }) }}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="publication-date-hint">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+              Publication date
+            </legend>
+            <div id="publication-date-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="publication-date">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="publication-date-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="publication-date-day" name="publication-date-day40" type="text" inputmode="numeric" value="{{ data['publication-date-day40'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="publication-date-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="publication-date-month" name="publication-date-month40" type="text" inputmode="numeric" value="{{ data['publication-date-month40'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="publication-date-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="publication-date-year" name="publication-date-year40" type="text" inputmode="numeric" value="{{ data['publication-date-year40'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
         
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({

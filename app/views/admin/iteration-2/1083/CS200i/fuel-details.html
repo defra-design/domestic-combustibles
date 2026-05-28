@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceApplications"] %}
+
+  {% if object.id == "1083" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% block pageTitle %}
+  Check fuel details for {{ foundObject['modelName'] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check fuel details for {{ foundObject["modelName"] }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it a multifuel appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.multifuelCS) %}
+              {{ data['multifuelCS'] }}
+            {% else %}
+              {{ foundObject['multifuel'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="multi-fuel">Change<span class="govuk-visually-hidden"> if the appliance is multifuel</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can it burn wood? /Is it certified to burn wood?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['woodCS']) %}
+              {{ data['woodCS'] }}
+            {% else %}
+              <a class="govuk-link" href="wood.html">Select<span class="govuk-visually-hidden"> if the appliance can burn wood</span></a>
+            {% endif %}
+          </dd>
+          {% if (data['woodCS']) %}
+            <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="wood.html">Change<span class="govuk-visually-hidden"> if the appliance can burn wood</span></a>
+            </dd>
+          {% endif %}
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Permitted fuels
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.permFuelsCS) %}
+              {{ data['permFuelsCS'] }}
+            {% else %}
+              {{ foundObject['permittedFuels'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="permitted-fuel.html">Change<span class="govuk-visually-hidden"> permitted fuels</span></a>
+          </dd>
+        </div>
+        
+      </dl>
+
+      <form action="review-appliance" method="post" novalidate>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+            {{ govukButton({
+              text: "Mark as completed",
+              href: "review-appliance?permfuelstatusCS=done"
+            }) }}
+        </div>
+
+        <p><a class="govuk-link" href="review-appliance">Cancel</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

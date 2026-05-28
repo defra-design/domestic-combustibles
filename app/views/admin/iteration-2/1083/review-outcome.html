@@ -13,11 +13,11 @@
         Finish application review
       </h1>
         {% if (data['CSstatus'] == "accepted") %}
-          <p>Following technical review, the following appliance is considered to be suitable for certification under the Clean Air Act 1993.</p>
+          <p>Following technical review, the following appliance is considered to be suitable for certification under the Clean Air Act 1993:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>Twin Heat CS200i</li>
           </ul>
-          <p>This appliance can now be submitted to the governments of England, Scotland, Wales and Northern Ireland for approval.</p>
+          <p>This appliance can now be submitted to the governments of England, Wales, Scotland and Northern Ireland for approval.</p>
           <div class="govuk-button-group govuk-!-margin-top-7">
             {{ govukButton({
               text: "Submit for approval",
@@ -25,7 +25,7 @@
             }) }}
           </div>
         {% elseif (data['CSstatus'] == "rejected") %}
-          <p>Following technical review, the following appliance is considered to be unsuitable for certification under the Clean Air Act 1993.</p>
+          <p>Following technical review, the following appliance is considered to be unsuitable for certification under the Clean Air Act 1993:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>Twin Heat CS200i</li>
           </ul>
@@ -39,7 +39,7 @@
         {% endif %}
       
 
-      <p><a class="govuk-link" href="review-application.html">Go back</a></p>
+      <p><a class="govuk-link" href="review-application.html">Return to application review</a></p>
 
     </div>
   </div>

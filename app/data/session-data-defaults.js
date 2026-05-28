@@ -637,7 +637,10 @@ module.exports = {
       "applianceType": "Stove",
       "variant": "No",
       "variantDetails": "",
-      "thermalOutput": "3"
+      "thermalOutput": "3",
+      "multifuel": "Yes",
+      "permittedFuels": "Gozney manufactured wood logs, length 280-310mm , diameter 95mm, manufactured from pure beech sawdust"
+
     },
     {
       "id" : 10841,
@@ -648,7 +651,9 @@ module.exports = {
       "applianceType": "Boiler",
       "variant": "No",
       "variantDetails": "",
-      "thermalOutput": "1"
+      "thermalOutput": "1",
+      "multifuel": "Yes",
+      "permittedFuels": "Wood pellets or wood chips"
     },
     {
       "id" : 10842,
@@ -659,7 +664,9 @@ module.exports = {
       "applianceType": "Boiler",
       "variant": "No",
       "variantDetails": "",
-      "thermalOutput": "2"
+      "thermalOutput": "2",
+      "multifuel": "Yes",
+      "permittedFuels": "Wood pellets or wood chips"
     },
     {
       "id" : 10843,
@@ -670,7 +677,9 @@ module.exports = {
       "applianceType": "Boiler",
       "variant": "Yes",
       "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "3"
+      "thermalOutput": "3",
+      "multifuel": "No",
+      "permittedFuels": "Wood logs"
     },
     {
       "id" : 10844,
@@ -681,7 +690,9 @@ module.exports = {
       "applianceType": "Other",
       "variant": "Yes",
       "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "5"
+      "thermalOutput": "5",
+      "multifuel": "No",
+      "permittedFuels": "Wood logs"
     }
   ],
 
@@ -716,28 +727,6 @@ module.exports = {
       "originalManufacturer" : "Josper S.A.U.",
       "changes" : "Yes",
       "changeDetails" : "Made pieces smaller"
-    },
-    {
-      "id" : 10843,
-      "applicationNo": "1084",
-      "modelName": "Twin Heat M60i",
-      "reviewer" : "Sean Keller",
-      "modelNumber": "M60i",
-      "applianceType": "Boiler",
-      "variant": "Yes",
-      "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "3"
-    },
-    {
-      "id" : 10844,
-      "applicationNo": "1084",
-      "modelName": "Twin Heat M80i",
-      "reviewer" : "Sean Keller",
-      "modelNumber": "",
-      "applianceType": "Other",
-      "variant": "Yes",
-      "variantDetails": "Another Twin Heat boiler",
-      "thermalOutput": "5"
     }
   ],
 
