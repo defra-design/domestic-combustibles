@@ -117,7 +117,7 @@
             <td class="govuk-table__cell">
               {% if ( record['status'] == "live") %}
                   <strong class="govuk-tag govuk-tag--green">
-                    Live on public list
+                    Live
                   </strong>
                 {% elseif (record['status'] == "rejected") %}
                   <strong class="govuk-tag govuk-tag--red">
@@ -125,11 +125,11 @@
                   </strong>
                 {% elseif (record['status'] == "hidden") %}
                   <strong class="govuk-tag govuk-tag--grey">
-                    Hidden from public list
+                    Hidden
                   </strong>
                 {% elseif (record['status'] == "pending") %}
-                  <strong class="govuk-tag govuk-tag--orange">
-                    Pending government approval
+                  <strong class="govuk-tag govuk-tag--yellow">
+                    Pending
                   </strong>
                 {% endif %}
             </td>
