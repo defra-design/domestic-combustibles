@@ -16,24 +16,41 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#wood-error">Select if the appliance is cerified to burn wood</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <h1 class="govuk-heading-xl">Permitted fuels for {{ foundObject["modelName"] }}</h1>
-      <form action="review-appliance?permfuelstatus40=done" method="post" novalidate>
+      <form action="review-appliance?permfuelstatus=done" method="post" novalidate>
         <div class="govuk-form-group  govuk-!-margin-bottom-9">
           <label class="govuk-label govuk-label--l" for="perm-fuels">
             What fuels is it permitted to burn?
           </label>
-          <textarea class="govuk-textarea" id="perm-fuels" name="permFuels40" rows="5">{{ data["permFuels40"] or foundObject["permittedFuels"] }}</textarea>
+          <textarea class="govuk-textarea" id="perm-fuels" name="permFuels" rows="5">{{ data["permFuels"] or foundObject["permittedFuels"] }}</textarea>
         </div>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="wood-hint wood-error">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               Is it cerified to burn wood?
             </legend>
+            <p id="wood-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select if the appliance is cerified to burn wood
+            </p>
             {{ govukRadios({
               classes: "govuk-radios govuk-radios--inline",
-              name: "wood40",
-              value: data['wood40'],
+              name: "wood",
+              value: data['wood'],
               hint: {
                 text: "This will show wood related content on the public listing..."
               },

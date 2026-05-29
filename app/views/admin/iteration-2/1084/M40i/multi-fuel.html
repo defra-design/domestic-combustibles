@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Can Twin Heat CS200i burn wood? – {{ serviceName }}
+  Is Twin Heat M40i a multifuel appliance? – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -24,23 +24,24 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <h1 class="govuk-fieldset__heading">
-                Can Twin Heat CS200i burn wood?
+                Is Twin Heat M40i a multifuel appliance?
               </h1>
             </legend>
-            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="burn-wood" name="woodCS" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="burn-wood">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="burn-wood-no" name="woodCS" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="burn-wood-no">
-                  No
-                </label>
-              </div>
-            </div>
+            {{ govukRadios({
+              classes: "govuk-radios govuk-radios--inline",
+              name: "multifuel40",
+              value: data['multifuel40'] or foundObject['multifuel'],
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes"
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
           </fieldset>
         </div>
 

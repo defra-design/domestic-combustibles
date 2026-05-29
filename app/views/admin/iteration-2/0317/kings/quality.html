@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Is there a monitored quality control system in place? – {{ serviceName }}
+  Does the manufacturer have a monitored quality control system in place? – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -25,7 +25,7 @@
           value: data['qualityControl'] or foundObject['quality'],
           fieldset: {
             legend: {
-              text: "Is there a monitored quality control system in place?",
+              text: "Does the manufacturer have a monitored quality control system in place?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }

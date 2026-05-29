@@ -169,6 +169,21 @@
             <a class="govuk-link" href="thermal-output.html">Change<span class="govuk-visually-hidden"> nominal thermal output</span></a>
           </dd>
         </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it a multifuel appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.multifuel20) %}
+              {{ data['multifuel20'] }}
+            {% else %}
+              {{ foundObject['multifuel'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="multi-fuel">Change<span class="govuk-visually-hidden"> if the appliance is multifuel</span></a>
+          </dd>
+        </div>
       </dl>
 
       <form action="review-appliance" method="post" novalidate>

@@ -22,8 +22,11 @@
         {% set detailsInput %}
         {{ govukTextarea({
           label: {
-            text: "List the additional brand names, separated by a comma",
+            text: "List the additional brand names, separated by commas",
             classes: "govuk-label--m"
+          },
+          hint: {
+            text: "For example Brand 1, Brand 2"
           },
           id: "additional-brands",
           name: "additionalBrands",

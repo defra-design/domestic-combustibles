@@ -19,18 +19,11 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-fuel?teststatusking=pass" method="post">
-        <h1 class="govuk-heading-xl">Review test reports for {{ foundObject["modelName"] }}</h1>
+        <h1 class="govuk-heading-xl">Add test results for {{ foundObject["modelName"] }}</h1>
         <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">Test-report-April.pdf</a></p>
         <p><a href="#">Test-report-May-2025.pdf</a></p> -->
-        <p>Check the following in the test report:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>stuff to check</li>
-          <li>important things</li>
-          <li>anything else</li>
-        </ul>
-        <h2 class="govuk-heading-l">Complete test result data</h2>
-        <p>These will be included in the recommendation letter to government. Test results will not be made public.</p>
+        <p>Test results will be included in the recommendation to government. They will not be made public.</p>
         
         {{ govukInput({
           label: {
@@ -55,7 +48,7 @@
           name: "sulphur-content-king",
           value: data["sulphur-content-king"],
           suffix: {
-            text: "% of total dry weight"
+            text: "%"
           }
         }) }}
         <div class="govuk-button-group govuk-!-margin-top-7">

@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Is Twin Heat CS200i a multifuel appliance? – {{ serviceName }}
+  Is Twin Heat M60i a multifuel appliance? – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -24,13 +24,13 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <h1 class="govuk-fieldset__heading">
-                Is Twin Heat CS200i a multifuel appliance?
+                Is Twin Heat M60i a multifuel appliance?
               </h1>
             </legend>
             {{ govukRadios({
               classes: "govuk-radios govuk-radios--inline",
-              name: "multifuelCS",
-              value: data['multifuelCS'] or foundObject['multifuel'],
+              name: "multifuel60",
+              value: data['multifuel60'] or foundObject['multifuel'],
               items: [
                 {
                   value: "Yes",

@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Review manufacturer letter for {{ foundObject["modelName"] }} – {{ serviceName }}
+  Review letter from original manufacturer of {{ foundObject["modelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -19,15 +19,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="review-fuel" method="post">
-        <h1 class="govuk-heading-xl">Review manufacturer letter for {{ foundObject["modelName"] }}</h1>
+        <h1 class="govuk-heading-xl">Review letter from original manufacturer of {{ foundObject["modelName"] }}</h1>
         <!-- <h2 class="govuk-heading-l">Documents included in application</h2>
         <p><a href="#">confirmity-mark-twinheat.jpg</a></p> -->
-        <p>Check the following:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>stuff to check</li>
-          <li>important things</li>
-          <li>anything else</li>
-        </ul>
+        <p>Confirm applicant has permission to rebrand the original manufacturer's fuel.</p>
         
         <div class="govuk-button-group govuk-!-margin-top-7">
           {{ govukButton({

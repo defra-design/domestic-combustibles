@@ -16,25 +16,50 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    <form action="fuel-details" method="post" novalidate>
-      <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--xl" for="more-detail">
-            What fuel is {{ foundObject["modelName"] }} permitted to burn?
+      <h1 class="govuk-heading-xl">Permitted fuels for {{ foundObject["modelName"] }}</h1>
+      <form action="review-appliance?permfuelstatusCS=done" method="post" novalidate>
+        <div class="govuk-form-group  govuk-!-margin-bottom-9">
+          <label class="govuk-label govuk-label--l" for="perm-fuels">
+            What fuels is it permitted to burn?
           </label>
-        </h1>
-        <textarea class="govuk-textarea" id="perm-fuels" name="permFuelsCS" rows="5">{{ data["permFuelsCS"] or foundObject["permittedFuels"] }}</textarea>
-      </div>
+          <textarea class="govuk-textarea" id="perm-fuels" name="permFuelsCS" rows="5">{{ data["permFuelsCS"] or foundObject["permittedFuels"] }}</textarea>
+        </div>
 
-      <div class="govuk-button-group govuk-!-margin-top-7">
-        {{ govukButton({
-          text: "Save changes"
-        }) }}
-      </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              Is it cerified to burn wood?
+            </legend>
+            {{ govukRadios({
+              classes: "govuk-radios govuk-radios--inline",
+              name: "woodCS",
+              value: data['woodCS'],
+              hint: {
+                text: "This will show wood related content on the public listing..."
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes"
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
+          </fieldset>
+        </div>
 
-      <p><a class="govuk-link" href="fuel-details">Cancel</a></p>
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Mark as completed"
+          }) }}
+        </div>
 
-    </form>
+        <p><a class="govuk-link" href="review-appliance.html">Cancel</a></p>
+
+      </form>
 
     </div>
   </div>

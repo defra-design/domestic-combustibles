@@ -61,20 +61,25 @@
           <dt class="govuk-summary-list__key">
             Fuel appearance
           </dt>
-          <dd class="govuk-summary-list__value">
+          <!-- <dd class="govuk-summary-list__value">
             {% if (data['fuelDesc']) %}
               {{ data['fuelDesc'] }}
             {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
+          </dd> -->
+          <dd class="govuk-summary-list__value">
             {% if (data['fuelDesc']) %}
                 <a class="govuk-link" href="appearance.html">
                 Change<span class="govuk-visually-hidden"> fuel appearance</span>
               </a>
             {% else %}
-              <a class="govuk-link" href="appearance.html">
-                Add<span class="govuk-visually-hidden"> fuel appearance</span>
-              </a>
+              <div class="govuk-form-group govuk-form-group--error">
+                <p id="other-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Add fuel appearance
+                </p>
+                <a class="govuk-link" href="appearance.html">
+                  Add<span class="govuk-visually-hidden"> fuel appearance</span>
+                </a>
+              </div>
             {% endif %}
           </dd>
         </div>
@@ -82,12 +87,12 @@
           <dt class="govuk-summary-list__key">
             Fuel weight
           </dt>
-          <dd class="govuk-summary-list__value">
+          <!-- <dd class="govuk-summary-list__value">
             {% if (data['fuelWeight']) %}
               {{ data['fuelWeight'] }}
             {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
+          </dd> -->
+          <dd class="govuk-summary-list__value">
             {% if (data['fuelWeight']) %}
                 <a class="govuk-link" href="weight.html">
                 Change<span class="govuk-visually-hidden"> fuel weight</span>
