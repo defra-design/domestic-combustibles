@@ -16,23 +16,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-error-summary" data-module="govuk-error-summary">
-        <div role="alert">
-          <h2 class="govuk-error-summary__title">
-            There is a problem
-          </h2>
-          <div class="govuk-error-summary__body">
-            <ul class="govuk-list govuk-error-summary__list">
-              <li>
-                <a href="#">Enter your full name</a>
-              </li>
-              <li>
-                <a href="#">The date your passport was issued must be in the past</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      
       <h1 class="govuk-heading-xl">
         Add fuel description for {{ foundObject["modelName"] }}
       </h1>
@@ -61,106 +45,108 @@
           <dt class="govuk-summary-list__key">
             Fuel appearance
           </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['fuelDesc']) %}
-              {{ data['fuelDesc'] }}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if (data['fuelDesc']) %}
-                <a class="govuk-link" href="appearance.html">
+          {% if (data['fuelDesc']) %}
+            <dd class="govuk-summary-list__value">
+              {% if (data['fuelDesc']) %}
+                {{ data['fuelDesc'] }}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="appearance.html">
                 Change<span class="govuk-visually-hidden"> fuel appearance</span>
               </a>
-            {% else %}
+            </dd>
+          {% else %}
+            <dd class="govuk-summary-list__value">
               <a class="govuk-link" href="appearance.html">
                 Add<span class="govuk-visually-hidden"> fuel appearance</span>
               </a>
-            {% endif %}
-          </dd>
+            </dd>
+          {% endif %}
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Fuel weight
           </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['fuelWeight']) %}
+          {% if (data['fuelWeight']) %}
+            <dd class="govuk-summary-list__value">
               {{ data['fuelWeight'] }}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if (data['fuelWeight']) %}
-                <a class="govuk-link" href="weight.html">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="weight.html">
                 Change<span class="govuk-visually-hidden"> fuel weight</span>
               </a>
+            </dd>
             {% else %}
-              <a class="govuk-link" href="weight.html">
-                Add<span class="govuk-visually-hidden"> fuel weight</span>
-              </a>
+              <dd class="govuk-summary-list__value">
+                <a class="govuk-link" href="weight.html">
+                  Add<span class="govuk-visually-hidden"> fuel weight</span>
+                </a>
+              </dd>
             {% endif %}
-          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Fuel composition
           </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['fuelComp']) %}
+          {% if (data['fuelComp']) %}
+            <dd class="govuk-summary-list__value">
               {{ data['fuelComp'] }}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if (data['fuelComp']) %}
-                <a class="govuk-link" href="composition.html">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="composition.html">
                 Change<span class="govuk-visually-hidden"> fuel composition</span>
               </a>
-            {% else %}
+            </dd>
+          {% else %}
+            <dd class="govuk-summary-list__value">
               <a class="govuk-link" href="composition">
                 Add<span class="govuk-visually-hidden"> fuel composition</span>
               </a>
-            {% endif %}
-          </dd>
+            </dd>
+          {% endif %}
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Sulphur content
           </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['sulphurContent']) %}
+          {% if (data['sulphurContent']) %}
+            <dd class="govuk-summary-list__value">
               {{ data['sulphurContent'] }} % of total dry weight
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if (data['sulphurContent']) %}
-                <a class="govuk-link" href="sulphur.html">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="sulphur.html">
                 Change<span class="govuk-visually-hidden"> sulphur content</span>
               </a>
-            {% else %}
+            </dd>
+          {% else %}
+            <dd class="govuk-summary-list__value">
               <a class="govuk-link" href="sulphur">
                 Add<span class="govuk-visually-hidden"> sulphur content</span>
               </a>
-            {% endif %}
-          </dd>
+            </dd>
+          {% endif %}
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Manufacturing process
           </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['fuelManu']) %}
+          {% if (data['fuelManu']) %}
+            <dd class="govuk-summary-list__value">
               {{ data['fuelManu'] }}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if (data['fuelManu']) %}
-                <a class="govuk-link" href="manufacture.html">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="manufacture.html">
                 Change<span class="govuk-visually-hidden"> manufacturing process</span>
               </a>
-            {% else %}
+            </dd>
+          {% else %}
+            <dd class="govuk-summary-list__value">
               <a class="govuk-link" href="manufacture">
                 Add<span class="govuk-visually-hidden"> manufacturing process</span>
               </a>
-            {% endif %}
-          </dd>
+            </dd>
+          {% endif %}
         </div>
       </dl>
 

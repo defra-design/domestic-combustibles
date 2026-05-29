@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Will the fuel be sold under any additional rebrand names? – {{ serviceName }}
+  Will the fuel be sold under any additional brand names? – {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -22,8 +22,11 @@
         {% set detailsInput %}
         {{ govukTextarea({
           label: {
-            text: "List the additional rebrand names, separated by a comma",
+            text: "List the additional brand names, separated by commas",
             classes: "govuk-label--m"
+          },
+          hint: {
+            text: "For example Brand 1, Brand 2"
           },
           id: "additional-brands",
           name: "additionalBrands",
