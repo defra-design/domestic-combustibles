@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Appliance details – {{ serviceName }}
+  Fuel details for {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -43,7 +43,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Appliance details
+        Fuel details for {{ foundObject["fuelName"] }}
       </h1>
 
       <dl class="govuk-summary-list">
@@ -57,7 +57,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Resale brand name
+            Rebranded name
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject["fuelName"] }}
@@ -66,7 +66,7 @@
         {% if (foundObject.moreBrands == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Additional brand names
+              Additional rebrand name(s)
             </dt>
             <dd class="govuk-summary-list__value">
               {% for brand in foundObject['brands'] %}
@@ -96,20 +96,12 @@
             Changes to original fuel
           </dt>
           <dd class="govuk-summary-list__value">
-            Yes
+            No
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Detail of changes
-          </dt>
-          <dd class="govuk-summary-list__value">
-            These are the changes
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Original fuel description
+            Fuel description
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject["description"] }}
@@ -117,7 +109,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Original fuel weight
+            Fuel weight
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject["weight"] }}
@@ -125,7 +117,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Original fuel composition
+            Fuel composition
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject["composition"] }}
@@ -133,15 +125,15 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Original fuel sulphur content
+            Sulphur content
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["sulphur"] }} % of total dry weight
+            {{ foundObject["sulphur"] }} % of total dry ash-free weight
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Original fuel manufacturing process
+            Manufacturing process
           </dt>
           <dd class="govuk-summary-list__value">
             {{ foundObject["manufacture"] }}

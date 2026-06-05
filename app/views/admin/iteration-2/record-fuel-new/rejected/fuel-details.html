@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% block pageTitle %}
-  Fuel details – {{ serviceName }}
+  Fuel details for {{ foundObject["fuelName"] }} – {{ serviceName }}
 {% endblock %}
 
 {% block containerStart %}
@@ -43,7 +43,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Fuel details
+        Fuel details for {{ foundObject["fuelName"] }}
       </h1>
 
       <dl class="govuk-summary-list">
@@ -110,7 +110,7 @@
             Sulphur content
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject['sulphur'] }} % of total dry weight
+            {{ foundObject['sulphur'] }} % of total dry ash-free weight
           </dd>
         </div>
         <div class="govuk-summary-list__row">
