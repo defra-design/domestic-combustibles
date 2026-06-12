@@ -264,11 +264,23 @@
       </div>
 
       <div class="govuk-button-group govuk-!-margin-top-7">
-        {% if ((data['m80status'] == "accepted" or data['m80status'] == "rejected") and (data['m60status'] == "accepted" or data['m60status'] == "rejected") and (data['m40status'] == "accepted" or data['m40status'] == "rejected") and (data['m20status'] == "accepted" or data['m20status'] == "rejected")) %}
-          {{ govukButton({
-            text: "Continue",
-            href: "review-outcome"
-          }) }}
+        {% if (data['m80status']) and (data['m60status']) and (data['m40status']) and (data['m20status']) %}
+          {% if (data['m80status'] == "accepted") and (data['m60status'] == "accepted") and (data['m40status'] == "accepted") and (data['m20status'] == "accepted") %}
+            {{ govukButton({
+              text: "Continue",
+              href: "review-outcome"
+            }) }}
+          {% elseif (data['m80status'] == "rejected") and (data['m60status'] == "rejected") and (data['m40status'] == "rejected") and (data['m20status'] == "rejected") %}
+            {{ govukButton({
+              text: "Continue",
+              href: "review-outcome"
+            }) }}
+          {% else %}
+            {{ govukButton({
+              text: "Continue",
+              href: "review-outcome-mix"
+            }) }}
+          {% endif %}
         {% else %}
             {{ govukButton({
             text: "Continue",
