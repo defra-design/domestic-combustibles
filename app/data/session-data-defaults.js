@@ -737,9 +737,7 @@ module.exports = {
       "id" : 1,
       "applianceName" : "Aarrow ECB5 Plus SC 5kW and ECB7 Plus SC 7kW wood-burning stoves",
       "manufacturer" : "Arada Limited",
-      "fuels" : [
-      "Wood logs"
-      ],
+      "fuels" : "Wood logs",
       "thermal" : "3",
       "additional" : "Some conditions",
       "type" : "Stove",
@@ -761,9 +759,7 @@ module.exports = {
       "id" : 2,
       "applianceName" : "Aarrow Ecoburn 5F plus 4.9kW multi-fuel stove",
       "manufacturer" : "Arada Limited",
-      "fuels" : [
-      "Wood logs"
-      ],
+      "fuels" : "Wood logs",
       "thermal" : "4",
       "additional" : "Some conditions",
       "type" : "Stove",
@@ -786,12 +782,7 @@ module.exports = {
       "applianceName" : "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
       "modelNum" : "5F",
       "manufacturer" : "Arada Limited",
-      "fuels" : [
-      "Wood logs",
-      "Wood pellets",
-      "Wood chips",
-      "Waste and scrap wood (including pallets)"
-      ],
+      "fuels" : "Wood logs, wood pellets, wood chips, waste and scrap wood (including pallets)",
       "type" : "Other",
       "otherType" : "Incinerator",
       "variant" : "Yes",
@@ -815,11 +806,7 @@ module.exports = {
       "id" : 4,
       "applianceName" : "Aarrow I Series 400 wood-burning inset roomheater and 400 T F wood-burning stove",
       "manufacturer" : "Arada Limited",
-      "fuels" : [
-      "Wood logs",
-      "Wood pellets",
-      "Wood chips"
-      ],
+      "fuels" : "Wood logs, wood pellets, wood chips",
       "type" : "Stove",
       "variant" : "No",
       "thermal" : "5",

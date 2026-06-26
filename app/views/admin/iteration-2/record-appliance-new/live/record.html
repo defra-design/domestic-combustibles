@@ -89,10 +89,26 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">England</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['england'] == "suspended") %}
-                    <strong class="govuk-tag govuk-tag--blue">
-                      Suspended
-                    </strong>
+                  {% if (data.changeCertEnglandAarowWide) %}
+                    {% if (data.changeCertEnglandAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.changeCertEnglandAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (data.setCertEnglandAarowWide) %}
+                    {% if (data.setCertEnglandAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.setCertEnglandAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
                   {% elseif (foundObject['england'] == "certified") %}
                     <strong class="govuk-tag govuk-tag--green">
                       Certified
@@ -108,15 +124,37 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {{ foundObject["eDate"] }}
+                  {% if (data.changeCertEnglandAarowWide) %}
+                    {% if (data.changeCertEnglandAarowWide  == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.changeCertEnglandAarowWide  == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% elseif (data.setCertEnglandAarowWide) %}
+                    {% if (data.setCertEnglandAarowWide == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.setCertEnglandAarowWide == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% else %}
+                    {{ foundObject["eDate"] }}
+                  {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['england'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowWide=eng">
+                  {% if (data.changeCertEnglandAarowWide) %}
+                    <a href="change-england-certification.html">
+                      Change
+                    </a>
+                  {% elseif (data.setCertEnglandAarowWide) %}
+                    <a href="change-england-certification.html">
+                      Change
+                    </a>
+                  {% elseif (foundObject['england'] == "awaiting") %}
+                    <a href="set-england-certification.html">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowWide=eng">
+                    <a href="change-england-certification.html">
                       Change
                     </a>
                   {% endif %}
@@ -125,7 +163,27 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">Scotland</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['scotland'] == "certified") %}
+                  {% if (data.changeCertScotlandAarowWide) %}
+                    {% if (data.changeCertScotlandAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.changeCertScotlandAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (data.setCertScotlandAarowWide) %}
+                    {% if (data.setCertScotlandAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.setCertScotlandAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (foundObject['scotland'] == "certified") %}
                     <strong class="govuk-tag govuk-tag--green">
                       Certified
                     </strong>
@@ -140,15 +198,37 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {{ foundObject["sDate"] }}
+                  {% if (data.changeCertScotlandAarowWide) %}
+                    {% if (data.changeCertScotlandAarowWide  == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.changeCertScotlandAarowWide  == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% elseif (data.setCertScotlandAarowWide) %}
+                    {% if (data.setCertScotlandAarowWide == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.setCertScotlandAarowWide == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% else %}
+                    {{ foundObject["sDate"] }}
+                  {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['scotland'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowWide=scot">
+                  {% if (data.changeCertScotlandAarowWide) %}
+                    <a href="change-scotland-certification.html">
+                      Change
+                    </a>
+                  {% elseif (data.setCertScotlandAarowWide) %}
+                    <a href="change-scotland-certification.html">
+                      Change
+                    </a>
+                  {% elseif (foundObject['scotland'] == "awaiting") %}
+                    <a href="set-scotland-certification.html">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowWide=scot">
+                    <a href="change-scotland-certification.html">
                       Change
                     </a>
                   {% endif %}
@@ -157,7 +237,27 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell">Wales</td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['wales'] == "certified") %}
+                  {% if (data.changeCertWalesAarowWide) %}
+                    {% if (data.changeCertWalesAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.changeCertWalesAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (data.setCertWalesAarowWide) %}
+                    {% if (data.setCertWalesAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.setCertWalesAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (foundObject['wales'] == "certified") %}
                     <strong class="govuk-tag govuk-tag--green">
                       Certified
                     </strong>
@@ -172,15 +272,37 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {{ foundObject["wDate"] }}
+                  {% if (data.changeCertWalesAarowWide) %}
+                    {% if (data.changeCertWalesAarowWide  == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.changeCertWalesAarowWide  == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% elseif (data.setCertWalesAarowWide) %}
+                    {% if (data.setCertWalesAarowWide == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.setCertWalesAarowWide == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% else %}
+                    {{ foundObject["wDate"] }}
+                  {% endif %}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell">
-                  {% if (foundObject['wales'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowWide=wal">
+                  {% if (data.changeCertWalesAarowWide) %}
+                    <a href="change-wales-certification.html">
+                      Change
+                    </a>
+                  {% elseif (data.setCertWalesAarowWide) %}
+                    <a href="change-wales-certification.html">
+                      Change
+                    </a>
+                  {% elseif (foundObject['wales'] == "awaiting") %}
+                    <a href="set-wales-certification.html">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowWide=wal">
+                    <a href="change-wales-certification.html">
                       Change
                     </a>
                   {% endif %}
@@ -188,8 +310,28 @@
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">Northern Ireland</td>
-                <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (foundObject['nireland'] == "certified") %}
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (data.changeCertNIAarowWide) %}
+                    {% if (data.changeCertNIAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.changeCertNIAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (data.setCertNIAarowWide) %}
+                    {% if (data.setCertNIAarowWide  == "certified") %}
+                      <strong class="govuk-tag govuk-tag--green">
+                        Certified
+                      </strong>
+                    {% elseif (data.setCertNIAarowWide  == "uncertified") %}
+                      <strong class="govuk-tag govuk-tag--grey">
+                        Uncertified
+                      </strong>
+                    {% endif %}
+                  {% elseif (foundObject['nireland'] == "certified") %}
                     <strong class="govuk-tag govuk-tag--green">
                       Certified
                     </strong>
@@ -203,16 +345,38 @@
                     </strong>
                   {% endif %}
                 </td>
-                <td class="govuk-table__cell" style="border-bottom:0;">
-                  {{ foundObject["niDate"] }}
+                <td class="govuk-table__cell">
+                  {% if (data.changeCertNIAarowWide) %}
+                    {% if (data.changeCertNIAarowWide  == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.changeCertNIAarowWide  == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% elseif (data.setCertNIAarowWide) %}
+                    {% if (data.setCertNIAarowWide == "certified") %}
+                      {{ "today" | govukDate }}
+                    {% elseif (data.setCertNIAarowWide == "uncertified") %}
+                      Not certified
+                    {% endif %}
+                  {% else %}
+                    {{ foundObject["niDate"] }}
+                  {% endif %}
                 </td>
-                <td class="govuk-table__cell govuk-table__cell" style="border-bottom:0;">
-                  {% if (foundObject['nireland'] == "awaiting") %}
-                    <a href="set-certification.html?countryAarowWide=ni">
+                <td class="govuk-table__cell govuk-table__cell">
+                  {% if (data.changeCertNIAarowWide) %}
+                    <a href="change-ni-certification.html">
+                      Change
+                    </a>
+                  {% elseif (data.setCertNIAarowWide) %}
+                    <a href="change-ni-certification.html">
+                      Change
+                    </a>
+                  {% elseif (foundObject['nireland'] == "awaiting") %}
+                    <a href="set-ni-certification.html">
                       Change
                     </a>
                   {% else %}
-                    <a href="change-certification.html?countryAarowWide=ni">
+                    <a href="change-ni-certification.html">
                       Change
                     </a>
                   {% endif %}

@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "1" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% if (data.changeCertScotlandECB5) %}
+  {% if (data.changeCertScotlandECB5 == "uncertified") %}
+    {% set currentStatusScotlandECB5 = 'uncertified' %}
+    {% set altStatusScotlandECB5 = 'certified' %}
+  {% elseif (data.changeCertScotlandECB5 == "certified") %}
+    {% set currentStatusScotlandECB5 = 'certified' %}
+    {% set altStatusScotlandECB5 = 'uncertified' %}
+  {% endif %}
+{% elseif (data.setCertScotlandECB5) %}
+  {% if (data.setCertScotlandECB5 == "uncertified") %}
+    {% set currentStatusScotlandECB5 = 'uncertified' %}
+    {% set altStatusScotlandECB5 = 'certified' %}
+  {% elseif (data.setCertScotlandECB5 == "certified") %}
+    {% set currentStatusScotlandECB5 = 'certified' %}
+    {% set altStatusScotlandECB5 = 'uncertified' %}
+  {% endif %}
+{% elseif (foundObject.scotland == "uncertified") %}
+  {% set currentStatusScotlandECB5 = 'Uncertified' %}
+  {% set altStatusScotlandECB5 = 'certified' %}
+{% elseif (foundObject.scotland == "certified") %}
+  {% set currentStatusScotlandECB5 = 'Certified' %}
+  {% set altStatusScotlandECB5 = 'uncertified' %}
+{% endif %}
+
+{% block pageTitle %}
+  Change approval status in Scotland for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Change approval status in Scotland for {{ foundObject["applianceName"] }}
+      </h1>
+      <p>Current status: {{ currentStatusScotlandECB5 }}</p>
+      <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the Scottish government.</p>
+      <form class="form" action="record" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you want to change the approval status for this appliance to {{ altStatusScotlandECB5 }} in Scotland?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertScotlandECB5" type="radio" value="{{ altStatusEnglandECB5 }}">
+                <label class="govuk-label govuk-radios__label" for="change-cert">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertScotlandECB5" type="radio" value="{{ currentStatusScotlandECB5 }}">
+                <label class="govuk-label govuk-radios__label" for="change-cert-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

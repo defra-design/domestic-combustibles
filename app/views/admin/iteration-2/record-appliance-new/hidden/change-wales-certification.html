@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "2" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% set currentStatusWalesAarowEco ={} %}
+{% set altStatusWalesAarowEco ={} %}
+
+{% if (data.changeCertWalesAarowEco) %}
+  {% if (data.changeCertWalesAarowEco == "uncertified") %}
+    {% set currentStatusWalesAarowEco = 'uncertified' %}
+    {% set altStatusWalesAarowEco = 'certified' %}
+  {% elseif (data.changeCertWalesAarowEco == "certified") %}
+    {% set currentStatusWalesAarowEco = 'certified' %}
+    {% set altStatusWalesAarowEco = 'uncertified' %}
+  {% endif %}
+{% elseif (data.setCertWalesAarowEco) %}
+  {% if (data.setCertWalesAarowEco == "uncertified") %}
+    {% set currentStatusWalesAarowEco = 'uncertified' %}
+    {% set altStatusWalesAarowEco = 'certified' %}
+  {% elseif (data.setCertWalesAarowEco == "certified") %}
+    {% set currentStatusWalesAarowEco = 'certified' %}
+    {% set altStatusWalesAarowEco = 'uncertified' %}
+  {% endif %}
+{% elseif (foundObject.wales == "uncertified") %}
+  {% set currentStatusWalesAarowEco = 'uncertified' %}
+  {% set altStatusWalesAarowEco = 'certified' %}
+{% elseif (foundObject.wales == "certified") %}
+  {% set currentStatusWalesAarowEco = 'certified' %}
+  {% set altStatusWalesAarowEco = 'uncertified' %}
+{% endif %}
+
+{% block pageTitle %}
+  Change approval status in Wales for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Change approval status in Wales for {{ foundObject["applianceName"] }}
+      </h1>
+      <p>Current status: {{ currentStatusWalesAarowEco }}</p>
+      <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the Welsh government.</p>
+      <form class="form" action="record" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you want to change the approval status for this appliance to {{ altStatusWalesAarowEco }} in Wales?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertWalesAarowEco" type="radio" value="{{ altStatusWalesAarowEco }}">
+                <label class="govuk-label govuk-radios__label" for="change-cert">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertWalesAarowEco" type="radio" value="{{ currentStatusWalesAarowEco }}">
+                <label class="govuk-label govuk-radios__label" for="change-cert-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

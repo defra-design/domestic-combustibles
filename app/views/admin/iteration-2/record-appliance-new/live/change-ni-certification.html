@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% set foundObject ={} %}
+
+{% for object in data["applianceRecordList"] %}
+
+  {% if object.id == "3" %}
+    {% set foundObject = object %}
+  {% endif %}
+{% endfor %}
+
+{% if (data.changeCertNIAarowWide) %}
+  {% if (data.changeCertNIAarowWide == "uncertified") %}
+    {% set currentStatusNIAarowWide = 'uncertified' %}
+    {% set altStatusNIAarowWide = 'certified' %}
+  {% elseif (data.changeCertNIAarowWide == "certified") %}
+    {% set currentStatusNIAarowWide = 'certified' %}
+    {% set altStatusNIAarowWide = 'uncertified' %}
+  {% endif %}
+{% elseif (data.setCertNIAarowWide) %}
+  {% if (data.setCertNIAarowWide == "uncertified") %}
+    {% set currentStatusNIAarowWide = 'uncertified' %}
+    {% set altStatusNIAarowWide = 'certified' %}
+  {% elseif (data.setCertNIAarowWide == "certified") %}
+    {% set currentStatusNIAarowWide = 'certified' %}
+    {% set altStatusNIAarowWide = 'uncertified' %}
+  {% endif %}
+{% elseif (foundObject.nireland == "uncertified") %}
+  {% set currentStatusNIAarowWide = 'uncertified' %}
+  {% set altStatusNIAarowWide = 'certified' %}
+{% elseif (foundObject.nireland == "certified") %}
+  {% set currentStatusNIAarowWide = 'certified' %}
+  {% set altStatusNIAarowWide = 'uncertified' %}
+{% endif %}
+
+{% block pageTitle %}
+  Change approval status in Northern Ireland for {{ foundObject["applianceName"] }} – {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Change approval status in Northern Ireland for {{ foundObject["applianceName"] }}
+      </h1>
+      <p>Current status: {{ currentStatusNIAarowWide }}</p>
+      <p>You must only change the appliance's approval status if instructed to do so by an appropriate representative of the government of Northern Ireland.</p>
+      <form class="form" action="record" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you want to change the approval status for this appliance to {{ altStatusNIAarowWide }} in Northern Ireland?
+              </h2>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert" name="changeCertNIAarowWide" type="radio" value="{{ altStatusNIAarowWide }}">
+                <label class="govuk-label govuk-radios__label" for="change-cert">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="change-cert-no" name="changeCertNIAarowWide" type="radio" value="{{ currentStatusNIAarowWide }}">
+                <label class="govuk-label govuk-radios__label" for="change-cert-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <a class="govuk-link" href="record">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

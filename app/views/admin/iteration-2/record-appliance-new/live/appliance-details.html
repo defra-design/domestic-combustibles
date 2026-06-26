@@ -117,14 +117,26 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Is it a multifuel appliance?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Permitted fuels
           </dt>
           <dd class="govuk-summary-list__value">
-            <ul class="govuk-list govuk-list--bullet">
-              {% for fuel in foundObject['fuels'] %}
-                <li>{{ fuel }}</li>
-              {% endfor %}
-            </ul>
+            {{ foundObject["fuels"] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is it cerified to burn wood?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -132,7 +144,7 @@
             Additional conditions
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ foundObject["additional"] or 'Not available'}}
+            No additional conditions for use
           </dd>
         </div>
       </dl>
