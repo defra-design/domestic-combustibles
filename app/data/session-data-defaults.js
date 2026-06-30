@@ -116,6 +116,120 @@ module.exports = {
     }
   ],
 
+  //Appliances public list initial view alphabetical - iteration2
+  "appliancePublicListAlpha": [
+    {
+      "applianceName" : "Aarrow ECB5 Plus SC 5kW and ECB7 Plus SC 7kW wood-burning stoves",
+      "detailLink" : "",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0008",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow Ecoburn 5F plus 4.9kW multi-fuel stove",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0009",
+      "status" : "Rejected",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3027",
+      "status" : "Hidden from public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow I Series 400 wood-burning inset roomheater and 400 T F wood-burning stove",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3026",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow I Series 500 wood-burning inset roomheater",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3028",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow I Series 600 wood-burning inset roomheater",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3021",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow I Series 750 wood-burning inset roomheater",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3018",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Aarrow Signature 5 SC, Aarrow Ecoburn 5 SC, Hamlet Solution 5 SC and Villager Espirit 5 SC Stoves",
+      "detailLink" : "#",
+      "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3016",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Accona 5kW multifuel stove",
+      "detailLink" : "#",
+      "manufacturer" : "F2 Fires Ltd",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3017",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "applianceName" : "Acquisitions Bloomsbury 5 kW stove",
+      "detailLink" : "#",
+      "manufacturer" : "Esse Engineering Limited, Ouzedale Foundry, Long Ing, Barnoldswick, Lancashire, BB18 6BN",
+      "fuels" : "Wood logs",
+      "type" : "Stove",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "3019",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    }
+  ],
+
   //Appliance opus keyword search England
     "opusKeywordSearch": [
     {
@@ -200,6 +314,7 @@ module.exports = {
     }
   ],
 
+  
 // Appliance opus keyword and England filter
   "opusKeywordSearchFilter": [
     {
@@ -453,89 +568,206 @@ module.exports = {
     }
   ],
 
+  //Fuels public list initial view alphabetical - iteration2
+  "fuelPublicListAlpha": [
+    {
+      "fuelName" : "Aimcor Excel briquettes",
+      "fuelID" : "MSF0002",
+      "detailLink" : "",
+      "manufacturer" : "",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0001",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "Aimcor Pureheat briquettes",
+      "fuelID" : "MSF0003",
+      "detailLink" : "#",
+      "manufacturer" : "Applied Industrial Materials UK Limited at Newfield, County Durham, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0002",
+      "status" : "Rejected",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "Aldi Burn & Glow Firelog",
+      "fuelID" : "MSF0271",
+      "detailLink" : "#",
+      "manufacturer" : "Applied Industrial Materials UK Limited at Immingham, North East Lincolnshire, or manufactured by Oxbow Carbon & Minerals UK Limited, Windsor House, Cornwall Road, Harrogate, North Yorkshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0003",
+      "status" : "Hidden from public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "Aldi Burn & Glow Starter Firelog",
+      "fuelID" : "MSF0272",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "MSF0004",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "Aldi Burn & Glow 600",
+      "fuelID" : "MSF0311",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg 4, 5804 CL Venray, the Netherlands",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0005",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "ALDI Winter Flame Smokeless Fuel",
+      "fuelID" : "0075",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited at Parque Industrial Alvear, 2126 Alvear, Provincia de Santa Fe, Argentina",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0006",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "ALDI Winter Flame Smokeless Fuel",
+      "fuelID" : "MSF0109",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0007",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "ALDI Winterflame",
+      "fuelID" : "MSF0218",
+      "detailLink" : "#",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0008",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "Amberglow",
+      "fuelID" : "MSF0268",
+      "detailLink" : "#",
+      "manufacturer" : "Bord na Móna Fuels Limited of Newbridge, County Kildare, Ireland",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0009",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    },
+    {
+      "fuelName" : "Ancit briquettes",
+      "fuelID" : "MSF0004",
+      "detailLink" : "#",
+      "manufacturer" : "Coal Products Limited at Immingham Briquetting Works, Immingham, North East Lincolnshire",
+      "certified" : "England, Scotland, Wales, Northern Ireland",
+      "appNum" : "0010",
+      "status" : "Live on public list",
+      "actionLink" : ""
+    }
+  ],
+
   //Fuels big k keyword search England
   "bigkKeywordSearch": [
     {
+      "fuelName" : "Big K Cracklelog",
+      "fuelID" : "MSF0147",
+      "detailLink" : "fuel-details-bigk-cracklelog",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "fuelID" : "MSF0086",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "Scotland, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "fuelID" : "MSF0087",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
+      "fuelName" : "Big K Fire Log",
+      "fuelID" : "MSF0088",
+      "detailLink" : "#",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Wales, Northern Ireland"
+    },
+    {
       "fuelName" : "Big K Instant Lighting Fire Logs",
+      "fuelID" : "0005",
       "detailLink" : "#",
       "manufacturer" : "Allspan BV of Macroweg",
       "certified" : "England, Northern Ireland"
     },
     {
+      "fuelName" : "Big K Namibian Restaurant Grade Charcoal (Chilla Grilla and Chilla Grilla FSC)",
+      "fuelID" : "0319",
+      "detailLink" : "#",
+      "manufacturer" : "Big K Products UK Limited",
+      "certified" : "Scotland, Wales"
+    },
+    {
       "fuelName" : "Big K Restaurant Grade Charcoal",
+      "fuelID" : "0006",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
       "certified" : "Northern Ireland"
     },
     {
       "fuelName" : "Big K Restaurant Grade Charcoal Briquettes",
+      "fuelID" : "0123",
       "detailLink" : "#",
       "manufacturer" : "Big K Esereso Carbon Products Ltd",
       "certified" : "Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Smokeless Coal Fire",
+      "fuelID" : "0148",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
       "certified" : "Scotland, Northern Ireland"
-    },
-    {
-      "fuelName" : "Big K Namibian Restaurant Grade Charcoal (Chilla Grilla and Chilla Grilla FSC)",
-      "detailLink" : "#",
-      "manufacturer" : "Big K Products UK Limited",
-      "certified" : "Scotland, Wales"
-    },
-    {
-      "fuelName" : "Big K Fire Log",
-      "detailLink" : "#",
-      "manufacturer" : "Top Flames Europe BV",
-      "certified" : "Scotland, Wales"
-    },
-    {
-      "fuelName" : "Big K Fire Log",
-      "detailLink" : "#",
-      "manufacturer" : "Top Flames Europe BV",
-      "certified" : "Scotland, Northern Ireland"
-    },
-    {
-      "fuelName" : "Big K Fire Log",
-      "detailLink" : "#",
-      "manufacturer" : "Top Flames Europe BV",
-      "certified" : "England, Scotland, Wales, Northern Ireland"
-    },
-    {
-      "fuelName" : "Big K Cracklelog",
-      "detailLink" : "fuel-details-bigk-cracklelog",
-      "manufacturer" : "Top Flames Europe BV",
-      "certified" : "England, Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Smokeless Coal Fire",
+      "fuelID" : "MSF0244",
       "detailLink" : "#",
       "manufacturer" : "Big K Products UK Limited",
-      "certified" : "Scotland, Wales, Northern Ireland"
+      "certified" : "Scotland, Northern Ireland"
     }
   ],
 
     //Fuels big k keyword search and filter England
   "bigkKeywordSearchFilter": [
     {
-      "fuelName" : "Big K Instant Lighting Fire Logs",
-      "detailLink" : "#",
-      "manufacturer" : "Allspan BV of Macroweg",
-      "certified" : "England, Northern Ireland"
+      "fuelName" : "Big K Cracklelog",
+      "fuelID" : "MSF0147",
+      "detailLink" : "fuel-details-bigk-cracklelog",
+      "manufacturer" : "Top Flames Europe BV",
+      "certified" : "England, Scotland, Northern Ireland"
     },
     {
       "fuelName" : "Big K Fire Log",
+      "fuelID" : "MSF0088",
       "detailLink" : "#",
       "manufacturer" : "Top Flames Europe BV",
       "certified" : "England, Scotland, Wales, Northern Ireland"
     },
     {
-      "fuelName" : "Big K Cracklelog",
-      "detailLink" : "fuel-details-bigk-cracklelog",
-      "manufacturer" : "Top Flames Europe BV",
-      "certified" : "England, Scotland, Northern Ireland"
+      "fuelName" : "Big K Instant Lighting Fire Logs",
+      "fuelID" : "0005",
+      "detailLink" : "#",
+      "manufacturer" : "Allspan BV of Macroweg",
+      "certified" : "England, Northern Ireland"
     }
   ],
 

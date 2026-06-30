@@ -1,0 +1,182 @@
+{% extends "layouts/main-public-list-no-back.html" %}
+
+{% block pageTitle %}
+  Check if a stove or other solid fuel appliance is certified for use in smoke control areas – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check if a stove or other solid fuel appliance is certified for use in smoke control areas
+      </h1>
+
+      <p class="govuk-body-s govuk-!-margin-bottom-2">From: <a href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment, Food and Rural Affairs</a></p>
+      <p class="govuk-body-s govuk-!-margin-bottom-9">Last updated 14 January 2026</p>
+
+      <p>When burning solid fuels (including wood) in <a href="smoke-control.html">smoke control areas</a>, you can either:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>burn a <a href="fuel-list.html">certified fuel</a>, or</li>
+        <li>burn uncertified solid fuels (including wood) in a certified appliance</li>
+      </ul>
+      <p>Only use fuels that your appliance is designed to burn. Wood fuels should contain <a href="https://www.readytoburn.org/consumers/advice-hub/measuring-firewood-moisture-content/" target="_blank">20% moisture or less</a>. Find out more about burning wood at <a href="https://www.readytoburn.org/">Ready to Burn</a>.</p>
+      <p>All the appliances on this list are certified appliances. <a href="appliance-legal.html">Learn more about appliance certification</a>.</p>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <form class="form" action="appliance-list-search" method="post">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="keywords">
+            Search appliances
+          </label>
+          <div class="govuk-button-group">
+            <input class="govuk-input govuk-!-width-two-thirds" id="keywords" name="keywords" type="text" value="opus">
+            <button type="submit" class="govuk-button govuk-!-margin-0  govuk-!-margin-left-1" data-module="govuk-button" data-test-id="submit-button">
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+      <form class="form" action="appliance-list-filtered" method="post">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="keywords">
+            Filter by country (optional)
+          </label>
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="england" name="countryCert" type="checkbox" value="England" checked="true">
+              <label class="govuk-label govuk-checkboxes__label" for="england">
+                England
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="scotland" name="countryCert" type="checkbox" value="Sctoland">
+              <label class="govuk-label govuk-checkboxes__label" for="scotland">
+                Scotland
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="wales" name="countryCert" type="checkbox" value="Wales">
+              <label class="govuk-label govuk-checkboxes__label" for="wales">
+                Wales
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="ni" name="countryCert" type="checkbox" value="Northern Ireland">
+              <label class="govuk-label govuk-checkboxes__label" for="ni">
+                Northern Ireland
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button" data-test-id="submit-button">
+            Apply filter
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <div class="moj-filter__content">
+          <div class="moj-filter__selected">
+            <div class="moj-filter__selected-heading">
+              <div class="moj-filter__heading-title">
+                <h2 class="govuk-heading-m">Search and filters</h2>
+              </div>
+              <div class="moj-filter__heading-action">
+                <p><a class="govuk-link govuk-link--no-visited-state" href="appliance-list.html">Clear search and filters</a></p>
+              </div>
+            </div>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Search term:</h3>
+            <ul class="moj-filter-tags">
+              <li><a class="moj-filter__tag" href="appliance-list.html"><span class="govuk-visually-hidden">Remove this search term</span> opus</a></li>
+            </ul>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Certified for use in:</h3>
+            <ul class="moj-filter-tags">
+              <li><a class="moj-filter__tag" href="appliance-list"><span class="govuk-visually-hidden">Remove this filter</span> England</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <p class="govuk-!-margin-top-5">Showing 1 to 4 of 4 records</p>
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+        <ul class="govuk-list">
+          {% for appliance in data['opusKeywordSearchFilter'] %}
+            <li>
+              <h3><a href="{{ appliance['detailLink'] }}">{{ appliance['applianceName'] }}</a></h3>
+              {% if (appliance.manufacturer) %}
+                <p>Manufactured by {{ appliance['manufacturer'] }}</p>
+              {% else %}
+              
+              {% endif %}
+              <p class="govuk-body-s govuk-!-margin-bottom-1">Certified for use in: {{ appliance['certified'] }}</p>
+              <p class="govuk-body-s govuk-!-margin-bottom-1">Fuels allowed: {{ appliance['fuels'] }}</p>
+              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </li>
+          {% endfor %}
+        </ul>
+
+        <nav class="govuk-pagination" aria-label="Pagination">
+          <!-- <div class="govuk-pagination__prev">
+            <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+              <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+              </svg>
+              <span class="govuk-pagination__link-title">
+                Previous<span class="govuk-visually-hidden"> page</span>
+              </span>
+            </a>
+          </div> -->
+          <ul class="govuk-pagination__list">
+            <li class="govuk-pagination__item govuk-pagination__item--current">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                1
+              </a>
+            </li>
+            <!-- <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                2
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                3
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 4">
+                4
+              </a>
+            </li>
+            <li class="govuk-pagination__item govuk-pagination__item--ellipsis">
+              &ctdot;
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 16">
+                16
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-pagination__next">
+            <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+              <span class="govuk-pagination__link-title">
+                Next<span class="govuk-visually-hidden"> page</span>
+              </span>
+              <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+              </svg>
+            </a>
+          </div> -->
+        </nav>
+
+    </div>
+  </div>
+
+{% endblock %}

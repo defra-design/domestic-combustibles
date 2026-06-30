@@ -1,0 +1,65 @@
+{% extends "layouts/main-public-list.html" %}
+
+{% block pageTitle %}
+  About appliance certification – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        About appliance certification
+      </h1>
+
+      <p class="govuk-body-s govuk-!-margin-bottom-2">From: <a href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment, Food and Rural Affairs</a></p>
+      <p class="govuk-body-s govuk-!-margin-bottom-9">Last updated 14 January 2026</p>
+      <p>Appliance certification status is decided separately by each UK country. Even if an appliance is on the <a href="appliance-list.html">list of certified appliances</a>, you still have to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>check what fuel the appliance is certified to burn</li>
+        <li>check that the appliance is certified in the country where you'll use it</li>
+        <li>follow the manufacturer's guidance in the instruction manual, and any additional conditions for use</li>
+      </ul>
+      <p>If an appliance is not on the <a href="appliance-list.html">list of certified appliances</a>, it's not a certified appliance.</p>
+      <h2 class="govuk-heading-l">Appliance status and meaning</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <strong class="govuk-tag govuk-tag--green">Certified</strong>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>If you're in a <a href="smoke-control.html">smoke control area</a>, you can use a certified appliance to burn:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>certified fuels</li>
+              <li>uncertified fuels (including wood), but only if the appliance has been certified to burn that specific type of fuel</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <strong class="govuk-tag govuk-tag--grey">Uncertified</strong>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>An uncertified appliance has either been rejected for certification in that country or that country has not certified it yet.</p>
+            <p>If you're in a <a href="smoke-control.html">smoke control area</a> and have an uncertified appliance, you cannot use it to burn uncertified fuels (including wood).</p>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">Relevant legislation</h2>
+      <h3 class="govuk-heading-m">England</h3>
+      <p>The list of certified appliances for England is published by the Secretary of State for the Environment. Appliances included on the list are “approved fireplaces” for the purposes of the <a href="">Clean Air Act 1993</a> (in particular Sections 19A to 19D).</p>
+      
+      <h3 class="govuk-heading-m">Scotland</h3>
+      <p>For smoke control areas in Scotland, appliances included on the list of certified appliances are certified by Scottish Ministers in accordance with Sections 20 and 21 of the <a href="">Clean Air Act 1993</a>.</p>
+      
+      <h3 class="govuk-heading-m">Wales</h3>
+      <p>The list of certified appliances for Wales is published by Welsh Ministers. Appliances included on the list are “exempted fireplaces” for the purposes of the <a href="">Clean Air Act 1993</a> (in particular Sections 19A to 19D).</p>
+      
+      <h3 class="govuk-heading-m">Northern Ireland</h3>
+      <p>For smoke control areas in Northern Ireland, appliances included on the list of certified appliances are certified by the Department of Agriculture, Environment and Rural Affairs in accordance with Article 17(7) of the <a href="">Clean Air (Northern Ireland) Order 1981</a>.</p>
+    </div>
+  </div>
+
+{% endblock %}
