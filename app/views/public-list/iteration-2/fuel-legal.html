@@ -1,7 +1,7 @@
 {% extends "layouts/main-public-list.html" %}
 
 {% block pageTitle %}
-  Legal basis for solid fuel certification – GOV.UK
+  About solid fuel certification – GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -10,42 +10,87 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Legal basis for solid fuel certification
+        About solid fuel certification
       </h1>
 
       <p class="govuk-body-s govuk-!-margin-bottom-2">From: <a href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment, Food and Rural Affairs</a></p>
       <p class="govuk-body-s govuk-!-margin-bottom-9">Last updated 14 January 2026</p>
-      <p>Certified solid fuels can be burned in uncertified appliances in <a href="smoke-control.html">smoke control areas</a>.</p>
-      <p>Fuels that are on the <a href="fuel-list.html">list of certified fuels</a> are legally certified for use in at least one UK country. Not all fuels on the list are certified for use in all UK countries. Check the specific country certifications of each fuel.</p>
-      <p>Fuels that aren't on the list aren't certified for use in smoke control areas anywhere in the UK.</p>
+      
+      <p>Fuel certification is decided separately by each UK country. Even if a fuel is on the <a href="fuel-list.html">list of certified fuels</a>, you must check that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the fuel is certified in the country where you'll use it</li>
+        <li>your appliance is designed to burn that type of fuel</li>
+      </ul>
+      <p>If a fuel isn't included on the <a href="fuel-list.html">list of certified fuels</a>, it's not a certified fuel.</p>
 
-      <h2 class="govuk-heading-l">Country certification</h2>
+      <h2 class="govuk-heading-l">Fuel status and meaning</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <strong class="govuk-tag govuk-tag--green">Certified</strong>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>Certified fuels can be burned in that country's smoke control areas.</p>
+            <p>Fuels certified in England can also be burned in homes (domestic settings) anywhere in England under the Domestic Solid Fuels etc.</p>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <strong class="govuk-tag govuk-tag--grey">Uncertified</strong>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>An uncertified fuel has either been rejected for certification in that country or that country hasn't certified it yet.</p>
+            <p>You can only burn an uncertified fuel in a smoke control area in an appliance that:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>is on the <a href="appliance-list.html">list of certified appliances</a>, and</li>
+              <li>is certified to burn that type of fuel</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <p><strong class="govuk-tag govuk-tag--blue">Non-domestic</strong></p>
+            <p>England only</p>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>Non-domestic fuels are only certified for use in non-domestic settings in England, such as restaurants, pubs and industry.</p>
+            <p>They aren't certified for home (domestic) use anywhere in England.</p>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">Last certified dates</h2>
+      <h3 class="govuk-heading-m">In England</h3>
+
+      <p>Fuels are recertified every year in England, if they still meet all the <a href="">requirements for certification</a>. For England, the date the fuel was last certified is either:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>when it was most recently recertified (or when it was first certified, if that was less than a year ago), or</li>
+        <li>the last day before its certification was revoked</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">In Scotland, Wales and Northern Ireland</h3>
+
+      <p>Scotland, Wales and Northern Ireland do not recertify fuels. For these countries, the date the fuel was last certified is either:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>when it was first certified, or</li>
+        <li>the last day before its certification was revoked</li>
+      </ul>
+        
+      <h2 class="govuk-heading-l">Relevant legislation</h2>
       <p>Fuel certification in each UK country is under the authority of that country's government.</p>
       
       <h3 class="govuk-heading-m">England</h3>
-      <p>Fuels for use in England are certified by the Secretary of State for the Environment.</p>
-      <p>Fuels certified for use in smoke control areas in England are certified under Sections 20 and 21 of the Clean Air Act 1993, as updated by Section 15 of the Deregulation Act 2015.</p>
-      <p>Fuels certified for domestic use in England are certified under the Air Quality (Domestic Solid Fuels Standards) (England) Regulations 2020.</p>
+      <p>The list of certified fuels for England is published by the Secretary of State for the Environment. Fuels included on the list are “approved fuels” for the purposes of the <a href="">Clean Air Act 1993</a> (in particular Sections 19A to 19D).</p>
+      <p>Fuels included on the list are also “authorised fuels”, in accordance with <a href="">The Air Quality (Domestic Solid Fuels Standards) (England) Regulations 2020</a> (in particular Regulations 11 and 12). These fuels are certified for domestic use anywhere in England.</p>
       
       <h3 class="govuk-heading-m">Scotland</h3>
-      <p>Fuels certified for use in smoke control areas in Scotland are authorised by Scottish Ministers.</p>
-      <p>Fuel certification for Scotland is under Sections 20 and 21 of the Clean Air Act 1993, as updated by Section 50 of the Regulatory Reform (Scotland) Act 2014.</p>
+      <p>For smoke control areas in Scotland, fuels included on the list of certified fuels are certified by Scottish Ministers under Sections 20 and 21 of the <a href="">Clean Air Act 1993</a>.</p>
       
       <h3 class="govuk-heading-m">Wales</h3>
-      <p>Fuels certified for use in smoke control areas in Wales are authorised by Welsh Ministers.</p>
-      <p>Fuel certification for Wales is under specific regulations made by Welsh Ministers under the Clean Air Act 1993.</p>
+      <p>The list of certified fuels for Wales is published by Welsh Ministers. Fuels included on the list are “authorised fuels” for the purposes of the <a href="">Clean Air Act 1993</a> (in particular Sections 19A to 19D).</p>
       
       <h3 class="govuk-heading-m">Northern Ireland</h3>
-      <p>Fuels certified for use in smoke control areas in Northern Ireland are authorised by the Department of Agriculture, Environment and Rural Affairs.</p>
-      <p>Fuel certification for Northern Ireland is under Article 17(7) of the Clean Air (Northern Ireland) Order 1981, as updated by Section 16 of the Environmental Better Regulation Act (Northern Ireland) 2016.</p>
-
-      <h2 class="govuk-heading-l">Fuels that are no longer commercially available</h2>
-      <p>Fuels that are no longer commercially available are still certified if they:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>are used in England outside of smoke control areas, and</li>
-        <li>are on the <a href="fuel-list.html">list of certified fuels</a>, and</li>
-        <li>were manufactured before the dates specified in the relevant legislation</li>
-      </ul>
+      <p>For smoke control areas in Northern Ireland, fuels included on the list of certified fuels are certified by the Department of Agriculture, Environment and Rural Affairs under Article 17(7) of the <a href="">Clean Air (Northern Ireland) Order 1981</a>.</p>
     </div>
   </div>
 
