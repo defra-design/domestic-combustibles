@@ -20,7 +20,7 @@
       <form action="review-appliance?permfuelstatus20=done" method="post" novalidate>
         <div class="govuk-form-group  govuk-!-margin-bottom-9">
           <label class="govuk-label govuk-label--l" for="perm-fuels">
-            What fuels is it permitted to burn?
+            What fuels is this appliance permitted to burn?
           </label>
           <textarea class="govuk-textarea" id="perm-fuels" name="permFuels20" rows="5">{{ data["permFuels20"] or foundObject["permittedFuels"] }}</textarea>
         </div>
@@ -28,14 +28,14 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="wood20-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              Is it cerified to burn wood?
+              Is this appliance permitted to burn wood?
             </legend>
             {{ govukRadios({
               classes: "govuk-radios govuk-radios--inline",
               name: "wood20",
               value: data['wood20'],
               hint: {
-                text: "This will show wood related content on the public listing..."
+                text: "If yes, the public listing for this appliance will contain guidance on how to burn wood."
               },
               items: [
                 {
