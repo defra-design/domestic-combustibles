@@ -142,14 +142,14 @@ module.exports = {
     },
     {
       "applianceName" : "Aarrow Ecoburn 5F plus Widescreen 4.99kW multi-fuel stove",
-      "detailLink" : "#",
+      "detailLink" : "appliance-details-aarow",
       "manufacturer" : "Arada Limited, The Fireworks, Weycroft Avenue, Axminster, Devon, EX13 5HU",
       "fuels" : "Wood logs",
       "type" : "Stove",
       "certified" : "England, Scotland, Wales, Northern Ireland",
       "appNum" : "3027",
       "status" : "Hidden from public list",
-      "actionLink" : ""
+      "actionLink" : "#"
     },
     {
       "applianceName" : "Aarrow I Series 400 wood-burning inset roomheater and 400 T F wood-burning stove",
@@ -1332,7 +1332,11 @@ module.exports = {
       "fuelName": "Cosytherm Briquettes",
       "fuelID" : "MSF0307",
       "manufacturer" : "Andrew Coyle Coal Ltd",
-      "moreBrands" : "No",
+      "moreBrands" : "Yes",
+      "brands" : [
+      "Cosytherm fuel",
+      "Cosytherm smoke-free"
+      ],
       "england" : "certified",
       "eDate" : "10 May 2025",
       "eDateLast" : "10 May 2025",
